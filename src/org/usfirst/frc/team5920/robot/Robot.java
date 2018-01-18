@@ -67,6 +67,7 @@ public class Robot extends TimedRobot {
 			//Put right auto code here
 		}
 		//Check Bot conditions, and report back to drive station and LEDs
+		
 		Scheduler.getInstance().run();
 	}
 
