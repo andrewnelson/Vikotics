@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-
 @SuppressWarnings("deprecation")
 public class DriveTrain extends Subsystem{
 	private RobotDrive MainDrive = new RobotDrive(RobotMap.driveLeft, RobotMap.driveRight);
@@ -29,6 +27,6 @@ private Victor rightDrive = new Victor(RobotMap.driveRight);
 	}
 	
 	public void Stop() {
-		MainDrive.drive(0, 0);
+		MainDrive.tankDrive(0, 0);
 	}
 }
