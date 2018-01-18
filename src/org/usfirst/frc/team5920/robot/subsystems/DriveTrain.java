@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 @SuppressWarnings("deprecation")
-public class DriveTrain_subsystem extends Subsystem{
+public class DriveTrain extends Subsystem{
 	private RobotDrive MainDrive = new RobotDrive(RobotMap.driveLeft, RobotMap.driveRight);
 
 private Victor leftDrive = new Victor(RobotMap.driveLeft);
