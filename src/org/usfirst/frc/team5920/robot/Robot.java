@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team5920.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
@@ -57,6 +58,15 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if(gameData.charAt(0) == 'L')
+		{
+			//Put left auto code here
+		} else {
+			//Put right auto code here
+		}
+		//Check Bot conditions, and report back to drive station and LEDs
 		Scheduler.getInstance().run();
 	}
 
