@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+//Moving to the TalonSRX
+// https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md
 
 @SuppressWarnings("deprecation")
 public class DriveTrain extends Subsystem{
