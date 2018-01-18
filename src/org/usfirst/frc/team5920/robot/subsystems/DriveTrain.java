@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
 import org.usfirst.frc.team5920.robot.RobotMap;
-import org.usfirst.frc.team5920.robot.commands.TankDrive_command;
+import org.usfirst.frc.team5920.robot.commands.TankDrive;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -19,7 +19,7 @@ private Victor rightDrive = new Victor(RobotMap.driveRight);
 	
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new TankDrive_command());
+		setDefaultCommand(new TankDrive());
 		
 	}
 	
