@@ -21,11 +21,11 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void TeleopDrive(Joystick Driver, Joystick Driver2) {
-		MainDrive.tankDrive(Driver.getY(), Driver2.getY());
+		RobotMap.MainDrive.tankDrive(Driver.getY(), Driver2.getY());
 	
 	}
 	
 	public void Stop() {
-		MainDrive.tankDrive(0, 0);
+		RobotMap.MainDrive.tankDrive(0, 0);
 	}
 }
