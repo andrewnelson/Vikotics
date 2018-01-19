@@ -4,12 +4,10 @@ import org.usfirst.frc.team5920.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class TankDrive extends Command {
 
-    public TankDrive() {
+public class TankDrive_Command extends Command {
+
+    public TankDrive_Command() {
     		requires(Robot.DriveTrain);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

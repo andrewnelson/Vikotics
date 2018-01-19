@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
 import org.usfirst.frc.team5920.robot.RobotMap;
-import org.usfirst.frc.team5920.robot.commands.TankDrive;
+import org.usfirst.frc.team5920.robot.commands.TankDrive_Command;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 @SuppressWarnings("deprecation")
-public class DriveTrain extends Subsystem{
+public class DriveTrain_Subsystem extends Subsystem{
 	private RobotDrive MainDrive = new RobotDrive(RobotMap.driveLeft, RobotMap.driveRight);
 
 private Victor leftDrive = new Victor(RobotMap.driveLeft);
@@ -18,7 +18,7 @@ private Victor rightDrive = new Victor(RobotMap.driveRight);
 	
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new TankDrive());
+		setDefaultCommand(new TankDrive_Command());
 		
 	}
 	
