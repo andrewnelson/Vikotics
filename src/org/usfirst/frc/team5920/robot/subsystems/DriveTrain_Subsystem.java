@@ -11,9 +11,9 @@ public class DriveTrain_Subsystem extends Subsystem{
 	/*TahomaRobotics Calling code
 	  private final DriveController leftDrive = new DriveController(new MotorController[] {
 			new MotorController(new VictorSP(RobotMap.driveLeft), false) });*/
-	private VictorSP leftDrive = new VictorSP(RobotMap.driveLeft);
-	private VictorSP rightDrive = new VictorSP(RobotMap.driveRight);
-	private DifferentialDrive MainDrive = new DifferentialDrive(leftDrive, rightDrive);
+
+	
+	//private DifferentialDrive MainDrive = new DifferentialDrive(leftDrive, rightDrive);
 
 	@Override
 	protected void initDefaultCommand() {
@@ -23,6 +23,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	public void TeleopDrive(Joystick Driver, Joystick Driver2) {
 		MainDrive.tankDrive(Driver.getY(), Driver2.getY());
+	
 	}
 	
 	public void Stop() {
