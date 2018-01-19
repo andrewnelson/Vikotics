@@ -5,7 +5,6 @@ import org.usfirst.frc.team5920.robot.commands.TankDrive_Command;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveTrain_Subsystem extends Subsystem{
 	/*TahomaRobotics Calling code
