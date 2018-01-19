@@ -7,7 +7,10 @@
 
 package org.usfirst.frc.team5920.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
+import org.usfirst.frc.team5920.robot.subsystems.*;
+import org.usfirst.frc.team5920.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -15,17 +18,22 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI { 
 	//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input for more examples.
-	Joystick Driver = new Joystick(0);
-	Joystick Driver2 = new Joystick(1);
+    public Joystick joystickLeft;
+    public Joystick joystickRight;
+    
 	public OI() {
-		
+		Joystick joystickLeft = new Joystick(0);
+		Joystick joystickRight = new Joystick(1);
+	    SmartDashboard.putData("Auto_Command", new Auto_Command());
+	    SmartDashboard.putData("Tankdrive_Command", new TankDrive_Command(0,0,0));
+	    SmartDashboard.putData("Disabled_Command", new Disabled_Command());
 	}
 	
-	public Joystick getDriverJoystick(){
-		return Driver;
+	public Joystick getDriverLeftJoystick(){
+		return joystickLeft;
 	}
 	
-	public Joystick getDriver2Joystick(){
-		return Driver2;
+	public Joystick getDriverRightJoystick(){
+		return joystickRight;
 	}
 }
