@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5920.robot.commands;
 
+import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
@@ -23,8 +24,8 @@ public class TankDrive_Command extends Command {
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain_Subsystem.LeftMotor.set(.5);
-    	Robot.driveTrain_Subsystem.RightMotor.set(.5);
+    	Robot.driveTrain_Subsystem.LeftMotor.set(OI.LeftDrive());
+    	Robot.driveTrain_Subsystem.RightMotor.set(OI.RightDrive());
     	
     		//Robot.driveTrain_Subsystem.DriveWithJoysticks(Robot.oi.getDriverLeftJoystick(), Robot.oi.getDriverRightJoystick());
     		}
