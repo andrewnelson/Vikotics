@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain_Subsystem extends Subsystem{
-    private final SpeedController LeftMotor = RobotMap.driveTrain_LeftMotor;
-    private final SpeedController RightMotor = RobotMap.driveTrain_RightMotor;
+    public final SpeedController LeftMotor = RobotMap.driveTrain_LeftMotor;
+    public final SpeedController RightMotor = RobotMap.driveTrain_RightMotor;
     private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
 	/*TahomaRobotics Calling code
 	  private final DriveController leftDrive = new DriveController(new MotorController[] {
@@ -32,6 +32,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	  
 	public void DriveWithJoysticks(Joystick left, Joystick right) {
 		MainDrive.tankDrive(left.getY(),  right.getY());
+		
 	}
 	
 	public void Stop() {
