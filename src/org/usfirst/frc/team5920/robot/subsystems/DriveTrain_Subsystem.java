@@ -2,6 +2,7 @@ package org.usfirst.frc.team5920.robot.subsystems;
 
 import org.usfirst.frc.team5920.robot.RobotMap;
 import org.usfirst.frc.team5920.robot.OI;
+import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -34,11 +35,12 @@ public class DriveTrain_Subsystem extends Subsystem{
 		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
 	}
 	
-	/*  
-	public void DriveWithJoysticks(Joystick left, Joystick right) {
-		MainDrive.tankDrive(left.getY(),  right.getY());
-		
-	}*/
+	 
+	public void DriveWithJoysticks() {
+		//MainDrive.tankDrive(left.getY(),  right.getY());
+		LeftMotor.set(OI.LeftDrive());
+    		RightMotor.set(OI.RightDrive());
+	}
 	
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
