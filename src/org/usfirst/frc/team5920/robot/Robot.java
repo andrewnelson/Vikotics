@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import org.usfirst.frc.team5920.robot.subsystems.DriveTrain_Subsystem;
 import org.usfirst.frc.team5920.robot.subsystems.*;
 import org.usfirst.frc.team5920.robot.commands.*;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,7 +33,8 @@ public class Robot extends TimedRobot {
     public static DriveTrain_Subsystem driveTrain_Subsystem;
     public static Gantry_Subsystem gantry_Subsystem;
     public static Cage_Subsystem cage_Subsystem;
-
+    public NetworkTable CameraData;
+    
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -46,6 +48,8 @@ public class Robot extends TimedRobot {
      //   gantry_Subsystem = new Gantry_Subsystem();
        // cage_Subsystem = new Cage_Subsystem();
         
+         CameraData =  NetworkTable.getTable("limelight");
+        
      //   chooser.addObject("Auto_Command", new Auto_Command());
     //    chooser.addDefault("Autonomous Command", new Auto_Command());
     //    SmartDashboard.putData("Auto mode", chooser);
@@ -58,7 +62,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
-
+		CameraData.putNumber("ledMode", 1);
 	}
 
 	@Override
@@ -79,6 +83,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		CameraData.putNumber("ledMode", 0);
 		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
@@ -93,6 +98,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		CameraData.putNumber("ledMode", 2);
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
