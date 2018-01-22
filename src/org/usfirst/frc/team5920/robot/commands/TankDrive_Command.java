@@ -24,10 +24,9 @@ public class TankDrive_Command extends Command {
     
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain_Subsystem.LeftMotor.set(OI.LeftDrive());
-    	Robot.driveTrain_Subsystem.RightMotor.set(OI.RightDrive());
+    		Robot.driveTrain_Subsystem.LeftMotor.set(OI.LeftDrive());
+    		Robot.driveTrain_Subsystem.RightMotor.set(OI.RightDrive());
     	
-    		//Robot.driveTrain_Subsystem.DriveWithJoysticks(Robot.oi.getDriverLeftJoystick(), Robot.oi.getDriverRightJoystick());
     		}
 
     // Make this return true when this Command no longer needs to run execute()
