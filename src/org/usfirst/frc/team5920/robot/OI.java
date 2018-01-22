@@ -24,9 +24,9 @@ public class OI {
 	public OI() {
 		Joystick joystickLeft = new Joystick(0);
 		Joystick joystickRight = new Joystick(1);
-	    SmartDashboard.putData("Auto_Command", new Auto_Command());
+	/*    SmartDashboard.putData("Auto_Command", new Auto_Command());
 	    SmartDashboard.putData("Tankdrive_Command", new TankDrive_Command(0,0,0));
-	    SmartDashboard.putData("Disabled_Command", new Disabled_Command());
+	    SmartDashboard.putData("Disabled_Command", new Disabled_Command());*/
 	}
 	
 	public Joystick getDriverLeftJoystick(){

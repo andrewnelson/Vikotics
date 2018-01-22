@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import org.usfirst.frc.team5920.robot.subsystems.DriveTrain_Subsystem;
@@ -44,12 +43,12 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		driveTrain_Subsystem = new DriveTrain_Subsystem();
         SmartDashboard.putData(driveTrain_Subsystem);
-        gantry_Subsystem = new Gantry_Subsystem();
-        cage_Subsystem = new Cage_Subsystem();
+     //   gantry_Subsystem = new Gantry_Subsystem();
+       // cage_Subsystem = new Cage_Subsystem();
         
-        chooser.addObject("Auto_Command", new Auto_Command());
-        chooser.addDefault("Autonomous Command", new Auto_Command());
-        SmartDashboard.putData("Auto mode", chooser);
+     //   chooser.addObject("Auto_Command", new Auto_Command());
+    //    chooser.addDefault("Autonomous Command", new Auto_Command());
+    //    SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -101,7 +100,7 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		
+
 	}
 
 	/**
