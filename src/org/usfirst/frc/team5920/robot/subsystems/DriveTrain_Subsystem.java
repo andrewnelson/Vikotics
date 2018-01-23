@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import com.ctre.phoenix.motorcontrol.can.*;
-import com.ctre.phoenix.motorcontrol.*;
+/*import com.ctre.phoenix.motorcontrol.can.*;
+import com.ctre.phoenix.motorcontrol.*;*/
 //Sample Code
 //https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/VelocityClosedLoop/src/org/usfirst/frc/team217/robot/Robot.java
 
@@ -35,14 +35,15 @@ public class DriveTrain_Subsystem extends Subsystem{
 		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
 	}
 	
-	 
+	/* 
 	public void DriveWithJoysticks() {
 		//MainDrive.tankDrive(left.getY(),  right.getY());
 		LeftMotor.set(OI.LeftDrive());
     		RightMotor.set(OI.RightDrive());
 	}
-	
+	*/
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}
 }
+
