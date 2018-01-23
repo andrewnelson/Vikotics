@@ -2,8 +2,6 @@
 Make sure CANbus is setup correctly.
 https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md#installing-internet-explorer-11
 
-Update Camera firmware to 2018.1
-
 Test motors running via drivesTrain_subsystem instead of TankDrive
 
 Figure out how to set deadband on joystick
