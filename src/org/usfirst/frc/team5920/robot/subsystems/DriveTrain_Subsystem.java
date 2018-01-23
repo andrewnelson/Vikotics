@@ -35,13 +35,13 @@ public class DriveTrain_Subsystem extends Subsystem{
 		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
 	}
 	
-	 
+	/* 
 	public void DriveWithJoysticks() {
 		//MainDrive.tankDrive(left.getY(),  right.getY());
 		LeftMotor.set(OI.LeftDrive());
     		RightMotor.set(OI.RightDrive());
 	}
-	
+	*/
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}
