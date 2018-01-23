@@ -20,3 +20,5 @@ Add pneumatics to testbot
 Verify all laptops are updated:
 	wpilibrary
 	ctr libraries
+	
+Verify network tables code for limelight
