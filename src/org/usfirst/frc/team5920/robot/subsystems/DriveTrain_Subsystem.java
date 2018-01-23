@@ -43,7 +43,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	*/
 	public void Stop() {
-		MainDrive.tankDrive(0, 0);
+		//MainDrive.tankDrive(0, 0);
 	}
 }
 

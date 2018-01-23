@@ -26,8 +26,8 @@ public class TankDrive_Command extends Command {
     protected void execute() {
     		Robot.driveTrain_Subsystem.LeftMotor.set(OI.LeftDrive());
     		Robot.driveTrain_Subsystem.RightMotor.set(OI.RightDrive());
-		/*Robot.driveTrain_Subsystem.LeftMotor.set(0);
-		Robot.driveTrain_Subsystem.RightMotor.set(0);*/
+		//Robot.driveTrain_Subsystem.LeftMotor.set(0.1);
+		//Robot.driveTrain_Subsystem.RightMotor.set(0.1);
     		}
 
     // Make this return true when this Command no longer needs to run execute()
@@ -37,7 +37,7 @@ public class TankDrive_Command extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.driveTrain_Subsystem.Stop();
+    		//Robot.driveTrain_Subsystem.Stop();
     }
 
     // Called when another command which requires one or more of the same
