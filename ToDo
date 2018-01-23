@@ -1,0 +1,20 @@
+
+Make sure CANbus is setup correctly.
+https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md#installing-internet-explorer-11
+
+Update Camera firmware to 2018.1
+
+Test motors running via drivesTrain_subsystem instead of TankDrive
+
+Figure out how to set deadband on joystick
+	set a threshold value in RobotMap ( 0.05 to 0.1 are values I've seen)
+	Setup code similar to:
+		public double getJoystickValue(Joystick joystick) {
+    			if(Math.abs(joystick.getValue() < 0.1)
+    				 return 0;
+    			else 
+    				return joystick.getValue();
+		}
+		
+Add pneumatics to testbot
+
