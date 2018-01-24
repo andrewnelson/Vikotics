@@ -63,6 +63,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledInit() {
 		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 	}
 
 	@Override
@@ -84,6 +85,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		CameraData.putNumber("ledMode", 0);
+		CameraData.putNumber("camMode", 0);
 		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
@@ -98,7 +100,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		CameraData.putNumber("ledMode", 2);
+		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -114,7 +117,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		CameraData.putNumber("ledMode", 2);
 		Scheduler.getInstance().run();
 		
 	}
