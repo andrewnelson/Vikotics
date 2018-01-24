@@ -35,6 +35,11 @@ public class OI {
 		XboxController DriveController = new XboxController(0);
 		return DriveController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
+	
+	public static boolean PercisionDrive() {
+		XboxController DriveController = new XboxController(0);
+		return DriveController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	}
 	/*
 	
 	public Joystick getDriverLeftJoystick(){

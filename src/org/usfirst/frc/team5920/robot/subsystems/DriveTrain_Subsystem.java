@@ -32,17 +32,16 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {
-		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
-	
 		DriveWithJoysticks();
 	}
 	
 	 
 	public void DriveWithJoysticks() {
-		//MainDrive.tankDrive(left.getY(),  right.getY());
-		MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive()), getJoystickWithDeadBand(OI.RightDrive()));
-		//LeftMotor.set(getJoystickWithDeadBand(OI.LeftDrive()));
-    	//RightMotor.set(getJoystickWithDeadBand(OI.RightDrive()));
+		if (OI.PercisionDrive()){
+			MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.RightDrive() * RobotMap.percisionspeed));
+		}else {
+			MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive()), getJoystickWithDeadBand(OI.RightDrive()));
+		}
 
 	}
 	
