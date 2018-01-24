@@ -33,15 +33,17 @@ public class DriveTrain_Subsystem extends Subsystem{
 	@Override
 	public void periodic() {
 		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
+		//LeftMotor.set(0.5);
+		//RightMotor.set(0.5);
 	}
 	
-	/* 
+	 
 	public void DriveWithJoysticks() {
 		//MainDrive.tankDrive(left.getY(),  right.getY());
 		LeftMotor.set(OI.LeftDrive());
-    		RightMotor.set(OI.RightDrive());
+    	RightMotor.set(OI.RightDrive());
 	}
-	*/
+	
 	public void Stop() {
 		//MainDrive.tankDrive(0, 0);
 	}
