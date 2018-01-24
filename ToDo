@@ -14,6 +14,8 @@ Verify all laptops are updated:
 Look into MainDrive.tankDrive(leftSpeed, rightSpeed, squaredInputs);
 SquaredInputs slows inputs down for slow speeds.
 
+Look into motion profile generator
+https://github.com/vannaka/Motion_Profile_Generator
 
 -------- Low Priority
 
