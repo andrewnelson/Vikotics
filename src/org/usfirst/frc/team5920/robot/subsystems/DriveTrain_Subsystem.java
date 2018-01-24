@@ -33,22 +33,24 @@ public class DriveTrain_Subsystem extends Subsystem{
 	@Override
 	public void periodic() {
 		//MainDrive.tankDrive(joystick1.getY(), joystick2.getY());
-		//LeftMotor.set(0.5);
-		//RightMotor.set(0.5);
+	
+		DriveWithJoysticks();
 	}
 	
 	 
 	public void DriveWithJoysticks() {
 		//MainDrive.tankDrive(left.getY(),  right.getY());
-		LeftMotor.set(getJoystickWithDeadBand(OI.LeftDrive()));
-    	RightMotor.set(getJoystickWithDeadBand(OI.RightDrive()));
+		MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive()), getJoystickWithDeadBand(OI.RightDrive()));
+		//LeftMotor.set(getJoystickWithDeadBand(OI.LeftDrive()));
+    	//RightMotor.set(getJoystickWithDeadBand(OI.RightDrive()));
+
 	}
 	
 	public void Stop() {
 		//MainDrive.tankDrive(0, 0);
 	}
 	public double getJoystickWithDeadBand(double joystickvalue) {
-		if(Math.abs(joystickvalue) < 0.1)
+		if(Math.abs(joystickvalue) < .1)
 			 return 0;
 		else 
 			return joystickvalue;

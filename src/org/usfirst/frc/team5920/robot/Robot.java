@@ -114,6 +114,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		CameraData.putNumber("ledMode", 2);
 		Scheduler.getInstance().run();
 		
 	}
