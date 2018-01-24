@@ -17,9 +17,11 @@ import org.usfirst.frc.team5920.robot.commands.*;
  */
 public class OI { 
 	//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input for more examples.
-	public XboxController DriveController;
+	private XboxController DriverController;
+    
     
 	public OI() {
+		 
 		//XboxController DriveController = new XboxController(0);
 
 	/*    SmartDashboard.putData("Auto_Command", new Auto_Command());
@@ -27,18 +29,18 @@ public class OI {
 	    SmartDashboard.putData("Disabled_Command", new Disabled_Command());*/
 	}
 	
-	public static double LeftDrive(){
-		XboxController DriveController = new XboxController(0);
-		return DriveController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	public static double DriverLeftJoystick(){
+		XboxController DriverController = new XboxController(0);
+		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
-	public static double RightDrive() {
-		XboxController DriveController = new XboxController(0);
-		return DriveController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	public static double DriverRightJoystick() {
+		XboxController DriverController = new XboxController(0);
+		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	
-	public static boolean PercisionDrive() {
-		XboxController DriveController = new XboxController(0);
-		return DriveController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	public static boolean DriverPercisionDrive() {
+		XboxController DriverController = new XboxController(0);
+		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	/*
 	

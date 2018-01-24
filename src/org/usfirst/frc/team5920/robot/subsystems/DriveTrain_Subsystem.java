@@ -15,15 +15,7 @@ import com.ctre.phoenix.motorcontrol.*;*/
 //https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/VelocityClosedLoop/src/org/usfirst/frc/team217/robot/Robot.java
 
 public class DriveTrain_Subsystem extends Subsystem{
-    public final SpeedController LeftMotor = RobotMap.driveTrain_LeftMotor;
-    public final SpeedController RightMotor = RobotMap.driveTrain_RightMotor;
     private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
-	/*TahomaRobotics Calling code
-	  private final DriveController leftDrive = new DriveController(new MotorController[] {
-			new MotorController(new VictorSP(RobotMap.driveLeft), false) });*/
-
-	
-	//private DifferentialDrive MainDrive = new DifferentialDrive(leftDrive, rightDrive);
 
 	@Override
 	protected void initDefaultCommand() {
@@ -35,20 +27,18 @@ public class DriveTrain_Subsystem extends Subsystem{
 		DriveWithJoysticks();
 	}
 	
-	 
 	public void DriveWithJoysticks() {
-		if (OI.PercisionDrive()){
-			MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.RightDrive() * RobotMap.percisionspeed));
+		if (OI.DriverPercisionDrive()){
+			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed));
 		}else {
-			MainDrive.tankDrive(getJoystickWithDeadBand(OI.LeftDrive()), getJoystickWithDeadBand(OI.RightDrive()));
+			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()));
 		}
-
 	}
 	
 	public void Stop() {
-		//MainDrive.tankDrive(0, 0);
+		MainDrive.tankDrive(0, 0);
 	}
-	public double getJoystickWithDeadBand(double joystickvalue) {
+	private double getJoystickWithDeadBand(double joystickvalue) {
 		if(Math.abs(joystickvalue) < .1)
 			 return 0;
 		else 

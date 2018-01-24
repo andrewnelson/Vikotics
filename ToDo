@@ -1,4 +1,5 @@
 
+-------- High Priority
 Make sure CANbus is setup correctly.
 https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md#installing-internet-explorer-11
 update SRX firmware
@@ -8,3 +9,13 @@ Add pneumatics to testbot
 Verify all laptops are updated:
 	wpilibrary
 	ctr libraries
+	
+
+Look into MainDrive.tankDrive(leftSpeed, rightSpeed, squaredInputs);
+SquaredInputs slows inputs down for slow speeds.
+
+
+-------- Low Priority
+
+move to non-deprecated Networktables
+https://www.chiefdelphi.com/forums/showthread.php?t=161240
