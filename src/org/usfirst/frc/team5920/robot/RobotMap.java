@@ -24,7 +24,7 @@ public class RobotMap {
     public static DifferentialDrive driveTrain_MainDrive;
     
     //Robot run variables
-    public static double percisionspeed = .1;
+    public static double percisionspeed = .5;
     
     
 	// For example to map the left and right motors, you could define the
