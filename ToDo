@@ -21,3 +21,16 @@ https://github.com/vannaka/Motion_Profile_Generator
 
 move to non-deprecated Networktables
 https://www.chiefdelphi.com/forums/showthread.php?t=161240
+
+
+
+
+------- things to know
+bot IP when tethered 172.22.11.2
+bot IP when wireless 10.59.20.11
+
+Camera View http://10.59.20.11:5800/
+Camera interface http://10.59.20.11:5801/
+
+
+
