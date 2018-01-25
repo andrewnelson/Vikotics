@@ -1,10 +1,12 @@
 
--------- High Priority
-Make sure CANbus is setup correctly.
-https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md#installing-internet-explorer-11
-update SRX firmware
+Team 5920 Todo
 
-Add pneumatics to testbot
+-------- High Priority
+Autonomous selection from dashboard.
+https://wpilib.screenstepslive.com/s/4485/m/26401/l/255419-choosing-an-autonomous-program-from-smartdashboard
+
+
+Add pneumatics to testbot?
 
 Verify all laptops are updated:
 	wpilibrary
@@ -32,5 +34,5 @@ bot IP when wireless 10.59.20.11
 Camera View http://10.59.20.11:5800/
 Camera interface http://10.59.20.11:5801/
 
-
-
+CANBUS setup
+https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md
