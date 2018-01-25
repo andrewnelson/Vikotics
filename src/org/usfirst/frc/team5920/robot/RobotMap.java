@@ -10,6 +10,8 @@ package org.usfirst.frc.team5920.robot;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import com.ctre.phoenix.motorcontrol.can.*;
+
 //import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
@@ -19,7 +21,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  * floating around.
  */
 public class RobotMap {
-    public static SpeedController driveTrain_LeftMotor;
+    public static WPI_TalonSRX driveTrain_LeftMotor;
     public static SpeedController driveTrain_RightMotor;
     public static DifferentialDrive driveTrain_MainDrive;
     
@@ -43,8 +45,14 @@ public class RobotMap {
 
 
     public static void init() {
-        driveTrain_LeftMotor = new VictorSP(0);
-        driveTrain_LeftMotor.setInverted(true);
+    	driveTrain_LeftMotor = new WPI_TalonSRX(1);
+    	WPI_TalonSRX _rearLeftMotor = new WPI_TalonSRX(2);
+    	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
+    	driveTrain_LeftMotor.setInverted(true);
+    	_rearLeftMotor.setInverted(true);
+    	
+        //driveTrain_LeftMotor = new VictorSP(0);
+        //driveTrain_LeftMotor.setInverted(true);
         driveTrain_RightMotor = new VictorSP(1);
         driveTrain_RightMotor.setInverted(true);
         driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
