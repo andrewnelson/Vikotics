@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class TankDrive_Command extends Command {
     private double m_x;
-    private double m_y;
+    private double m_y; 
     private double m_z;
     
     public TankDrive_Command(double x, double y, double z) {

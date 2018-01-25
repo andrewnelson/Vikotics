@@ -12,7 +12,7 @@ public class Auto_Command extends Command {
     		requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    }
+    } 
 
     // Called just before this Command runs the first time
     protected void initialize() {
