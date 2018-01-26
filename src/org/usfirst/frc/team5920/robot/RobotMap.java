@@ -57,10 +57,6 @@ public class RobotMap {
     	driveTrain_RightMotor.setInverted(true);
     	_rearRightMotor.setInverted(true);
     	
-        //driveTrain_LeftMotor = new VictorSP(0);
-        //driveTrain_LeftMotor.setInverted(true);
-        //driveTrain_RightMotor = new VictorSP(1);
-        //driveTrain_RightMotor.setInverted(true);
         driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
         driveTrain_MainDrive.setSafetyEnabled(true);
         driveTrain_MainDrive.setExpiration(0.1);
