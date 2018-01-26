@@ -34,7 +34,9 @@ public class DriveTrain_Subsystem extends Subsystem{
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()));
 		}
 	}
-	
+	public void Start() {
+		MainDrive.tankDrive(.5, .5);
+	}
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}

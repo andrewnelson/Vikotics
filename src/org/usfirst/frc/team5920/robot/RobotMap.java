@@ -22,7 +22,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
  */
 public class RobotMap {
     public static WPI_TalonSRX driveTrain_LeftMotor;
-    public static SpeedController driveTrain_RightMotor;
+    public static WPI_TalonSRX driveTrain_RightMotor;
     public static DifferentialDrive driveTrain_MainDrive;
     
     //Robot run variables
@@ -46,15 +46,21 @@ public class RobotMap {
 
     public static void init() {
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
-    	WPI_TalonSRX _rearLeftMotor = new WPI_TalonSRX(2);
+    	WPI_TalonSRX _rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(true);
     	_rearLeftMotor.setInverted(true);
     	
+    	driveTrain_RightMotor = new WPI_TalonSRX(2);
+    	WPI_TalonSRX _rearRightMotor = new WPI_TalonSRX(12);
+    	_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
+    	driveTrain_RightMotor.setInverted(true);
+    	_rearRightMotor.setInverted(true);
+    	
         //driveTrain_LeftMotor = new VictorSP(0);
         //driveTrain_LeftMotor.setInverted(true);
-        driveTrain_RightMotor = new VictorSP(1);
-        driveTrain_RightMotor.setInverted(true);
+        //driveTrain_RightMotor = new VictorSP(1);
+        //driveTrain_RightMotor.setInverted(true);
         driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
         driveTrain_MainDrive.setSafetyEnabled(true);
         driveTrain_MainDrive.setExpiration(0.1);

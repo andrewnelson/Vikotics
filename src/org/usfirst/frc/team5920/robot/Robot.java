@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
     public static DriveTrain_Subsystem driveTrain_Subsystem;
     public static Gantry_Subsystem gantry_Subsystem;
     public static Cage_Subsystem cage_Subsystem;
-    public NetworkTable CameraData;
+    public static NetworkTable CameraData;
     
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -62,13 +62,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
-		
+		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 	}
 
 	@Override
 	public void disabledPeriodic() {
-		CameraData.putNumber("ledMode", 1);
-		CameraData.putNumber("camMode", 1);
+		
 		Scheduler.getInstance().run();
 	}
 
@@ -85,6 +85,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+
+		
 		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
@@ -94,13 +96,14 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		CameraData.putNumber("ledMode", 0);
-		CameraData.putNumber("camMode", 0);
 		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopInit() {
+
+		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
@@ -117,8 +120,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 
-		CameraData.putNumber("ledMode", 1);
-		CameraData.putNumber("camMode", 1);
 		Scheduler.getInstance().run();
 		
 	}

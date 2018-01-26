@@ -1,7 +1,10 @@
 package org.usfirst.frc.team5920.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5920.robot.Robot;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 /**
  *
@@ -16,11 +19,16 @@ public class Auto_Command extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.CameraData.putNumber("ledMode", 0);
+		Robot.CameraData.putNumber("camMode", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    
+    	Robot.driveTrain_Subsystem.Start();
+
+    	Timer.delay(10);
+    	Robot.driveTrain_Subsystem.Stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
