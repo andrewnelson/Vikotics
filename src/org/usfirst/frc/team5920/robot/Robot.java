@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  */
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
-    SendableChooser<Command> chooser = new SendableChooser<>();
+    SendableChooser autoChooser;//<Command> chooser = new SendableChooser<>();
     
     public static OI oi;
     public static DriveTrain_Subsystem driveTrain_Subsystem;
@@ -41,6 +41,14 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		//CommandBase.init();
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("Default Program", new Auto_Command());
+		autoChooser.addObject("Left Program", new Auto_LeftRoute());
+		autoChooser.addObject("Center Program", new Auto_LeftRoute());
+		autoChooser.addObject("Right Program", new Auto_LeftRoute());
+		SmartDashboard.putData("Auto mode Chooser", autoChooser);
+		
 		RobotMap.init();
 		oi = new OI();
 		driveTrain_Subsystem = new DriveTrain_Subsystem();
@@ -85,9 +93,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-
+		autonomousCommand = (Command) autoChooser.getSelected();
+		//autonomousCommand.start();
 		
-		autonomousCommand = chooser.getSelected();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 
