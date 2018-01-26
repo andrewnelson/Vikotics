@@ -93,6 +93,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		RobotMap.initAuto();
 		//autonomousCommand = (Command) autoChooser.getSelected();
 		//autonomousCommand.start();
 		autonomousCommand = (Command)new Auto_LeftRoute();
@@ -110,7 +111,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-
+		RobotMap.initTele();
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
 		// This makes sure that the autonomous stops running when

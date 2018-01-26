@@ -22,7 +22,10 @@ import com.ctre.phoenix.motorcontrol.can.*;
  */
 public class RobotMap {
     public static WPI_TalonSRX driveTrain_LeftMotor;
+    private static WPI_TalonSRX _rearLeftMotor;
+    
     public static WPI_TalonSRX driveTrain_RightMotor;
+    private static WPI_TalonSRX _rearRightMotor;
     public static DifferentialDrive driveTrain_MainDrive;
     
     //Robot run variables
@@ -46,22 +49,40 @@ public class RobotMap {
 
     public static void init() {
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
-    	WPI_TalonSRX _rearLeftMotor = new WPI_TalonSRX(11);
+    	_rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(true);
     	_rearLeftMotor.setInverted(true);
+    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
-    	WPI_TalonSRX _rearRightMotor = new WPI_TalonSRX(12);
+    	_rearRightMotor = new WPI_TalonSRX(12);
     	_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
     	driveTrain_RightMotor.setInverted(true);
     	_rearRightMotor.setInverted(true);
+    	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
         driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
         driveTrain_MainDrive.setSafetyEnabled(true);
         driveTrain_MainDrive.setExpiration(0.1);
         driveTrain_MainDrive.setMaxOutput(1.0);
          
+    }
+    public static void initAuto() {
+    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	
+    }
+    public static void initTele() {
+    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    	
     }
 }
 
