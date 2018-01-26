@@ -1,5 +1,9 @@
 package org.usfirst.frc.team5920.robot.commands;
 
+import org.usfirst.frc.team5920.robot.OI;
+import org.usfirst.frc.team5920.robot.Robot;
+import org.usfirst.frc.team5920.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -8,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Auto_LeftRoute extends Command {
 
     public Auto_LeftRoute() {
+    	requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,6 +23,8 @@ public class Auto_LeftRoute extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	RobotMap.MainDrive.tankDrive(.5, .5,true);
+		
     }
 
     // Make this return true when this Command no longer needs to run execute()
