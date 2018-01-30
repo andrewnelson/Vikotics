@@ -42,6 +42,11 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
+	public static boolean autotest() {
+		XboxController DriverController = new XboxController(0);
+		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
+	
 	/*
 	
 	public Joystick getDriverLeftJoystick(){
