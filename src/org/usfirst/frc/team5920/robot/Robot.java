@@ -43,10 +43,11 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		autonomousCommand = new Auto_LeftRoute();
 		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser<Command>();
-		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
+		autoChooser.addDefault("Left Program", new Auto_Command());
 		autoChooser.addObject("Center Program", new Auto_LeftRoute());
 		autoChooser.addObject("Right Program", new Auto_LeftRoute());
 		SmartDashboard.putData("Auto mode Chooser", autoChooser);*/
@@ -60,9 +61,6 @@ public class Robot extends TimedRobot {
         
          CameraData =  NetworkTable.getTable("limelight");
         
-     //   chooser.addObject("Auto_Command", new Auto_Command());
-    //    chooser.addDefault("Autonomous Command", new Auto_Command());
-    //    SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -96,10 +94,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		RobotMap.initAuto();
-		//autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand = (Command) autoChooser.getSelected();
 		//autonomousCommand.start();
-		autonomousCommand = (Command)new Auto_LeftRoute();
-		autonomousCommand.start();
+
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 

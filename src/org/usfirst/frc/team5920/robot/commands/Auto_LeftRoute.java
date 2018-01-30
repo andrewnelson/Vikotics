@@ -19,6 +19,8 @@ public class Auto_LeftRoute extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.CameraData.putNumber("ledMode", 2);
+		Robot.CameraData.putNumber("camMode", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run

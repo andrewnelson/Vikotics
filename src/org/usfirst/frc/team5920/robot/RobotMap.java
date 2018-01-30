@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import org.usfirst.frc.team5920.robot.subsystems.PlotThread;
-
 import com.ctre.phoenix.motorcontrol.can.*;
 
 //import edu.wpi.first.wpilibj.smartdashboard.*;
@@ -33,6 +31,8 @@ public class RobotMap {
     
     //Robot run variables
     public static double percisionspeed = .5;
+    public static double driveTrain_WheelDiameter = 6.0;
+    public static double driveTrain_DistancePerRev = (driveTrain_WheelDiameter/2)*(driveTrain_WheelDiameter/2)*Math.PI;
     
     
 	// For example to map the left and right motors, you could define the
