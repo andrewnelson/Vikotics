@@ -47,7 +47,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	
 	public void StartAutoLeft() {
-		MainDrive.tankDrive(.5,  .5);
+		MainDrive.tankDrive(.5, .5, true);
 	}
 	
 	public void Stop() {

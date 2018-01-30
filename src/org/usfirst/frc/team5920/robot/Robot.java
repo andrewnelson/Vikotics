@@ -38,7 +38,8 @@ public class Robot extends TimedRobot {
     public static DriveTrain_Subsystem driveTrain_Subsystem;
     public static Gantry_Subsystem gantry_Subsystem;
     public static Cage_Subsystem cage_Subsystem;
-    public static NetworkTable CameraData;
+    @SuppressWarnings("deprecation")
+	public static NetworkTable CameraData;
     
 	/**
 	 * This function is run when the robot is first started up and should be

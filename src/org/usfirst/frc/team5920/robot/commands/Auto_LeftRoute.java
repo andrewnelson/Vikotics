@@ -29,8 +29,8 @@ public class Auto_LeftRoute extends Command {
     	//RobotMap.MainDrive.tankDrive(.5, .5,true);
 
     	Robot.driveTrain_Subsystem.StartAutoLeft();
-    	Timer.delay(15);
-    	Robot.driveTrain_Subsystem.Stop();
+    	//Timer.delay(15);
+    	//Robot.driveTrain_Subsystem.Stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
