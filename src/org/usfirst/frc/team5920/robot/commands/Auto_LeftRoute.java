@@ -4,6 +4,7 @@ import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -19,14 +20,19 @@ public class Auto_LeftRoute extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.CameraData.putNumber("ledMode", 2);
-		Robot.CameraData.putNumber("camMode", 0);
+  //  	Robot.CameraData.putNumber("ledMode", 2);
+	//	Robot.CameraData.putNumber("camMode", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.MainDrive.tankDrive(.5, .5,true);
 		
+    	
+    	/*    	Robot.driveTrain_Subsystem.Start();
+
+    	Timer.delay(10);
+    	Robot.driveTrain_Subsystem.Stop();*/
     }
 
     // Make this return true when this Command no longer needs to run execute()

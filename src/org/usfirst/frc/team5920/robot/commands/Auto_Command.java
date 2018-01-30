@@ -19,8 +19,8 @@ public class Auto_Command extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.CameraData.putNumber("ledMode", 0);
-		Robot.CameraData.putNumber("camMode", 0);
+   // 	Robot.CameraData.putNumber("ledMode", 0);
+	//	Robot.CameraData.putNumber("camMode", 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
