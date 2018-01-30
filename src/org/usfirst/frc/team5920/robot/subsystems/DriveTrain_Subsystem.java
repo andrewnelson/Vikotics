@@ -33,7 +33,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 		}else {
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()));
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()), true);
-			//System.out.println("Richard is a doof");
+
 		}
 	}
 	public void Start() {

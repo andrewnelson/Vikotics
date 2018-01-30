@@ -18,6 +18,8 @@ import org.usfirst.frc.team5920.robot.subsystems.*;
 import org.usfirst.frc.team5920.robot.commands.*;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -41,7 +43,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		//CommandBase.init();s
+		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
@@ -114,6 +116,7 @@ public class Robot extends TimedRobot {
 		RobotMap.initTele();
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
+				
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
