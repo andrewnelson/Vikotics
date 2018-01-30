@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import org.usfirst.frc.team5920.robot.subsystems.PlotThread;
-
 import com.ctre.phoenix.motorcontrol.can.*;
 
 //import edu.wpi.first.wpilibj.smartdashboard.*;
