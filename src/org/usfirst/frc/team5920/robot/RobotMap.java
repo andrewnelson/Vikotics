@@ -31,8 +31,8 @@ public class RobotMap {
     
     //Robot run variables
     public static double percisionspeed = .5;
-    public static double driveTrain_WheelDiameter = 6.0;
-    public static double driveTrain_DistancePerRev = (driveTrain_WheelDiameter/2)*(driveTrain_WheelDiameter/2)*Math.PI;
+   // public static double driveTrain_WheelDiameter = 6.0;
+   // public static double driveTrain_DistancePerRev = (driveTrain_WheelDiameter/2)*(driveTrain_WheelDiameter/2)*Math.PI;
     
     
 	// For example to map the left and right motors, you could define the

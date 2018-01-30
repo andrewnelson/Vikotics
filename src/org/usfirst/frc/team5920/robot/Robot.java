@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-	//	autonomousCommand = new Auto_LeftRoute();
+		autonomousCommand = new Auto_LeftRoute();
 		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser<Command>();
@@ -131,7 +131,6 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 
 		Scheduler.getInstance().run();
-		
 	}
 
 	/**
