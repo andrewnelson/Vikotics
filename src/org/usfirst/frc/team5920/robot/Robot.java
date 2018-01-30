@@ -94,7 +94,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		RobotMap.initAuto();
-		autonomousCommand = (Command) autoChooser.getSelected();
+		//autonomousCommand = (Command) autoChooser.getSelected();
 		//autonomousCommand.start();
 
 		if (autonomousCommand != null) autonomousCommand.start();
