@@ -8,6 +8,7 @@
 package org.usfirst.frc.team5920.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -29,6 +30,8 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  */
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
+	//Compressor airSupply = new Compressor(3);
+	
    // SendableChooser<Command> autoChooser;//<Command> chooser = new SendableChooser<>();
     
     public static OI oi;
@@ -43,7 +46,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		autonomousCommand = new Auto_LeftRoute();
+		
 		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser<Command>();
@@ -93,16 +96,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		autonomousCommand = new Auto_LeftRoute();
 		RobotMap.initAuto();
 		//autonomousCommand = (Command) autoChooser.getSelected();
-		//autonomousCommand.start();
 
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 
-	/**
-	 * This function is called periodically during autonomous.
-	 */
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();

@@ -27,10 +27,8 @@ public class Auto_LeftRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//RobotMap.MainDrive.tankDrive(.5, .5,true);
-		
-    	
-    Robot.driveTrain_Subsystem.StartAutoLeft();
 
+    	Robot.driveTrain_Subsystem.StartAutoLeft();
     	Timer.delay(15);
     	Robot.driveTrain_Subsystem.Stop();
     }
