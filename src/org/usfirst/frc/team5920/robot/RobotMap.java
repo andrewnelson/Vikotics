@@ -8,6 +8,8 @@
 package org.usfirst.frc.team5920.robot;
 
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -24,12 +26,15 @@ import com.ctre.phoenix.motorcontrol.can.*;
  * floating around.
  */
 public class RobotMap {
+	
     public static WPI_TalonSRX driveTrain_LeftMotor;
     private static WPI_TalonSRX _rearLeftMotor;
     
     public static WPI_TalonSRX driveTrain_RightMotor;
     private static WPI_TalonSRX _rearRightMotor;
     public static DifferentialDrive driveTrain_MainDrive;
+    public static Compressor airSupply;
+    public static DoubleSolenoid intakeArms;
     
     //Robot run variables
     public static double percisionspeed = .5;
@@ -54,6 +59,9 @@ public class RobotMap {
 
 
     public static void init() {
+    	airSupply = new Compressor(3);
+    	intakeArms = new DoubleSolenoid(1, 2);
+    	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
     	_rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
