@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import org.usfirst.frc.team5920.robot.subsystems.DriveTrain_Subsystem;
 import org.usfirst.frc.team5920.robot.subsystems.*;
 import org.usfirst.frc.team5920.robot.commands.*;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
@@ -35,8 +34,9 @@ public class Robot extends TimedRobot {
     
     public static OI oi;
     public static DriveTrain_Subsystem driveTrain_Subsystem;
-    public static Gantry_Subsystem gantry_Subsystem;
-    public static Cage_Subsystem cage_Subsystem;
+    public static Gantry_Subsystem Gantry_Subsystem;
+    public static Cage_Subsystem Cage_Subsystem;
+    public static Pneumatics_Subsystem Pneumatics_Subsystem;
     @SuppressWarnings("deprecation")
 	public static NetworkTable CameraData;
     

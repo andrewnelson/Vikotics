@@ -119,16 +119,3 @@ public class RobotMap {
     	
     }
 }
-
-/*
-Source / Reference files
-NavX
-https://www.pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/
-
-Talon SRX
-https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md
-
-Anything else we are adding this year???
-
-
-*/

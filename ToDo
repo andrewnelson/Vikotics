@@ -6,15 +6,12 @@ Autonomous selection from dashboard.
 https://wpilib.screenstepslive.com/s/4485/m/26401/l/255419-choosing-an-autonomous-program-from-smartdashboard
 
 
-Add pneumatics to testbot?
+Add pneumatics to testbot
 
 Verify all laptops are updated:
-	wpilibrary
+	wpilibrary lastest?
 	ctr libraries
 	
-
-Look into MainDrive.tankDrive(leftSpeed, rightSpeed, squaredInputs);
-SquaredInputs slows inputs down for slow speeds.
 
 Look into motion profile generator
 https://github.com/vannaka/Motion_Profile_Generator
@@ -36,3 +33,8 @@ Camera interface http://10.59.20.11:5801/
 
 CANBUS setup
 https://github.com/CrossTheRoadElec/Phoenix-Documentation/blob/master/README.md
+
+Source / Reference files
+NavX
+https://www.pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/
+*/
