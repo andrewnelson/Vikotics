@@ -4,6 +4,9 @@ import org.usfirst.frc.team5920.robot.RobotMap;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 //import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -47,6 +50,13 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	
 	public void StartAutoLeft() {
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*43.9);
+		
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
 		MainDrive.tankDrive(.5, .5, true);
 	}
 	

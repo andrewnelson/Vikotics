@@ -33,9 +33,10 @@ public class RobotMap {
     
     //Robot run variables
     public static double percisionspeed = .5;
-   // public static double driveTrain_WheelDiameter = 6.0;
-   // public static double driveTrain_DistancePerRev = (driveTrain_WheelDiameter/2)*(driveTrain_WheelDiameter/2)*Math.PI;
-    
+    public static double encoderPerRev = 4096;    
+    public static double driveTrain_WheelDiameter = 6.0;
+    public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
+    public static double ticksPerInch = driveTrain_DistancePerRev / encoderPerRev;
     
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
@@ -82,7 +83,7 @@ public class RobotMap {
     	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
     	
-    	driveTrain_LeftMotor.set(ControlMode.Position, .8);
+    	//driveTrain_LeftMotor.set(ControlMode.Position, .8);
     	//driveTrain_LeftMotor.changeControlMode(ControlMode.Position); //Change control mode of talon, default is PercentVbus (-1.0 to 1.0)
     	driveTrain_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
     	//driveTrain_LeftMotor.ConfigSelectedFeedbackSensor(FeedbackDevice.QuadEncoder); //Set the feedback device that is hooked up to the talon
