@@ -30,7 +30,6 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  */
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
-	//Compressor airSupply = new Compressor(3);
 	
     SendableChooser<Command> autoChooser;//<Command> chooser = new SendableChooser<>();
     
