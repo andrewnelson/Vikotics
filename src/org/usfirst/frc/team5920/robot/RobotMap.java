@@ -27,14 +27,19 @@ import com.ctre.phoenix.motorcontrol.can.*;
  */
 public class RobotMap {
 	
+	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
+    public static WPI_TalonSRX driveTrain_RightMotor;    
     private static WPI_TalonSRX _rearLeftMotor;
-    
-    public static WPI_TalonSRX driveTrain_RightMotor;
     private static WPI_TalonSRX _rearRightMotor;
-    public static DifferentialDrive driveTrain_MainDrive;
-    public static Compressor airSupply;
+    //Drive module
+ 	public static DifferentialDrive driveTrain_MainDrive;
+    //Pneumatics
+ 	public static Compressor airSupply;
     public static DoubleSolenoid intakeArms;
+    //NavX
+    
+    //Lighting
     
     //Robot run variables
     public static double percisionspeed = .5;
@@ -42,21 +47,6 @@ public class RobotMap {
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
     public static double ticksPerInch = driveTrain_DistancePerRev / encoderPerRev;
-    
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
-	
-	public static SpeedController leftDrive;
-    public static SpeedController rightDrive;
-    public static DifferentialDrive MainDrive;
-
 
     public static void init() {
     	airSupply = new Compressor(3);

@@ -68,11 +68,6 @@ public class Robot extends TimedRobot {
         
 	}
 
-	/**
-	 * This function is called once each time the robot enters Disabled mode.
-	 * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
-	 */
 	@Override
 	public void disabledInit() {
 		CameraData.putNumber("ledMode", 1);
@@ -116,30 +111,19 @@ public class Robot extends TimedRobot {
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
 				
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to 
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-
 	}
 
-	/**
-	 * This function is called periodically during operator control.
-	 */
 	@Override
 	public void teleopPeriodic() {
-
+		//This function is called periodically during operator control.
 		Scheduler.getInstance().run();
 	}
 
-	/**
-	 * This function is called periodically during test mode.
-	 */
 	@Override
 	public void testPeriodic() {
+		//This function is called periodically during test mode.
 	}
 }
-
