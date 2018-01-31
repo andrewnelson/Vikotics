@@ -1,6 +1,9 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team5920.robot.RobotMap;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 
 /**
  *
@@ -13,6 +16,12 @@ public class Pneumatics_Subsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    public void extendArms() {
+    	RobotMap.intakeArms.set(DoubleSolenoid.Value.kForward);
+    }
+    public void closeArms() {
+    	RobotMap.intakeArms.set(DoubleSolenoid.Value.kReverse);
     }
 }
 
