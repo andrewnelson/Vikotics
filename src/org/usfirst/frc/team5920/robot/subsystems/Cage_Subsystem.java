@@ -14,5 +14,17 @@ public class Cage_Subsystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+	public void Start() {
+		//Spin up cage wheels.
+	}
+	public void Stop() {
+		//Stop Cage wheels.
+	}
+	public void EjectCube(){
+		
+	}
+	public void EjectCubeReverse(){
+		
+	}
 }
 
