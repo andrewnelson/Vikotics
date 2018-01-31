@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.SpeedController;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.*;
 
 //import edu.wpi.first.wpilibj.smartdashboard.*;
@@ -78,6 +80,21 @@ public class RobotMap {
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	
+    	
+    	driveTrain_LeftMotor.set(ControlMode.Position, .8);
+    	//driveTrain_LeftMotor.changeControlMode(ControlMode.Position); //Change control mode of talon, default is PercentVbus (-1.0 to 1.0)
+    	driveTrain_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    	//driveTrain_LeftMotor.ConfigSelectedFeedbackSensor(FeedbackDevice.QuadEncoder); //Set the feedback device that is hooked up to the talon
+    	//driveTrain_LeftMotor.setPID(0.5, 0.001, 0.0); //Set the PID constants (p, i, d)
+    	driveTrain_LeftMotor.config_kP(0, 0.5, 20);
+    	driveTrain_LeftMotor.config_kI(0, 0.001, 20);
+    	driveTrain_LeftMotor.config_kD(0, 0.0, 20);
+    	driveTrain_LeftMotor.config_kF(0, 0.0, 20);
+    	//driveTrain_LeftMotor.config_IntegralZone(val, timeoutMs)
+    	//driveTrain_LeftMotor.enableControl(); //Enable PID control on the talon
+
+
     	
     }
     public static void initTele() {
