@@ -46,14 +46,14 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	
 	public void StartAutoLeft() {
-		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		//RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		
 		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*43.9);
 		
 		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
 		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
-		MainDrive.tankDrive(.5, .5, true);
+		//MainDrive.tankDrive(.5, .5, true);
 	}
 	
 	public void Stop() {
