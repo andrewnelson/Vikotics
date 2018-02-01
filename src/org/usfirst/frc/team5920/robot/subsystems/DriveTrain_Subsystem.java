@@ -29,7 +29,8 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void DriveWithJoysticks() {
-		SmartDashboard.putNumber("RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
 		if (OI.autotest()) {
 			
 		}
