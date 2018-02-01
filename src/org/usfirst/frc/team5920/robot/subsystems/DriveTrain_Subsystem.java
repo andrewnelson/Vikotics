@@ -7,6 +7,8 @@ import org.usfirst.frc.team5920.robot.commands.*;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /*import com.ctre.phoenix.motorcontrol.can.*;
 import com.ctre.phoenix.motorcontrol.*;*/
@@ -27,6 +29,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void DriveWithJoysticks() {
+		SmartDashboard.putNumber("RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
 		if (OI.autotest()) {
 			
 		}
