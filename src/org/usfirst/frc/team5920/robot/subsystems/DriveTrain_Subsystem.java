@@ -26,16 +26,12 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {
-	//	DriveWithJoysticks();
+		DriveWithJoysticks();
 	}
 	
 	public void DriveWithJoysticks() {
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
-		
-		if (OI.autotest()) {
-			
-		}
 	
 		if (OI.DriverPercisionDrive()){
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed));
