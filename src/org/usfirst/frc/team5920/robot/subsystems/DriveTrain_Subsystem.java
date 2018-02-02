@@ -6,6 +6,7 @@ import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -25,12 +26,13 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {
-		DriveWithJoysticks();
+	//	DriveWithJoysticks();
 	}
 	
 	public void DriveWithJoysticks() {
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
+		
 		if (OI.autotest()) {
 			
 		}

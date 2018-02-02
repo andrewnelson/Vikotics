@@ -20,6 +20,15 @@ public class Pneumatics_Subsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    @Override
+    public void periodic() {
+    	if (OI.DriverX()) {
+			extendArms();
+		}
+		if (OI.DriverY()) {
+			closeArms();
+		}
+    }
     public void extendArms() {
     	RobotMap.intakeArms.set(DoubleSolenoid.Value.kForward);
     }

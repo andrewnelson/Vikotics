@@ -25,10 +25,10 @@ public class Auto_Command extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain_Subsystem.Start();
-
-    	Timer.delay(10);
-    	Robot.driveTrain_Subsystem.Stop();
+    	Robot.Pneumatics_Subsystem.extendArms();
+setTimeout(10);
+    	Robot.Pneumatics_Subsystem.closeArms();
+    	setTimeout(10);
     }
 
     // Make this return true when this Command no longer needs to run execute()

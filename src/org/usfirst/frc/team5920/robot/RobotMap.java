@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
+import org.usfirst.frc.team5920.robot.subsystems.Pneumatics_Subsystem;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.*;
@@ -35,6 +37,7 @@ public class RobotMap {
     //Drive module
  	public static DifferentialDrive driveTrain_MainDrive;
     //Pneumatics
+ 	public static Pneumatics_Subsystem Pneumatics;
  	public static Compressor airSupply;
     public static DoubleSolenoid intakeArms;
     //NavX
@@ -50,7 +53,8 @@ public class RobotMap {
 
     public static void init() {
     	airSupply = new Compressor(3);
-    	intakeArms = new DoubleSolenoid(1, 2);
+    	intakeArms = new DoubleSolenoid(3, 1, 2);
+    	Pneumatics = new Pneumatics_Subsystem();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
     	_rearLeftMotor = new WPI_TalonSRX(11);
@@ -106,6 +110,7 @@ public class RobotMap {
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    	
     	
     }
 }
