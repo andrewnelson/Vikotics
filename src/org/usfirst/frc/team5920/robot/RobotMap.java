@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team5920.robot;
 
-import edu.wpi.first.wpilibj.SpeedController;
+//import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import edu.wpi.first.wpilibj.VictorSP;
@@ -40,6 +41,8 @@ public class RobotMap {
  	public static Pneumatics_Subsystem Pneumatics;
  	public static Compressor airSupply;
     public static DoubleSolenoid intakeArms;
+    //Robot Info
+    public static PowerDistributionPanel RobotPDP;
     //NavX
     
     //Lighting

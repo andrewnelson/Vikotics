@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
 import org.usfirst.frc.team5920.robot.RobotMap;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
@@ -18,7 +19,7 @@ import com.ctre.phoenix.motorcontrol.*;*/
 
 public class DriveTrain_Subsystem extends Subsystem{
     private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
- 
+    private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive_Command(0,0,0));
@@ -26,13 +27,18 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {
+		SmartDashboard.putNumber("Power Channel 1", PDP.getCurrent(0));
+		SmartDashboard.putNumber("Power Channel 2", PDP.getCurrent(1));
+		SmartDashboard.putNumber("Power Channel 3", PDP.getCurrent(2));
+		SmartDashboard.putNumber("Power Channel 4", PDP.getCurrent(3));
+
+		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
+		
 		DriveWithJoysticks();
 	}
 	
 	public void DriveWithJoysticks() {
-		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
-	
 		if (OI.DriverPercisionDrive()){
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed));
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed), true);
