@@ -27,10 +27,18 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {
-		SmartDashboard.putNumber("Power Channel 1", PDP.getCurrent(0));
-		SmartDashboard.putNumber("Power Channel 2", PDP.getCurrent(1));
-		SmartDashboard.putNumber("Power Channel 3", PDP.getCurrent(2));
-		SmartDashboard.putNumber("Power Channel 4", PDP.getCurrent(3));
+		SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
+		SmartDashboard.putNumber("Drive Train 2", PDP.getCurrent(1));
+		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
+		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
+		SmartDashboard.putNumber("Power Controller 5 (30 AMP)", PDP.getCurrent(4));
+		SmartDashboard.putNumber("Camera", PDP.getCurrent(7));
+		SmartDashboard.putNumber("Power Controller 7 (30 AMP)", PDP.getCurrent(11));
+		SmartDashboard.putNumber("Power Controller 8", PDP.getCurrent(12));
+		SmartDashboard.putNumber("Power Controller 9", PDP.getCurrent(13));
+		SmartDashboard.putNumber("Drive Train 3", PDP.getCurrent(14));
+		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));
+		
 
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
