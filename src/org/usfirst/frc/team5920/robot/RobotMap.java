@@ -55,8 +55,8 @@ public class RobotMap {
     public static double ticksPerInch = driveTrain_DistancePerRev / encoderPerRev;
 
     public static void init() {
-    	airSupply = new Compressor(3);
-    	intakeArms = new DoubleSolenoid(3, 1, 2);
+    /*	airSupply = new Compressor(3);
+    	intakeArms = new DoubleSolenoid(3, 1, 2);*/
     	Pneumatics = new Pneumatics_Subsystem();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
