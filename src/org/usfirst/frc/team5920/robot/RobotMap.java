@@ -59,6 +59,8 @@ public class RobotMap {
     	intakeArms = new DoubleSolenoid(3, 1, 2);*/
     	Pneumatics = new Pneumatics_Subsystem();
     	
+    	RobotPDP = new PowerDistributionPanel();
+    	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
     	_rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
