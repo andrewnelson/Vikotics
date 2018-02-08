@@ -26,8 +26,8 @@ public class DriveTrain_Subsystem extends Subsystem{
 		
 	}
 	@Override
-	public void periodic() {
-		SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
+	public void periodic() {  
+		/*SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
 		SmartDashboard.putNumber("Drive Train 2", PDP.getCurrent(1));
 		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
 		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
@@ -37,7 +37,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 		SmartDashboard.putNumber("Power Controller 8", PDP.getCurrent(12));
 		SmartDashboard.putNumber("Power Controller 9", PDP.getCurrent(13));
 		SmartDashboard.putNumber("Drive Train 3", PDP.getCurrent(14));
-		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));
+		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));*/
 		
 
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
