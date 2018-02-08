@@ -39,9 +39,17 @@ public class DriveTrain_Subsystem extends Subsystem{
 		SmartDashboard.putNumber("Drive Train 3", PDP.getCurrent(14));
 		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));*/
 		
-
-		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
+		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0))/2;
+		robotSpeed = robotSpeed * 10; //Ticks per Sec
+		SmartDashboard.putNumber("Average RPM", robotSpeed/ RobotMap.encoderPerRev*60);
+		SmartDashboard.putNumber("Robot FPS", robotSpeed / RobotMap.ticksPerInch/12);
+		SmartDashboard.putNumber("Right Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Left Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
+		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
+		
+		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0));
+		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
 		
 		DriveWithJoysticks();
 	}
