@@ -62,16 +62,16 @@ public class RobotMap {
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
     	_rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
-    	driveTrain_LeftMotor.setInverted(true);
-    	_rearLeftMotor.setInverted(true);
+    	driveTrain_LeftMotor.setInverted(false);
+    	_rearLeftMotor.setInverted(false);
     	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
     	_rearRightMotor = new WPI_TalonSRX(12);
     	_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
-    	driveTrain_RightMotor.setInverted(true);
-    	_rearRightMotor.setInverted(true);
+    	driveTrain_RightMotor.setInverted(false);
+    	_rearRightMotor.setInverted(false);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	

@@ -63,15 +63,7 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBButton();
 	}
-	/*
 	
-	public Joystick getDriverLeftJoystick(){
-		return joystickLeft;
-	}
-	
-	public Joystick getDriverRightJoystick(){
-		return joystickRight;
-	}*/
 }
 
 
