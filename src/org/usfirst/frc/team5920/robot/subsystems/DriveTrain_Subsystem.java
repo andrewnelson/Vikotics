@@ -19,7 +19,7 @@ import com.ctre.phoenix.motorcontrol.*;*/
 
 public class DriveTrain_Subsystem extends Subsystem{
     private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
-    private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
+   // private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive_Command(0,0,0));
@@ -27,8 +27,8 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
-		SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
-		SmartDashboard.putNumber("Drive Train 2", PDP.getCurrent(1));
+		SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
+		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
 		/*SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
 		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
 		SmartDashboard.putNumber("Power Controller 5 (30 AMP)", PDP.getCurrent(4));
@@ -74,14 +74,18 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void StartAutoLeft() {
-		//RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		MainDrive.arcadeDrive(1,  0);
+		int counter=0;
+
+		SmartDashboard.putNumber("AutoCode Loops", counter);
+		/*RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		
 		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*43.9);
 		
 		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
-		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);
-		MainDrive.tankDrive(.5, .5, true);
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*48);*/
+		//MainDrive.tankDrive(.5, .5, true);
 	}
 	
 	public void Stop() {
