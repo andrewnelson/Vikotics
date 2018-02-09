@@ -33,8 +33,8 @@ public class RobotMap {
 	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
     public static WPI_TalonSRX driveTrain_RightMotor;    
-    private static WPI_TalonSRX _rearLeftMotor;
-    private static WPI_TalonSRX _rearRightMotor;
+    private static WPI_VictorSPX _rearLeftMotor;
+    private static WPI_VictorSPX _rearRightMotor;
     //Drive module
  	public static DifferentialDrive driveTrain_MainDrive;
     //Pneumatics
@@ -62,7 +62,7 @@ public class RobotMap {
     	RobotPDP = new PowerDistributionPanel();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
-    	_rearLeftMotor = new WPI_TalonSRX(11);
+    	_rearLeftMotor = new WPI_VictorSPX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(false);
     	_rearLeftMotor.setInverted(false);
@@ -70,7 +70,7 @@ public class RobotMap {
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
-    	_rearRightMotor = new WPI_TalonSRX(12);
+    	_rearRightMotor = new WPI_VictorSPX(12);
     	_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
     	driveTrain_RightMotor.setInverted(false);
     	_rearRightMotor.setInverted(false);

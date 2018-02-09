@@ -26,13 +26,8 @@ public class DriveTrain_Subsystem extends Subsystem{
 		
 	}
 	@Override
-<<<<<<< HEAD
-	public void periodic() {
-		/*SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
-=======
 	public void periodic() {  
 		SmartDashboard.putNumber("Drive Train 1", PDP.getCurrent(0));
->>>>>>> branch 'master' of https://github.com/andrewnelson/Vikotics.git
 		SmartDashboard.putNumber("Drive Train 2", PDP.getCurrent(1));
 		/*SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
 		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
@@ -44,16 +39,16 @@ public class DriveTrain_Subsystem extends Subsystem{
 		SmartDashboard.putNumber("Drive Train 3", PDP.getCurrent(14));
 		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));*/
 		
-		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0))/2;
+		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+ (RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1))/2;
 		robotSpeed = robotSpeed * 10; //Ticks per Sec
 		SmartDashboard.putNumber("Average RPM", robotSpeed/ RobotMap.encoderPerRev*60);
 		SmartDashboard.putNumber("Robot FPS", robotSpeed / RobotMap.ticksPerInch/12);
-		SmartDashboard.putNumber("Right Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Right Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1);
 		SmartDashboard.putNumber("Left Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
 		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
 		
-		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0));
+		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)*-1);
 		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
 		
 		DriveWithJoysticks();
@@ -73,6 +68,10 @@ public class DriveTrain_Subsystem extends Subsystem{
 		//MainDrive.tankDrive(.5, .5);
 	}
 	
+	public void StartAutoRight() {
+		
+	
+	}
 	
 	public void StartAutoLeft() {
 		//RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
