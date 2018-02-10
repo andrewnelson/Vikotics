@@ -28,9 +28,9 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
-		SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
+		/*SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
 		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
-		/*SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
+		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
 		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
 		SmartDashboard.putNumber("Power Controller 5 (30 AMP)", PDP.getCurrent(4));
 		SmartDashboard.putNumber("Camera", PDP.getCurrent(7));
@@ -42,8 +42,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 		
 		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+ (RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1))/2;
 		robotSpeed = robotSpeed * 10; //Ticks per Sec
-		SmartDashboard.putNumber("Average RPM", robotSpeed/ RobotMap.encoderPerRev*60);
-		SmartDashboard.putNumber("Robot FPS", robotSpeed / RobotMap.ticksPerInch/12);
+		SmartDashboard.putNumber("Robot FPS", Math.abs(robotSpeed / RobotMap.ticksPerInch/12));
 		SmartDashboard.putNumber("Right Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1);
 		SmartDashboard.putNumber("Left Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
@@ -75,7 +74,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void StartAutoLeft() {
-		MainDrive.arcadeDrive(1,  0);
+		MainDrive.arcadeDrive(1,120);
 		counter+=1;
 
 		SmartDashboard.putNumber("AutoCode Loops", counter);

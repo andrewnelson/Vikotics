@@ -52,7 +52,7 @@ public class RobotMap {
     public static double encoderPerRev = 4096;    
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
-    public static double ticksPerInch = driveTrain_DistancePerRev / encoderPerRev;
+    public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;
 
     public static void init() {
     /*	airSupply = new Compressor(3);
