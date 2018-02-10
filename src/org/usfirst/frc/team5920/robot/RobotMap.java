@@ -33,8 +33,8 @@ public class RobotMap {
 	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
     public static WPI_TalonSRX driveTrain_RightMotor;    
-    private static WPI_VictorSPX _rearLeftMotor;
-    private static WPI_VictorSPX _rearRightMotor;
+    private static WPI_TalonSRX _rearLeftMotor;
+    private static WPI_TalonSRX _rearRightMotor;
     //Drive module
  	public static DifferentialDrive driveTrain_MainDrive;
     //Pneumatics
@@ -52,28 +52,27 @@ public class RobotMap {
     public static double encoderPerRev = 4096;    
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
-    public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;
+    public static double ticksPerInch = driveTrain_DistancePerRev / encoderPerRev;
 
     public static void init() {
     /*	airSupply = new Compressor(3);
     	intakeArms = new DoubleSolenoid(3, 1, 2);*/
     	Pneumatics = new Pneumatics_Subsystem();
-    	
     	RobotPDP = new PowerDistributionPanel();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
-    	_rearLeftMotor = new WPI_VictorSPX(11);
+    	_rearLeftMotor = new WPI_TalonSRX(11);
     	_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
-    	driveTrain_LeftMotor.setInverted(false);
-    	_rearLeftMotor.setInverted(false);
+    	driveTrain_LeftMotor.setInverted(true);
+    	_rearLeftMotor.setInverted(true);
     	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
-    	_rearRightMotor = new WPI_VictorSPX(12);
+    	_rearRightMotor = new WPI_TalonSRX(12);
     	_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
-    	driveTrain_RightMotor.setInverted(false);
-    	_rearRightMotor.setInverted(false);
+    	driveTrain_RightMotor.setInverted(true);
+    	_rearRightMotor.setInverted(true);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
@@ -111,6 +110,8 @@ public class RobotMap {
     	
     }
     public static void initTele() {
+    	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+    	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);

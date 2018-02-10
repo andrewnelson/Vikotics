@@ -18,8 +18,9 @@ import com.ctre.phoenix.motorcontrol.*;*/
 //https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages/blob/master/Java/VelocityClosedLoop/src/org/usfirst/frc/team217/robot/Robot.java
 
 public class DriveTrain_Subsystem extends Subsystem{
+	int counter = 0;
     private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
-   // private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
+    private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new TankDrive_Command(0,0,0));
@@ -75,7 +76,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	public void StartAutoLeft() {
 		MainDrive.arcadeDrive(1,  0);
-		int counter=0;
+		counter+=1;
 
 		SmartDashboard.putNumber("AutoCode Loops", counter);
 		/*RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
