@@ -23,17 +23,33 @@ public class Pneumatics_Subsystem extends Subsystem {
     @Override
     public void periodic() {
     	if (OI.DriverX()) {
-			extendArms();
+			FullMandibleExtend();
 		}
 		if (OI.DriverY()) {
-			closeArms();
+			FullMandibleClose();
 		}
     }
-    public void extendArms() {
-    	RobotMap.intakeArms.set(DoubleSolenoid.Value.kForward);
+    
+    public void innerMandibleExtend() {
+    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
     }
-    public void closeArms() {
-    	RobotMap.intakeArms.set(DoubleSolenoid.Value.kReverse);
+    public void outerMandibleExtend() {
+    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
+    }
+    public void FullMandibleExtend() {
+    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
+    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void innerMandibleClose() {
+    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
+    }
+    public void outerMandibleClose() {
+    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
+    }
+    public void FullMandibleClose() {
+    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
+    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
     }
 }
 

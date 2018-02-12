@@ -17,7 +17,7 @@ import org.usfirst.frc.team5920.robot.commands.*;
  */ 
 public class OI { 
 	//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input for more examples.
-	private XboxController DriverController;
+	//private XboxController DriverController;
     
     
 	public OI() {
