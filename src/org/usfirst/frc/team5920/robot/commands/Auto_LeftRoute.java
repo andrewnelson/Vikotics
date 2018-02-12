@@ -20,17 +20,17 @@ public class Auto_LeftRoute extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
-    	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+	    	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+	    	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//RobotMap.MainDrive.tankDrive(.5, .5,true);
-
-    	Robot.driveTrain_Subsystem.StartAutoLeft();
-    	//Timer.delay(15);
-    	//Robot.driveTrain_Subsystem.Stop();
+	    	//RobotMap.MainDrive.tankDrive(.5, .5,true);
+	
+	    	Robot.driveTrain_Subsystem.StartAutoLeft();
+	    	//Timer.delay(15);
+	    	//Robot.driveTrain_Subsystem.Stop();
 
     }
 

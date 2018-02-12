@@ -92,10 +92,11 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void StartAutoLeft() {
-		MainDrive.arcadeDrive(1,120);
-		counter+=1;
-
-		SmartDashboard.putNumber("AutoCode Loops", counter);
+		//MainDrive.arcadeDrive(1,-.7);
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
+		
+		
 		/*RobotMap.driveTrain_LeftMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		RobotMap.driveTrain_RightMotor.set(ControlMode.Position, RobotMap.ticksPerInch*120);
 		
