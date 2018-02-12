@@ -48,12 +48,21 @@ public class RobotMap {
     //Lighting
     
     //Robot run variables
+    public static double slowSpeed = 4096 / 600 * 100;//last number is RPM, converts to encoder ticks
+    public static double standardSpeed = 4096 / 600 * 300;//Ditto
+    public static double turboSpeed = 4096 / 600 * 470;//Ditto
+    
     public static double percisionspeed = .5;
     public static double encoderPerRev = 4096;    
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
     public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;
 
+    //SRX constants
+    public static final int kSlotIdx = 0;
+	public static final int kPIDLoopIdx = 0;
+	public static final int kTimeoutMs = 10;
+    
     public static void init() {
     /*	airSupply = new Compressor(3);
     	intakeArms = new DoubleSolenoid(3, 1, 2);*/
@@ -80,6 +89,21 @@ public class RobotMap {
         driveTrain_MainDrive.setSafetyEnabled(true);
         driveTrain_MainDrive.setExpiration(0.1);
         driveTrain_MainDrive.setMaxOutput(1.0);
+        
+        driveTrain_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.kTimeoutMs);
+        driveTrain_LeftMotor.setSensorPhase(true);
+
+		/* set the peak, nominal outputs */
+        driveTrain_LeftMotor.configNominalOutputForward(0, kTimeoutMs);
+		driveTrain_LeftMotor.configNominalOutputReverse(0, kTimeoutMs);
+		driveTrain_LeftMotor.configPeakOutputForward(1, kTimeoutMs);
+		driveTrain_LeftMotor.configPeakOutputReverse(-1, kTimeoutMs);
+
+		/* set closed loop gains in slot0 */
+		driveTrain_LeftMotor.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
+		driveTrain_LeftMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
+		driveTrain_LeftMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
+		driveTrain_LeftMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
          
     }
     public static void initAuto() {

@@ -51,11 +51,12 @@ public class DriveTrain_Subsystem extends Subsystem{
 		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)*-1);
 		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
 		
-		DriveWithJoysticks();
+		//DriveWithJoysticks();
+		DriveWithSpeed();
 	}
 	
 	public void DriveWithJoysticks() {
-		if (OI.DriverPercisionDrive()){
+		if (OI.PercisionSpeed()){
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed));
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed), true);
 		}else {
@@ -63,6 +64,23 @@ public class DriveTrain_Subsystem extends Subsystem{
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()), true);
 
 		}
+	}
+	public void DriveWithSpeed() {
+		double leftVelocity = 0;
+		double rightVelocity = 0;
+		
+		if(OI.PercisionSpeed()) {
+			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.slowSpeed;
+			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.slowSpeed;
+		} else if (OI.TurboSpeed()) {
+			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.turboSpeed;
+			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.turboSpeed;
+		} else {
+			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.standardSpeed;
+			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.standardSpeed;
+		}
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, rightVelocity);
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, leftVelocity);
 	}
 	public void Start() {
 		//MainDrive.tankDrive(.5, .5);

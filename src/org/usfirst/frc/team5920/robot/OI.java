@@ -38,11 +38,11 @@ public class OI {
 		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	
-	public static boolean DriverPercisionDrive() {
+	public static boolean TurboSpeed() {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
-	public static boolean autotest() {
+	public static boolean PercisionSpeed() {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
