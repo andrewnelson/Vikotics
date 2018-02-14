@@ -65,6 +65,10 @@ public class RobotMap {
     public static double standardSpeed = encoderPerRev / 300 * 300;//Ditto
     public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
     
+    public static double GantrySpeed = encoderPerRev / 300 * 470;//Ditto
+    public static double CageSpeed = encoderPerRev / 300 * 470;//Ditto
+    public static double MandibleSpeed = encoderPerRev / 300 * 470;//Ditto
+    
     public static double percisionspeed = .5;    
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
