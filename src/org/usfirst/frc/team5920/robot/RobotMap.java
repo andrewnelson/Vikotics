@@ -77,8 +77,8 @@ public class RobotMap {
     
     public static void init() {
     	airSupply = new Compressor(3);
-    	innerMandibles = new DoubleSolenoid(3, 1, 2);
-    	outerMandibles = new DoubleSolenoid(3,3,4);
+    	innerMandibles = new DoubleSolenoid(3, 0, 1);
+    	outerMandibles = new DoubleSolenoid(3,2,3);
     	Pneumatics = new Pneumatics_Subsystem();
     	RobotPDP = new PowerDistributionPanel();
     	
