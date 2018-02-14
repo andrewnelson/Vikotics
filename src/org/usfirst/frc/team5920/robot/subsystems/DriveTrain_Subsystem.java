@@ -109,11 +109,15 @@ public class DriveTrain_Subsystem extends Subsystem{
 	public void Stop() {
 		MainDrive.tankDrive(0, 0);
 	}
+	
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		if(Math.abs(joystickvalue) < .1)
-			 return 0;
-		else 
+		if (joystickvalue<.1) {
+			return 0;
+		} else if (joystickvalue > .9) {
+			return 1;
+		} else {
 			return joystickvalue;
-}
+		}
+	}
 }
 
