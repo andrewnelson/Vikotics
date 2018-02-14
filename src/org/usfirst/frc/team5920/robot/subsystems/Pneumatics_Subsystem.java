@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team5920.robot.RobotMap;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
@@ -22,34 +24,38 @@ public class Pneumatics_Subsystem extends Subsystem {
    
     @Override
     public void periodic() {
-    	if (OI.DriverX()) {
+    /*	if (OI.DriverX()) {
 			FullMandibleExtend();
 		}
 		if (OI.DriverY()) {
 			FullMandibleClose();
-		}
+		}*/
     }
     
     public void innerMandibleExtend() {
-    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
+    		RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
+    		SmartDashboard.putBoolean("Inner Mandible Open", true);
     }
     public void outerMandibleExtend() {
-    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
+    		RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
+    		SmartDashboard.putBoolean("Outer Mandible Open", true);
     }
-    public void FullMandibleExtend() {
-    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
-    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
-    }
+/*    public void FullMandibleExtend() {
+	    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
+	    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
+    }*/
     
     public void innerMandibleClose() {
-    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
+    		RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
+    		SmartDashboard.putBoolean("Inner Mandible Open", false);
     }
     public void outerMandibleClose() {
-    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
+    		RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
+    		SmartDashboard.putBoolean("Outer Mandible Open", false);
     }
-    public void FullMandibleClose() {
-    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
-    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
-    }
+/*    public void FullMandibleClose() {
+	    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
+	    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
+    }*/
 }
 

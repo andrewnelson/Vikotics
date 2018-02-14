@@ -56,6 +56,9 @@ public class Robot extends TimedRobot {
 		
 		RobotMap.init();
 		oi = new OI();
+
+		SmartDashboard.putBoolean("Inner Mandible Open", false);
+		SmartDashboard.putBoolean("Outer Mandible Open", false);
         CameraData =  NetworkTable.getTable("limelight");
 		driveTrain_Subsystem = new DriveTrain_Subsystem();
 		Pneumatics_Subsystem = new Pneumatics_Subsystem();

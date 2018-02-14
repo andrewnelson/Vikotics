@@ -112,11 +112,11 @@ public class DriveTrain_Subsystem extends Subsystem{
 	
 	private double getJoystickWithDeadBand(double joystickvalue) {
 		if (joystickvalue<.1) {
-			return 0;
+			return 0 * RobotMap.robotDirection;
 		} else if (joystickvalue > .9) {
-			return 1;
+			return 1 * RobotMap.robotDirection;
 		} else {
-			return joystickvalue;
+			return joystickvalue * RobotMap.robotDirection;
 		}
 	}
 }

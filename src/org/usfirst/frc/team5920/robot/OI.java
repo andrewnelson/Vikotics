@@ -8,6 +8,8 @@
 package org.usfirst.frc.team5920.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5920.robot.subsystems.*;
@@ -23,12 +25,22 @@ public class OI {
     
     
 	public OI() {
-		 
+		 //http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/XboxController.html
+		//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input
+		
 		//XboxController DriveController = new XboxController(0);
 
-	/*    SmartDashboard.putData("Auto_Command", new Auto_Command());
-	    SmartDashboard.putData("Tankdrive_Command", new TankDrive_Command(0,0,0));
-	    SmartDashboard.putData("Disabled_Command", new Disabled_Command());*/
+
+		XboxController DriveController = new XboxController(0);
+		Button DriverA = new JoystickButton(DriveController, 1),
+				DriverB = new JoystickButton(DriveController, 1),
+				DriverX = new JoystickButton(DriveController, 1),
+				DriverY = new JoystickButton(DriveController, 1)
+				;
+		DriverA.whenPressed(new Mandible_Command(true, true));
+		DriverB.whenPressed(new Mandible_Command(true, false));
+		DriverX.whenPressed(new Mandible_Command(false, true));
+		DriverY.whenPressed(new Mandible_Command(false, false));
 	}
 	
 	public static double DriverLeftJoystick(){
@@ -65,6 +77,7 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBButton();
 	}
+
 	
 }
 
