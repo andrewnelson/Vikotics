@@ -59,12 +59,12 @@ public class RobotMap {
     //Lighting
     
     //Robot run variables
-    public static double slowSpeed = 4096 / 600 * 100;//last number is RPM, converts to encoder ticks
-    public static double standardSpeed = 4096 / 600 * 300;//Ditto
-    public static double turboSpeed = 4096 / 600 * 470;//Ditto
+    public static double encoderPerRev = 4096;
+    public static double slowSpeed = encoderPerRev / 300 * 100;//last number is RPM, converts to encoder ticks
+    public static double standardSpeed = encoderPerRev / 300 * 300;//Ditto
+    public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
     
-    public static double percisionspeed = .5;
-    public static double encoderPerRev = 4096;    
+    public static double percisionspeed = .5;    
     public static double driveTrain_WheelDiameter = 6.0;
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
     public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;

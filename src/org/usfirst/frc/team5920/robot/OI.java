@@ -8,6 +8,8 @@
 package org.usfirst.frc.team5920.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team5920.robot.subsystems.*;
 import org.usfirst.frc.team5920.robot.commands.*;
 

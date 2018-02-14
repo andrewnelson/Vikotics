@@ -66,21 +66,20 @@ public class DriveTrain_Subsystem extends Subsystem{
 		}
 	}
 	public void DriveWithSpeed() {
-		double leftVelocity = 0;
-		double rightVelocity = 0;
+		double Velocity = 0;
 		
 		if(OI.PercisionSpeed()) {
-			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.slowSpeed;
-			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.slowSpeed;
+			Velocity = RobotMap.slowSpeed;
+			
 		} else if (OI.TurboSpeed()) {
-			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.turboSpeed;
-			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.turboSpeed;
+			Velocity = RobotMap.turboSpeed;
 		} else {
-			leftVelocity = getJoystickWithDeadBand(OI.DriverLeftJoystick())*RobotMap.standardSpeed;
-			rightVelocity = getJoystickWithDeadBand(OI.DriverRightJoystick())*RobotMap.standardSpeed;
+			Velocity = RobotMap.standardSpeed;
 		}
-		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, rightVelocity);
-		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, leftVelocity);
+
+		SmartDashboard.putNumber("Velocity", (Velocity * getJoystickWithDeadBand(OI.DriverRightJoystick())));
+		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, (Velocity * getJoystickWithDeadBand(OI.DriverRightJoystick())));
+		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, (Velocity * getJoystickWithDeadBand(OI.DriverLeftJoystick())));
 	}
 	public void Start() {
 		//MainDrive.tankDrive(.5, .5);
