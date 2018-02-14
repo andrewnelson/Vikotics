@@ -92,6 +92,28 @@ public class RobotMap {
     Mandible_Left = new WPI_TalonSRX(33);
     Mandible_Right = new WPI_TalonSRX(34);
     
+    Gantry_PrimeMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    Gantry_PrimeMotor.setSensorPhase(true);
+    Gantry_SecondaryMotor.follow((WPI_TalonSRX)Gantry_PrimeMotor);
+    Gantry_PrimeMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    Gantry_SecondaryMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    
+    Cage_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    Cage_LeftMotor.setSensorPhase(true);
+    Cage_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    
+    Cage_RightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    Cage_RightMotor.setSensorPhase(true);
+    Cage_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    
+    Mandible_Left.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    Mandible_Left.setSensorPhase(true);
+    Mandible_Left.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    
+    Mandible_Right.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    Mandible_Right.setSensorPhase(true);
+    Mandible_Right.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    
     driveTrain_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(true);
     	driveTrain_rearLeftMotor.setInverted(true);
@@ -100,8 +122,8 @@ public class RobotMap {
     	
     	
     	driveTrain_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
-    	driveTrain_RightMotor.setInverted(true);
-    	driveTrain_rearRightMotor.setInverted(true);
+    	driveTrain_RightMotor.setInverted(false);
+    	driveTrain_rearRightMotor.setInverted(false);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	driveTrain_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
