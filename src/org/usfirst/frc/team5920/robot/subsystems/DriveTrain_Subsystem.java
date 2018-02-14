@@ -28,6 +28,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
+		SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent();
 		/*SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
 		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
 		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
@@ -50,12 +51,14 @@ public class DriveTrain_Subsystem extends Subsystem{
 		
 		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)*-1);
 		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
+
+
 		
 		//DriveWithJoysticks();
 		DriveWithSpeed();
 	}
 	
-	public void DriveWithJoysticks() {
+/*	public void DriveWithJoysticks() {
 		if (OI.PercisionSpeed()){
 			MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed));
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick() * RobotMap.percisionspeed), getJoystickWithDeadBand(OI.DriverRightJoystick() * RobotMap.percisionspeed), true);
@@ -64,7 +67,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 			//MainDrive.tankDrive(getJoystickWithDeadBand(OI.DriverLeftJoystick()), getJoystickWithDeadBand(OI.DriverRightJoystick()), true);
 
 		}
-	}
+	}*/
 	public void DriveWithSpeed() {
 		double Velocity = 0;
 		
@@ -107,7 +110,9 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	public void Stop() {
-		MainDrive.tankDrive(0, 0);
+		//MainDrive.tankDrive(0, 0);
+		RobotMap.driveTrain_LeftMotor.set(0);
+		RobotMap.driveTrain_RightMotor.set(0);
 	}
 	
 	private double getJoystickWithDeadBand(double joystickvalue) {
