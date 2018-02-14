@@ -28,7 +28,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
-		SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent();
+		SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent());
 		/*SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
 		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
 		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
