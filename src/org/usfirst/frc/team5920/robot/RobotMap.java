@@ -9,6 +9,7 @@ package org.usfirst.frc.team5920.robot;
 
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -47,10 +48,13 @@ public class RobotMap {
     //Gantry Lift
     public static WPI_TalonSRX Gantry_PrimeMotor;
     public static WPI_VictorSPX Gantry_SecondaryMotor;
+    public static DigitalInput Gantry_TopLimit;
+    public static DigitalInput Gantry_BottomLimit;
     
     //Cage Motors
     public static WPI_TalonSRX Cage_LeftMotor;
     public static WPI_TalonSRX Cage_RightMotor;
+    public static DigitalInput Cage_CubePresent;
     
     //Mandible Motors
     public static WPI_TalonSRX Mandible_Left;
@@ -80,6 +84,10 @@ public class RobotMap {
 	public static final int kTimeoutMs = 10;
     
     public static void init() {
+    	Gantry_TopLimit = new DigitalInput(0);
+    	Gantry_BottomLimit = new DigitalInput(1);
+    	Cage_CubePresent = new DigitalInput(2);
+    	
     	airSupply = new Compressor(3);
     	innerMandibles = new DoubleSolenoid(3, 0, 1);
     	outerMandibles = new DoubleSolenoid(3,2,3);
