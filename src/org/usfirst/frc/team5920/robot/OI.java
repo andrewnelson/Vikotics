@@ -31,7 +31,7 @@ public class OI {
 		//XboxController DriveController = new XboxController(0);
 
 
-	/*	XboxController DriveController = new XboxController(0);
+		/*XboxController DriveController = new XboxController(0);
 		Button DriverA = new JoystickButton(DriveController, 1),
 				DriverB = new JoystickButton(DriveController, 2),
 				DriverX = new JoystickButton(DriveController, 3),
@@ -43,8 +43,10 @@ public class OI {
 		DriverB.whenPressed(new Mandible_Command(true, false));
 		DriverX.whenPressed(new Mandible_Command(false, true));
 		DriverY.whenPressed(new Mandible_Command(false, false));
-		DriverBack.whenActive(new Cage_Command("Mandible", 1));
-		DriverStart.whenActive(new Cage_Command("Ejector", 1));*/
+		DriverBack.whenActive(new Mandible_Command(false, false));
+		DriverStart.whenActive(new Mandible_Command(false, false));*/
+	//	DriverBack.whenActive(new Cage_Command("Mandible", 1));
+	//	DriverStart.whenActive(new Cage_Command("Ejector", 1));
 	}
 	
 	public static double DriverLeftJoystick(){

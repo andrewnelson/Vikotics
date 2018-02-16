@@ -19,8 +19,8 @@ import com.ctre.phoenix.motorcontrol.*;*/
 
 public class DriveTrain_Subsystem extends Subsystem{
 	int counter = 0;
-    private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
-    private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
+    //private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
+    //private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
 	protected void initDefaultCommand() {
 		//setDefaultCommand(new TankDrive_Command());
@@ -28,7 +28,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
-		SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent());
+		//SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent());
 		/*SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
 		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
 		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
@@ -116,10 +116,12 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		if (joystickvalue<.1) {
+		if (Math.abs(joystickvalue)<.1) {
 			return 0 * RobotMap.robotDirection;
 		} else if (joystickvalue > .9) {
 			return 1 * RobotMap.robotDirection;
+		}else if (joystickvalue < -0.9) {
+			return -1 * RobotMap.robotDirection;
 		} else {
 			return joystickvalue * RobotMap.robotDirection;
 		}
