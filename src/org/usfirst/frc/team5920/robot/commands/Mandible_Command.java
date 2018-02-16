@@ -10,16 +10,11 @@ import org.usfirst.frc.team5920.robot.RobotMap;
  *
  */
 public class Mandible_Command extends Command {
-	private boolean innerMandible;
-	private boolean outerMandible;
+	private int mPosition;
 
-    public Mandible_Command(boolean innerMandible, boolean MandibleClosed) {
+    public Mandible_Command(int MandiblePosition) {
 	    	requires(Robot.Pneumatics_Subsystem);
-	    	if (innerMandible) {
-	    		innerMandible = MandibleClosed;
-	    	}else {
-	    		outerMandible = MandibleClosed;
-	    	}
+	    	mPosition = MandiblePosition;
     }
 
     // Called just before this Command runs the first time
@@ -30,7 +25,22 @@ public class Mandible_Command extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-	    	if (innerMandible) {
+    		switch(mPosition) {
+    		case 1 :
+    			Robot.Pneumatics_Subsystem.innerMandibleClose();
+	    		Robot.Pneumatics_Subsystem.outerMandibleClose();
+    		case 2 :
+    			Robot.Pneumatics_Subsystem.innerMandibleExtend();
+	    		Robot.Pneumatics_Subsystem.outerMandibleClose();
+    		case 3 :
+
+	    		Robot.Pneumatics_Subsystem.innerMandibleExtend();
+	    		Robot.Pneumatics_Subsystem.outerMandibleExtend();
+    		 default :
+	    		Robot.Pneumatics_Subsystem.innerMandibleExtend();
+	    		Robot.Pneumatics_Subsystem.outerMandibleExtend();
+    		}
+	    /*	if (innerMandible) {
 	    		Robot.Pneumatics_Subsystem.innerMandibleClose();
 	    	} else {
 	    		Robot.Pneumatics_Subsystem.innerMandibleExtend();
@@ -39,13 +49,13 @@ public class Mandible_Command extends Command {
 	    		Robot.Pneumatics_Subsystem.outerMandibleClose();
 	    	} else {
 	    		Robot.Pneumatics_Subsystem.outerMandibleExtend();
-	    	}
+	    	}*/
 	    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
