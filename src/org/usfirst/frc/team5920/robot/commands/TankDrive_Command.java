@@ -11,10 +11,7 @@ public class TankDrive_Command extends Command {
 	 private double m_y; 
 	 private double m_z;
 	     
-	 public TankDrive_Command(double x, double y, double z) {
-	        m_x = x;
-	        m_y = y;
-	        m_z = z;
+	 public TankDrive_Command() {
     		requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

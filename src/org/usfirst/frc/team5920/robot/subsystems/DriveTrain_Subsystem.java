@@ -23,7 +23,7 @@ public class DriveTrain_Subsystem extends Subsystem{
     private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new TankDrive_Command(0,0,0));
+		//setDefaultCommand(new TankDrive_Command());
 		
 	}
 	@Override
