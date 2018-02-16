@@ -21,32 +21,40 @@ import org.usfirst.frc.team5920.robot.commands.*;
  */ 
 public class OI { 
 	//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input for more examples.
-	//private XboxController DriverController;
-    
+	//public static XboxController DriverController;
+	//public static XboxController OperatorController;
+	
     
 	public OI() {
 		 //http://first.wpi.edu/FRC/roborio/beta/docs/java/edu/wpi/first/wpilibj/XboxController.html
 		//https://wpilib.screenstepslive.com/s/currentCS/m/java/l/599739-running-commands-on-joystick-input
-		
-		//XboxController DriveController = new XboxController(0);
+	/*	
+	XboxController Driver = new XboxController(0);
+	XboxController Operator = new XboxController(1);
 
-
-		/*XboxController DriveController = new XboxController(0);
-		Button DriverA = new JoystickButton(DriveController, 1),
-				DriverB = new JoystickButton(DriveController, 2),
-				DriverX = new JoystickButton(DriveController, 3),
-				DriverY = new JoystickButton(DriveController, 4),
-				DriverBack = new JoystickButton(DriveController, 7),				
-				DriverStart = new JoystickButton(DriveController, 8)
+		Button DriverA = new JoystickButton(Driver, 1),
+				DriverB = new JoystickButton(Driver, 2),
+				DriverX = new JoystickButton(Driver, 3),
+				DriverY = new JoystickButton(Driver, 4),
+				DriverBack = new JoystickButton(Driver, 7),				
+				DriverStart = new JoystickButton(Driver, 8)
 				;
+		Button OperatorA = new JoystickButton(Operator, 1),
+				OperatorB = new JoystickButton(Operator, 2),
+				OperatorX = new JoystickButton(Operator, 3),
+				OperatorY = new JoystickButton(Operator, 4),
+				OperatorBack = new JoystickButton(Operator, 7),				
+				OperatorStart = new JoystickButton(Operator, 8)
+				;
+		
 		DriverA.whenPressed(new Mandible_Command(true, true));
 		DriverB.whenPressed(new Mandible_Command(true, false));
 		DriverX.whenPressed(new Mandible_Command(false, true));
 		DriverY.whenPressed(new Mandible_Command(false, false));
 		DriverBack.whenActive(new Mandible_Command(false, false));
-		DriverStart.whenActive(new Mandible_Command(false, false));*/
-	//	DriverBack.whenActive(new Cage_Command("Mandible", 1));
-	//	DriverStart.whenActive(new Cage_Command("Ejector", 1));
+		DriverStart.whenActive(new Mandible_Command(false, false));
+		DriverBack.whenActive(new Cage_Command("Mandible", 1));
+		DriverStart.whenActive(new Cage_Command("Ejector", 1));*/
 	}
 	
 	public static double DriverLeftJoystick(){
