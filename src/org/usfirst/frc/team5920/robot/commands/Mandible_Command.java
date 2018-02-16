@@ -19,8 +19,7 @@ public class Mandible_Command extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		innerMandible = true;
-    		outerMandible = true;
+    		mPosition=3;
     }
 
     // Called repeatedly when this Command is scheduled to run
