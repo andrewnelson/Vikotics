@@ -46,10 +46,6 @@ public class Pneumatics_Subsystem extends Subsystem {
     		RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
     		SmartDashboard.putBoolean("Outer Mandible Open", true);
     }
-/*    public void FullMandibleExtend() {
-	    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
-	    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kForward);
-    }*/
     
     public void innerMandibleClose() {
     		RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
@@ -59,9 +55,5 @@ public class Pneumatics_Subsystem extends Subsystem {
     		RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
     		SmartDashboard.putBoolean("Outer Mandible Open", false);
     }
-/*    public void FullMandibleClose() {
-	    	RobotMap.innerMandibles.set(DoubleSolenoid.Value.kReverse);
-	    	RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
-    }*/
 }
 
