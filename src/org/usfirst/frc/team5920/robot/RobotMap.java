@@ -72,6 +72,7 @@ public class RobotMap {
     public static double GantrySpeed = encoderPerRev / 300 * 470;//Ditto
     public static double CageSpeed = encoderPerRev / 300 * 470;//Ditto
     public static double MandibleSpeed = encoderPerRev / 300 * 470;//Ditto
+    public static double GantryTicksPerInch = 4096;
     
     public static double percisionspeed = .5;    
     public static double driveTrain_WheelDiameter = 6.0;

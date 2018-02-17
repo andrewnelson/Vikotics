@@ -1,12 +1,19 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
+import org.usfirst.frc.team5920.robot.Robot;
+import org.usfirst.frc.team5920.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class Gantry_Subsystem extends Subsystem {
-
+	private double currentPosition;
+	
+    public Gantry_Subsystem() {
+    	currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
+}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -17,8 +24,10 @@ public class Gantry_Subsystem extends Subsystem {
     public void DropGantry() {
     	//Take Gantry to bottom (limitswitch) and reset ofset to 0
     	
+    	
     }
     public void moveTo(int Gantry_Position) {
+    	currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
     	switch (Gantry_Position) {
         case 0: //Send Gantry to position 0
         		DropGantry();
@@ -29,7 +38,9 @@ public class Gantry_Subsystem extends Subsystem {
                  break;
         case 3: //Send Gantry to position 3
                  break;
-        
+        case 4: //Send Gantry to climb position
+        		break;
+        		
         default: //Send Gantry to position 0;
         		 DropGantry();
                  break;
