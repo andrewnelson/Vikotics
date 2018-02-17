@@ -28,18 +28,6 @@ public class DriveTrain_Subsystem extends Subsystem{
 	}
 	@Override
 	public void periodic() {  
-		//SmartDashboard.putNumber("Current Draw", RobotMap.RobotPDP.getTotalCurrent());
-		/*SmartDashboard.putNumber("Drive Train 1", RobotMap.RobotPDP.getCurrent(0));
-		SmartDashboard.putNumber("Drive Train 2", RobotMap.RobotPDP.getCurrent(1));
-		SmartDashboard.putNumber("Power Controller 3", PDP.getCurrent(2));
-		SmartDashboard.putNumber("Power Controller 4", PDP.getCurrent(3));
-		SmartDashboard.putNumber("Power Controller 5 (30 AMP)", PDP.getCurrent(4));
-		SmartDashboard.putNumber("Camera", PDP.getCurrent(7));
-		SmartDashboard.putNumber("Power Controller 7 (30 AMP)", PDP.getCurrent(11));
-		SmartDashboard.putNumber("Power Controller 8", PDP.getCurrent(12));
-		SmartDashboard.putNumber("Power Controller 9", PDP.getCurrent(13));
-		SmartDashboard.putNumber("Drive Train 3", PDP.getCurrent(14));
-		SmartDashboard.putNumber("Drive Train 4", PDP.getCurrent(15));*/
 		
 		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+ (RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1))/2;
 		robotSpeed = robotSpeed * 10; //Ticks per Sec
