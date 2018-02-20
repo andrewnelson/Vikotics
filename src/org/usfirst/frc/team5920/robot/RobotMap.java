@@ -141,10 +141,10 @@ public class RobotMap {
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	driveTrain_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	
-    driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
-    driveTrain_MainDrive.setSafetyEnabled(true);
-    driveTrain_MainDrive.setExpiration(0.1);
-    driveTrain_MainDrive.setMaxOutput(1.0);
+//    driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
+//    driveTrain_MainDrive.setSafetyEnabled(true);
+//    driveTrain_MainDrive.setExpiration(0.1);
+//    driveTrain_MainDrive.setMaxOutput(1.0);
     
     driveTrain_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
     driveTrain_LeftMotor.setSensorPhase(true);

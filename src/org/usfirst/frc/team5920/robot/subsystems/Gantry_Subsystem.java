@@ -13,15 +13,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class Gantry_Subsystem extends Subsystem {
-	private double currentPosition;
+	//private double currentPosition;
 	
     public Gantry_Subsystem() {
-    	currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
+    	//currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
     }
     
     public void periodic(){
-    	RobotMap.Gantry_PrimeMotor.set(getJoystickWithDeadBand(OI.OperatorRightJoystick()));
-    	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.Velocity, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
