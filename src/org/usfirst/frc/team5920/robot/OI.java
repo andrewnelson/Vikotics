@@ -71,6 +71,22 @@ public class OI {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
+	public static boolean OperatorX() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getXButton();
+	}
+	public static boolean OperatorY() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getYButton();
+	}
+	public static boolean OperatorA() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getAButton();
+	}
+	public static boolean OperatorB() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getBButton();
+	}
 	
 	public static double DriverLeftJoystick(){
 		XboxController DriverController = new XboxController(0);

@@ -62,8 +62,8 @@ public class Robot extends TimedRobot {
         CameraData =  NetworkTable.getTable("limelight");
 		driveTrain_Subsystem = new DriveTrain_Subsystem();
 		Pneumatics_Subsystem = new Pneumatics_Subsystem();
-		//Gantry_Subsystem = new Gantry_Subsystem();
-		//Cage_Subsystem = new Cage_Subsystem();
+		Gantry_Subsystem = new Gantry_Subsystem();
+		Cage_Subsystem = new Cage_Subsystem();
 		
        // SmartDashboard.putData(driveTrain_Subsystem);
         
