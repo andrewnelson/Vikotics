@@ -99,12 +99,12 @@ public class RobotMap {
     	driveTrain_rearLeftMotor = new WPI_VictorSPX(11);
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
     	driveTrain_rearRightMotor = new WPI_VictorSPX(12);
- /*   Gantry_PrimeMotor = new WPI_TalonSRX(21);
-    Gantry_SecondaryMotor = new WPI_VictorSPX(22);
-    Cage_LeftMotor = new WPI_TalonSRX(31);
-    Cage_RightMotor = new WPI_TalonSRX(32);
-    Mandible_Left = new WPI_TalonSRX(33);
-    Mandible_Right = new WPI_TalonSRX(34);
+    Gantry_PrimeMotor = new WPI_TalonSRX(52);
+    Gantry_SecondaryMotor = new WPI_VictorSPX(51);
+    Cage_LeftMotor = new WPI_TalonSRX(53);
+    Cage_RightMotor = new WPI_TalonSRX(56);
+    Mandible_Left = new WPI_TalonSRX(54);
+    Mandible_Right = new WPI_TalonSRX(55);
     
     Gantry_PrimeMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
     Gantry_PrimeMotor.setSensorPhase(true);
@@ -126,7 +126,7 @@ public class RobotMap {
     
     Mandible_Right.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
     Mandible_Right.setSensorPhase(true);
-    Mandible_Right.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);*/
+    Mandible_Right.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     
     driveTrain_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(true);
