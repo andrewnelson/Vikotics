@@ -64,11 +64,11 @@ public class OI {
 	}
 	
 	public static double OperatorLeftJoystick() {
-		XboxController OperatorController = new XboxController(0);
+		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
 	public static double OperatorRightJoystick() {
-		XboxController OperatorController = new XboxController(0);
+		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	
