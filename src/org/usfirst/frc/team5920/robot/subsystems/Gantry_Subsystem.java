@@ -20,7 +20,6 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
     public void periodic(){
-    	RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, (Velocity * getJoystickWithDeadBand(OI.DriverRightJoystick())));
     	RobotMap.Gantry_PrimeMotor.set(getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
