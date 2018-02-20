@@ -1,9 +1,13 @@
 package org.usfirst.frc.team5920.robot.subsystems;
 
+import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -13,7 +17,13 @@ public class Gantry_Subsystem extends Subsystem {
 	
     public Gantry_Subsystem() {
     	currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
-}
+    }
+    
+    public void periodic(){
+    	RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, (Velocity * getJoystickWithDeadBand(OI.DriverRightJoystick())));
+    	RobotMap.Gantry_PrimeMotor.set(getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
+    }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -46,5 +56,13 @@ public class Gantry_Subsystem extends Subsystem {
                  break;
     }
     }
+    
+	private double getJoystickWithDeadBand(double joystickvalue) {
+		if (Math.abs(joystickvalue)<.2) {
+			return 0 * RobotMap.robotDirection;
+		} else {
+			return joystickvalue * RobotMap.robotDirection;
+		}
+	}
 }
 
