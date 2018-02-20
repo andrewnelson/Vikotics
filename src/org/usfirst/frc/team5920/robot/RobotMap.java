@@ -174,6 +174,18 @@ public class RobotMap {
 	driveTrain_RightMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
 	driveTrain_RightMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
 	driveTrain_RightMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
+	
+	/* set the peak, nominal outputs */
+	Gantry_PrimeMotor.configNominalOutputForward(0, kTimeoutMs);
+	Gantry_PrimeMotor.configNominalOutputReverse(0, kTimeoutMs);
+	Gantry_PrimeMotor.configPeakOutputForward(1, kTimeoutMs);
+	Gantry_PrimeMotor.configPeakOutputReverse(-1, kTimeoutMs);
+
+	/* set closed loop gains in slot0 */
+	Gantry_PrimeMotor.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
+	Gantry_PrimeMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
+	Gantry_PrimeMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
+	Gantry_PrimeMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
          
     }
     public static void initAuto() {

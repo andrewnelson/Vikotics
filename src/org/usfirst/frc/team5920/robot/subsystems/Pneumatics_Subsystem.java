@@ -9,11 +9,8 @@ import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-/**
- *
- */
-public class Pneumatics_Subsystem extends Subsystem {
 
+public class Pneumatics_Subsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -26,15 +23,21 @@ public class Pneumatics_Subsystem extends Subsystem {
     public void periodic() {
     	if (OI.OperatorY()) {
     		innerMandibleExtend();
-			outerMandibleExtend();
-		}
+		outerMandibleExtend();
+		OI.OperatorRumble();
+		OI.DriverRumble();
+	}
     	if (OI.OperatorB()) {
     		innerMandibleExtend();
-			outerMandibleClose();
+			outerMandibleClose();		
+			OI.OperatorRumble();
+			OI.DriverRumble();
     	}
 		if (OI.OperatorA()) {
 			innerMandibleClose();
 			outerMandibleClose();
+			OI.OperatorRumble();
+			OI.DriverRumble();
 		}
     }
     
