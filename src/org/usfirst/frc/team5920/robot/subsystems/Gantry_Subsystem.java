@@ -20,6 +20,10 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
     public void periodic(){
+    	if(OI.OperatorRightBumper()) {
+    		RobotMap.Mandible_Left.set(ControlMode.Velocity, 1);
+    		RobotMap.Mandible_Right.set(ControlMode.Velocity, 1);
+    	}
     	RobotMap.Gantry_PrimeMotor.set(ControlMode.Velocity, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
@@ -36,7 +40,7 @@ public class Gantry_Subsystem extends Subsystem {
     	
     }
     public void moveTo(int Gantry_Position) {
-    	currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
+    	//currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
     	switch (Gantry_Position) {
         case 0: //Send Gantry to position 0
         		DropGantry();

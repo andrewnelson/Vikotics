@@ -87,6 +87,24 @@ public class OI {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getBButton();
 	}
+	public static boolean OperatorRightBumper() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	}
+	public static boolean OperatorLeftBumper() {
+		XboxController DriverController = new XboxController(1);
+		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
+/*	public static boolean OperatorRightTrigger() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.get(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+	}
+	public static boolean OperatorLeftTrigger() {
+		XboxController DriverController = new XboxController(1);
+		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}*/
+	
+	
 	
 	public static double DriverLeftJoystick(){
 		XboxController DriverController = new XboxController(0);
