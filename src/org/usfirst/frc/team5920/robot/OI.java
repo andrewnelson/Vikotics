@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team5920.robot;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -62,7 +63,7 @@ public class OI {
 		OperatorX.whenPressed(new Mandible_Command(3));
 		*/
 	}
-	
+	//Operator Code
 	public static double OperatorLeftJoystick() {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
@@ -92,8 +93,26 @@ public class OI {
 		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	public static boolean OperatorLeftBumper() {
-		XboxController DriverController = new XboxController(1);
-		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
+	public static void OperatorRumble() {
+		Thread t1 = new Thread(new Runnable() {
+		     public void run() {
+		 		XboxController OperatorController = new XboxController(1);
+		 		OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+		 		OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, 1);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
+				OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, 0);
+		     }
+		 });
+		t1.start();
 	}
 /*	public static boolean OperatorRightTrigger() {
 		XboxController OperatorController = new XboxController(1);
@@ -105,7 +124,7 @@ public class OI {
 	}*/
 	
 	
-	
+	//Driver Code
 	public static double DriverLeftJoystick(){
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getY(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
@@ -140,7 +159,24 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBButton();
 	}
-
+	public static void DriverRumble() {
+		Thread t1 = new Thread(new Runnable() {
+		     public void run() {
+		 		XboxController DriverController = new XboxController(0);
+				DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+				DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 1);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
+				DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 0);
+		     }
+		 });
+		t1.start();
+	}
 	
 }
 
