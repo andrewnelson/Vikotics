@@ -22,6 +22,34 @@ public class Gantry_Subsystem extends Subsystem {
     public void periodic(){
 
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
+    	if (OI.OperatorLeftBumper()) {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -0.25);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -0.25);
+    	} else {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
+    	}
+    	if (OI.OperatorRightBumper()) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, .75);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, .75);
+    	}else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		
+    	}
+    	if (OI.OperatorLeftTrigger()) {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0.25);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0.25);
+    	} else {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);	
+    	}
+    	if (OI.OperatorRightTrigger()) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, -0.75);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -0.75);
+    	}else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);   
+    	}
     	if(OI.OperatorX()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, .25);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, .25);
@@ -33,7 +61,7 @@ public class Gantry_Subsystem extends Subsystem {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
     	}
-    	//RobotMap.Gantry_PrimeMotor.set(ControlMode.Current, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
     // Put methods for controlling this subsystem
