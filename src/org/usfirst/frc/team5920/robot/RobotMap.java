@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import org.usfirst.frc.team5920.robot.subsystems.Pneumatics_Subsystem;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -37,7 +36,6 @@ public class RobotMap {
     //Drive module
  	public static DifferentialDrive driveTrain_MainDrive;
     //Pneumatics
- 	public static Pneumatics_Subsystem Pneumatics;
  	public static Compressor airSupply;
     public static DoubleSolenoid innerMandibles;
     public static DoubleSolenoid outerMandibles;
@@ -48,6 +46,7 @@ public class RobotMap {
     //Gantry Lift
     public static WPI_TalonSRX Gantry_PrimeMotor;
     public static WPI_VictorSPX Gantry_SecondaryMotor;
+    
     public static DigitalInput Gantry_TopLimit;
     public static DigitalInput Gantry_BottomLimit;
     
@@ -92,14 +91,13 @@ public class RobotMap {
     	airSupply = new Compressor(3);
     	innerMandibles = new DoubleSolenoid(3, 0, 1);
     	outerMandibles = new DoubleSolenoid(3,2,3);
-    	Pneumatics = new Pneumatics_Subsystem();
     	//sRobotPDP = new PowerDistributionPanel();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);
     	driveTrain_rearLeftMotor = new WPI_VictorSPX(11);
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
     	driveTrain_rearRightMotor = new WPI_VictorSPX(12);
-    Gantry_PrimeMotor = new WPI_TalonSRX(57);
+    Gantry_PrimeMotor = new WPI_TalonSRX(58);
     Gantry_SecondaryMotor = new WPI_VictorSPX(51);
     Cage_LeftMotor = new WPI_TalonSRX(53);
     Cage_RightMotor = new WPI_TalonSRX(56);
@@ -120,14 +118,8 @@ public class RobotMap {
     Cage_RightMotor.setSensorPhase(true);
     Cage_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     
-    Mandible_Left.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-    Mandible_Left.setSensorPhase(true);
-    Mandible_Left.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
-    
-    Mandible_Right.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-    Mandible_Right.setSensorPhase(true);
-    Mandible_Right.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
-    
+   
+   
     driveTrain_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
     	driveTrain_LeftMotor.setInverted(true);
     	driveTrain_rearLeftMotor.setInverted(true);
@@ -174,7 +166,29 @@ public class RobotMap {
 	driveTrain_RightMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
 	driveTrain_RightMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
 	driveTrain_RightMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-         
+	SetupMotorControl(Mandible_Right);
+	SetupMotorControl(Mandible_Left);
+    }
+    
+   
+    
+    private static void SetupMotorControl(WPI_TalonSRX controller) {
+    	controller.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
+    	 controller.setSensorPhase(true);
+    	 controller.setInverted(true);
+    	    controller.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
+    	    
+    	/* set the peak, nominal outputs */
+    	controller.configNominalOutputForward(0, kTimeoutMs);
+    	controller.configNominalOutputReverse(0, kTimeoutMs);
+    	controller.configPeakOutputForward(1, kTimeoutMs);
+    	controller.configPeakOutputReverse(-1, kTimeoutMs);
+
+    	/* set closed loop gains in slot0 */
+    	controller.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
+    	controller.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
+    	controller.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
+    	controller.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
     }
     public static void initAuto() {
 	    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);

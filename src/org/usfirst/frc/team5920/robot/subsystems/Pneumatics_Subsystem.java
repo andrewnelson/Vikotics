@@ -7,6 +7,9 @@ import org.usfirst.frc.team5920.robot.RobotMap;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
@@ -24,6 +27,8 @@ public class Pneumatics_Subsystem extends Subsystem {
    
     @Override
     public void periodic() {
+    	
+    	
     	if (OI.OperatorY()) {
     		innerMandibleExtend();
 			outerMandibleExtend();
