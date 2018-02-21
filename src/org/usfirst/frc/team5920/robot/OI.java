@@ -114,14 +114,14 @@ public class OI {
 		 });
 		t1.start();
 	}
-	public static boolean OperatorRightTrigger() {
+	/*public static boolean OperatorRightTrigger() {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.get(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
 	public static boolean OperatorLeftTrigger() {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
-	}
+	}*/
 	
 	
 	//Driver Code

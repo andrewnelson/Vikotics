@@ -36,7 +36,7 @@ public class Gantry_Subsystem extends Subsystem {
     		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
     		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		
     	}
-    	if (OI.OperatorLeftTrigger()) {
+    	/*if (OI.OperatorLeftTrigger()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0.25);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0.25);
     	} else {
@@ -49,7 +49,7 @@ public class Gantry_Subsystem extends Subsystem {
     	}else {
     		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
     		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);   
-    	}
+    	}*/
     	if(OI.OperatorX()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, .25);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, .25);
