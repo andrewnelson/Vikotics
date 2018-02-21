@@ -23,15 +23,17 @@ public class Gantry_Subsystem extends Subsystem {
 
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
     	if(OI.OperatorX()) {
-    		RobotMap.Mandible_Left.set(ControlMode.Velocity, 10/RobotMap.encoderPerRev*10);
-    		RobotMap.Mandible_Right.set(ControlMode.Velocity, 10/RobotMap.encoderPerRev*10);
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, .25);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, .25);
+    		//RobotMap.Mandible_Left.set(ControlMode, 10/RobotMap.encoderPerRev*10);
+    		//RobotMap.Mandible_Right.set(ControlMode.Velocity, 10/RobotMap.encoderPerRev*10);
     		SmartDashboard.putNumber("Mandible Key", 1);
     	}else {
     		SmartDashboard.putNumber("Mandible Key", 0);
-    		RobotMap.Mandible_Left.set(ControlMode.Velocity, 0);
-    		RobotMap.Mandible_Right.set(ControlMode.Velocity, 0);
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
     	}
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.Current, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    	//RobotMap.Gantry_PrimeMotor.set(ControlMode.Current, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
     // Put methods for controlling this subsystem

@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.*;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 //import edu.wpi.first.wpilibj.smartdashboard.*;
 
@@ -166,9 +167,12 @@ public class RobotMap {
 	driveTrain_RightMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
 	driveTrain_RightMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
 	driveTrain_RightMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-<<<<<<< HEAD
-	SetupMotorControl(Mandible_Right);
-	SetupMotorControl(Mandible_Left);
+
+	//SetupMotorControl(Mandible_Right);
+	//SetupMotorControl(Mandible_Left);
+	SetupCurrentMotor(Mandible_Right);
+	SetupCurrentMotor(Mandible_Left);
+	
     }
     
    
@@ -190,7 +194,7 @@ public class RobotMap {
     	controller.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
     	controller.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
     	controller.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-=======
+
 	
 	/* set the peak, nominal outputs */
 	Gantry_PrimeMotor.configNominalOutputForward(0, kTimeoutMs);
@@ -204,7 +208,27 @@ public class RobotMap {
 	Gantry_PrimeMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
 	Gantry_PrimeMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
          
->>>>>>> branch 'master' of https://github.com/andrewnelson/Vikotics.git
+    }
+    
+    private static void SetupCurrentMotor(WPI_TalonSRX _tal) {
+    	boolean _currentLimEn = true;
+    	final int kPeakCurrentAmps = 15; /* threshold to trigger current limit */
+		final int kPeakTimeMs = 0; /* how long after Peak current to trigger current limit */
+		final int kContinCurrentAmps = 10; /* hold current after limit is triggered */
+
+		_tal.configPeakCurrentLimit(kPeakCurrentAmps, 10);
+		_tal.configPeakCurrentDuration(kPeakTimeMs, 10); /* this is a necessary call to avoid errata. */
+		_tal.configContinuousCurrentLimit(kContinCurrentAmps, 10);
+		_tal.enableCurrentLimit(_currentLimEn); /* honor initial setting */
+
+		/* setup a basic closed loop */
+		_tal.setNeutralMode(NeutralMode.Brake);
+		_tal.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 10);
+		_tal.setSensorPhase(true); /* flip until sensor is in phase, or closed-loop will not work */
+		_tal.config_kP(0, 2.0, 10);
+		_tal.config_kI(0, 0.0, 10);
+		_tal.config_kD(0, 0.0, 10);
+		_tal.config_kF(0, 0.0, 10);
     }
     public static void initAuto() {
 	    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
