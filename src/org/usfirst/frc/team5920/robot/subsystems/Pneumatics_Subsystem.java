@@ -25,13 +25,12 @@ public class Pneumatics_Subsystem extends Subsystem {
     @Override
     public void periodic() {
     	
-    	
     	if (OI.OperatorY()) {
     		innerMandibleExtend();
-		outerMandibleExtend();
-		OI.OperatorRumble();
-		OI.DriverRumble();
-	}
+    		outerMandibleExtend();
+			OI.OperatorRumble();
+			OI.DriverRumble();
+		}
     	if (OI.OperatorB()) {
     		innerMandibleExtend();
 			outerMandibleClose();		

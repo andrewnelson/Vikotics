@@ -4,6 +4,9 @@ import org.usfirst.frc.team5920.robot.RobotMap;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.commands.*;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,7 +20,21 @@ public class Cage_Subsystem extends Subsystem {
     // here. Call these from Commands.
 	public void periodic() {
 		SmartDashboard.putBoolean("Cube in Cage", RobotMap.Cage_CubePresent.get());
-		
+    	if (OI.OperatorRightBumper()) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, .75);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, .75);
+    	}else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		
+    	}
+    	/*
+    	if (OI.OperatorRightTrigger()) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, -0.75);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -0.75);
+    	}else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);   
+    	}*/
 	}
 
     public void initDefaultCommand() {
