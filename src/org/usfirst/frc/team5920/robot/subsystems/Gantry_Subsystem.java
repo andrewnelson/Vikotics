@@ -23,8 +23,8 @@ public class Gantry_Subsystem extends Subsystem {
 
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
     	if (OI.OperatorLeftBumper()) {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -0.25);
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -0.25);
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
     	} else {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
@@ -38,8 +38,8 @@ public class Gantry_Subsystem extends Subsystem {
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);	
     	}*/
     	if(OI.OperatorX()) {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, .25);
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, .25);
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
     		//RobotMap.Mandible_Left.set(ControlMode, 10/RobotMap.encoderPerRev*10);
     		//RobotMap.Mandible_Right.set(ControlMode.Velocity, 10/RobotMap.encoderPerRev*10);
     		SmartDashboard.putNumber("Mandible Key", 1);

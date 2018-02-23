@@ -21,8 +21,8 @@ public class Cage_Subsystem extends Subsystem {
 	public void periodic() {
 		SmartDashboard.putBoolean("Cube in Cage", RobotMap.Cage_CubePresent.get());
     	if (OI.OperatorRightBumper()) {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, .75);
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, .75);
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, RobotMap.CageSpeed);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, RobotMap.CageSpeed);
     	}else {
     		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
     		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		

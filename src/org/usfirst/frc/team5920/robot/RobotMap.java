@@ -71,8 +71,8 @@ public class RobotMap {
     public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
     
     public static double GantrySpeed = encoderPerRev / 300 * 470;//Ditto
-    public static double CageSpeed = encoderPerRev / 300 * 470;//Ditto
-    public static double MandibleSpeed = encoderPerRev / 300 * 470;//Ditto
+   // public static double CageSpeed = encoderPerRev / 300 * 470;//Ditto
+    //public static double MandibleSpeed = encoderPerRev / 300 * 470;//Ditto
     public static double GantryTicksPerInch = 4096;
     
     public static double percisionspeed = .5;    
@@ -80,6 +80,10 @@ public class RobotMap {
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
     public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;
 
+    public static double MandibleSpeed = .25;
+    public static double CageSpeed = .50;
+    
+    
     //SRX constants
     public static final int kSlotIdx = 0;
 	public static final int kPIDLoopIdx = 0;
@@ -179,11 +183,11 @@ public class RobotMap {
 		*/
 		//SetupMotorControl(Mandible_Right);
 		//SetupMotorControl(Mandible_Left);
-		SetupCurrentMotor(Mandible_Right);
-		SetupCurrentMotor(Mandible_Left);
+		SetupCurrentMotor(Mandible_Right, true);
+		SetupCurrentMotor(Mandible_Left, true);
 		
-		SetupCurrentMotor(Cage_LeftMotor);
-		SetupCurrentMotor(Cage_RightMotor);
+		SetupCurrentMotor(Cage_LeftMotor, false);
+		SetupCurrentMotor(Cage_RightMotor, false);
 	
     }
     
@@ -222,7 +226,8 @@ public class RobotMap {
 	         
     }
     
-    private static void SetupCurrentMotor(WPI_TalonSRX _tal) {
+    private static void SetupCurrentMotor(WPI_TalonSRX _tal, boolean inverted) {
+    	_tal.setInverted(inverted);
 		boolean _currentLimEn = true;
 		final int kPeakCurrentAmps = 15; /* threshold to trigger current limit */
 		final int kPeakTimeMs = 0; /* how long after Peak current to trigger current limit */
