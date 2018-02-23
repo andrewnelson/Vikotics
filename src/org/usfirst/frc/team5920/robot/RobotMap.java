@@ -41,7 +41,7 @@ public class RobotMap {
     public static DoubleSolenoid innerMandibles;
     public static DoubleSolenoid outerMandibles;
     //Robot Info
-    public static PowerDistributionPanel RobotPDP;
+    //public static PowerDistributionPanel RobotPDP;
     //NavX
     
     //Gantry Lift
