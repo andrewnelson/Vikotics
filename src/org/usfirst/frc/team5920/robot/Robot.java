@@ -103,14 +103,14 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousPeriodic() {
+		CameraData.putNumber("ledMode", 0);
+		CameraData.putNumber("camMode", 0);
 		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopInit() {
 		RobotMap.initTele();
-		CameraData.putNumber("ledMode", 1);
-		CameraData.putNumber("camMode", 1);
 				
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
@@ -119,6 +119,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
+		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 		//This function is called periodically during operator control.
 		Scheduler.getInstance().run();
 	}
