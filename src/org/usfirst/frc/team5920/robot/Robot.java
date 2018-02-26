@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     public static Gantry_Subsystem Gantry_Subsystem;
     public static Cage_Subsystem Cage_Subsystem;
     public static Pneumatics_Subsystem Pneumatics_Subsystem;
-    public static Lighting_Subsystem Lighting;
+   // public static Lighting_Subsystem Lighting;
     @SuppressWarnings("deprecation")
 	public static NetworkTable CameraData;
     
@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
 		Pneumatics_Subsystem = new Pneumatics_Subsystem();
 		Gantry_Subsystem = new Gantry_Subsystem();
 		Cage_Subsystem = new Cage_Subsystem();
-		Lighting = new Lighting_Subsystem();
+	//	Lighting = new Lighting_Subsystem();
 
 	}
 

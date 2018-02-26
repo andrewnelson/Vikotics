@@ -36,7 +36,7 @@ public class Gantry_Subsystem extends Subsystem {
     	} else {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);	
-    	}*/
+    	}
     	if(OI.OperatorX()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, RobotMap.MandibleSpeed);
@@ -47,7 +47,7 @@ public class Gantry_Subsystem extends Subsystem {
     		SmartDashboard.putNumber("Mandible Key", 0);
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
-    	}
+    	}*/
     	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
@@ -85,8 +85,8 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		if (RobotMap.Gantry_TopLimit.get() && (joystickvalue > 0) ) {return 0;}
-		if (RobotMap.Gantry_BottomLimit.get() && (joystickvalue < 0) ) {return 0;}
+		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue < 0) ) {return 0;}
+		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue > 0) ) {return 0;}
 		if (Math.abs(joystickvalue)<.2) {
 			return 0;
 		} else {

@@ -80,7 +80,7 @@ public class RobotMap {
     public static double driveTrain_DistancePerRev = 2 * (driveTrain_WheelDiameter/2) * Math.PI;
     public static double ticksPerInch = encoderPerRev / driveTrain_DistancePerRev;
 
-    public static double MandibleSpeed = .25;
+    public static double MandibleSpeed = .50;
     public static double CageSpeed = .50;
     
     
@@ -131,7 +131,7 @@ public class RobotMap {
 	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, true);
 	    SetupDriveMotor(driveTrain_RightMotor, NeutralMode.Coast, false);
 	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, true);
-	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, true);
+	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
 	    
 	    /*
 	    driveTrain_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
@@ -183,12 +183,13 @@ public class RobotMap {
 		*/
 		//SetupMotorControl(Mandible_Right);
 		//SetupMotorControl(Mandible_Left);
-		SetupCurrentMotor(Mandible_Right, true);
+		SetupCurrentMotor(Mandible_Right, false);
 		SetupCurrentMotor(Mandible_Left, true);
 		
-		SetupCurrentMotor(Cage_LeftMotor, false);
-		SetupCurrentMotor(Cage_RightMotor, false);
-	
+		SetupCurrentMotor(Cage_LeftMotor, true);
+		SetupCurrentMotor(Cage_RightMotor, true);
+	SetupCurrentMotor(Gantry_PrimeMotor, true);
+	SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Coast, true);
     }
     
    
