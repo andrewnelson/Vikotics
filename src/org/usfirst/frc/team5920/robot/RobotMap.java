@@ -7,14 +7,14 @@
 
 package org.usfirst.frc.team5920.robot;
 
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
+//import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
+//import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.*;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -132,55 +132,54 @@ public class RobotMap {
     
    
     
-    private static void SetupMotorControl(WPI_TalonSRX controller) {
+ /*   private static void SetupMotorControl(WPI_TalonSRX controller) {
     	controller.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
     	controller.setSensorPhase(true);
     	controller.setInverted(true);
     	controller.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	    
-    	/* set the peak, nominal outputs */
+    	// set the peak, nominal outputs 
     	controller.configNominalOutputForward(0, kTimeoutMs);
     	controller.configNominalOutputReverse(0, kTimeoutMs);
     	controller.configPeakOutputForward(1, kTimeoutMs);
     	controller.configPeakOutputReverse(-1, kTimeoutMs);
 
-    	/* set closed loop gains in slot0 */
+    	// set closed loop gains in slot0 
     	controller.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
     	controller.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
     	controller.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
     	controller.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
 
 	
-		/* set the peak, nominal outputs */
+		// set the peak, nominal outputs 
 		Gantry_PrimeMotor.configNominalOutputForward(0, kTimeoutMs);
 		Gantry_PrimeMotor.configNominalOutputReverse(0, kTimeoutMs);
 		Gantry_PrimeMotor.configPeakOutputForward(1, kTimeoutMs);
 		Gantry_PrimeMotor.configPeakOutputReverse(-1, kTimeoutMs);
 	
-		/* set closed loop gains in slot0 */
+		// set closed loop gains in slot0 
 		Gantry_PrimeMotor.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
 		Gantry_PrimeMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
 		Gantry_PrimeMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
-		Gantry_PrimeMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-	         
-    }
+		Gantry_PrimeMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);      
+    }*/
     
     private static void SetupCurrentMotor(WPI_TalonSRX _tal, boolean inverted) {
     	_tal.setInverted(inverted);
 		boolean _currentLimEn = true;
-		final int kPeakCurrentAmps = 15; /* threshold to trigger current limit */
-		final int kPeakTimeMs = 0; /* how long after Peak current to trigger current limit */
-		final int kContinCurrentAmps = 10; /* hold current after limit is triggered */
+		final int kPeakCurrentAmps = 15; // threshold to trigger current limit 
+		final int kPeakTimeMs = 0; // how long after Peak current to trigger current limit 
+		final int kContinCurrentAmps = 10; // hold current after limit is triggered 
 
 		_tal.configPeakCurrentLimit(kPeakCurrentAmps, 10);
-		_tal.configPeakCurrentDuration(kPeakTimeMs, 10); /* this is a necessary call to avoid errata. */
+		_tal.configPeakCurrentDuration(kPeakTimeMs, 10); // this is a necessary call to avoid errata. 
 		_tal.configContinuousCurrentLimit(kContinCurrentAmps, 10);
-		_tal.enableCurrentLimit(_currentLimEn); /* honor initial setting */
+		_tal.enableCurrentLimit(_currentLimEn); // honor initial setting 
 
-		/* setup a basic closed loop */
+		// setup a basic closed loop 
 		_tal.setNeutralMode(NeutralMode.Brake);
 		_tal.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 10);
-		_tal.setSensorPhase(true); /* flip until sensor is in phase, or closed-loop will not work */
+		_tal.setSensorPhase(true); // flip until sensor is in phase, or closed-loop will not work 
 		_tal.config_kP(0, 2.0, 10);
 		_tal.config_kI(0, 0.0, 10);
 		_tal.config_kD(0, 0.0, 10);
@@ -190,13 +189,13 @@ public class RobotMap {
     private static void SetupDriveMotor(WPI_TalonSRX _tal, com.ctre.phoenix.motorcontrol.NeutralMode BrakeMode, boolean inverted) {
 	    _tal.setInverted(inverted);
     	_tal.setNeutralMode(BrakeMode);
-    	/* set the peak, nominal outputs */
+    	// set the peak, nominal outputs 
     	_tal.configNominalOutputForward(0, kTimeoutMs);
     	_tal.configNominalOutputReverse(0, kTimeoutMs);
     	_tal.configPeakOutputForward(1, kTimeoutMs);
     	_tal.configPeakOutputReverse(-1, kTimeoutMs);
 
-    	/* set closed loop gains in slot0 */
+    	// set closed loop gains in slot0 
     	_tal.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
     	_tal.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
     	_tal.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
