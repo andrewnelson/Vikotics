@@ -116,80 +116,18 @@ public class RobotMap {
 	    Gantry_PrimeMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 	    Gantry_SecondaryMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     
-		//SetupCurrentMotor(Gantry_PrimeMotor);
-		//SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Brake, false);
-	    
-	    /*Cage_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-	    Cage_LeftMotor.setSensorPhase(true);
-	    Cage_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
-	    
-	    Cage_RightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-	    Cage_RightMotor.setSensorPhase(true);
-	    Cage_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);*/
-	    
-	   
 	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, true);
 	    SetupDriveMotor(driveTrain_RightMotor, NeutralMode.Coast, false);
 	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, true);
 	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
-	    
-	    /*
-	    driveTrain_rearLeftMotor.follow((WPI_TalonSRX)driveTrain_LeftMotor);
-    	driveTrain_LeftMotor.setInverted(true);
-    	driveTrain_rearLeftMotor.setInverted(true);
-    	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
-    	driveTrain_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
-    	
-    	
-    	driveTrain_rearRightMotor.follow((WPI_TalonSRX)driveTrain_RightMotor);
-    	driveTrain_RightMotor.setInverted(false);
-    	driveTrain_rearRightMotor.setInverted(false);
-    	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
-    	driveTrain_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);*/
-    	
-		//driveTrain_MainDrive = new DifferentialDrive(driveTrain_LeftMotor, driveTrain_RightMotor);
-		//driveTrain_MainDrive.setSafetyEnabled(true);
-		//driveTrain_MainDrive.setExpiration(0.1);
-		//driveTrain_MainDrive.setMaxOutput(1.0);
-	    /* 
-	    driveTrain_LeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-	    driveTrain_LeftMotor.setSensorPhase(true);
-	    driveTrain_RightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, kTimeoutMs);
-	    driveTrain_RightMotor.setSensorPhase(true);
-		*/
-		/* set the peak, nominal outputs 
-	    driveTrain_LeftMotor.configNominalOutputForward(0, kTimeoutMs);
-		driveTrain_LeftMotor.configNominalOutputReverse(0, kTimeoutMs);
-		driveTrain_LeftMotor.configPeakOutputForward(1, kTimeoutMs);
-		driveTrain_LeftMotor.configPeakOutputReverse(-1, kTimeoutMs);
-		*/
-		/* set closed loop gains in slot0 
-		driveTrain_LeftMotor.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
-		driveTrain_LeftMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
-		driveTrain_LeftMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
-		driveTrain_LeftMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-		*/
-		/* set the peak, nominal outputs 
-		driveTrain_RightMotor.configNominalOutputForward(0, kTimeoutMs);
-		driveTrain_RightMotor.configNominalOutputReverse(0, kTimeoutMs);
-		driveTrain_RightMotor.configPeakOutputForward(1, kTimeoutMs);
-		driveTrain_RightMotor.configPeakOutputReverse(-1, kTimeoutMs);
-		*/
-		/* set closed loop gains in slot0 
-		driveTrain_RightMotor.config_kF(kPIDLoopIdx, 0.1097, kTimeoutMs);
-		driveTrain_RightMotor.config_kP(kPIDLoopIdx, 0.113333, kTimeoutMs);
-		driveTrain_RightMotor.config_kI(kPIDLoopIdx, 0, kTimeoutMs);
-		driveTrain_RightMotor.config_kD(kPIDLoopIdx, 0, kTimeoutMs);
-		*/
-		//SetupMotorControl(Mandible_Right);
-		//SetupMotorControl(Mandible_Left);
-		SetupCurrentMotor(Mandible_Right, false);
+	    	  
+	    SetupCurrentMotor(Mandible_Right, false);
 		SetupCurrentMotor(Mandible_Left, true);
 		
 		SetupCurrentMotor(Cage_LeftMotor, true);
 		SetupCurrentMotor(Cage_RightMotor, true);
-	SetupCurrentMotor(Gantry_PrimeMotor, true);
-	SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Coast, true);
+		SetupCurrentMotor(Gantry_PrimeMotor, true);
+		SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Coast, true);
     }
     
    
