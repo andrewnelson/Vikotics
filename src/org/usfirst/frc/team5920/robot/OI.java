@@ -114,6 +114,25 @@ public class OI {
 		 });
 		t1.start();
 	}
+	public static void OperatorRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
+		Thread t1 = new Thread(new Runnable() {
+		     public void run() {
+		 		XboxController OperatorController = new XboxController(1);
+		 		if (rLeft) {OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, intensity);}
+		 		if (rRight) {OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, intensity);}
+				try {
+					Thread.sleep(Duration);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (rLeft) {OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);}
+				if (rRight) {OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, 0);}
+		     }
+		 });
+		t1.start();
+	}
+	
 	/*public static boolean OperatorRightTrigger() {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.get(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
@@ -173,6 +192,24 @@ public class OI {
 				}
 				DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
 				DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 0);
+		     }
+		 });
+		t1.start();
+	}
+	public static void DriverRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
+		Thread t1 = new Thread(new Runnable() {
+		     public void run() {
+		 		XboxController DriverController = new XboxController(0);
+		 		if (rLeft) {DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, intensity);}
+		 		if (rRight) {DriverController.setRumble(GenericHID.RumbleType.kRightRumble, intensity);}
+				try {
+					Thread.sleep(Duration);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (rLeft) {DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);}
+				if (rRight) {DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 0);}
 		     }
 		 });
 		t1.start();
