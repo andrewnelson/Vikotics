@@ -23,7 +23,7 @@ public class Disabled_Command extends Command {
     protected void execute() {
     		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		SmartDashboard.putString(  "Field State", gameData);
+		SmartDashboard.putString(  "Field State", gameData); 
 		if(gameData.charAt(0) == 'L')
 		{
 			//Put left auto code here
