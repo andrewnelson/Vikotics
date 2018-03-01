@@ -133,14 +133,14 @@ public class OI {
 		t1.start();
 	}
 	
-	/*public static boolean OperatorRightTrigger() {
+	public static double OperatorRightTrigger() {
 		XboxController OperatorController = new XboxController(1);
-		return OperatorController.get(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
+		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
-	public static boolean OperatorLeftTrigger() {
+	public static double OperatorLeftTrigger() {
 		XboxController OperatorController = new XboxController(1);
-		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
-	}*/
+		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
+	}
 	
 	
 	//Driver Code

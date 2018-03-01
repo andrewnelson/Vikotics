@@ -48,6 +48,17 @@ public class Gantry_Subsystem extends Subsystem {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0);
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0);
     	}*/
+    	if (OI.OperatorLeftBumper()) {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    	}else {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    	}
+    	
+    	if (OI.OperatorRightBumper()) {
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    	}else {
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    	}
     	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     //	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
