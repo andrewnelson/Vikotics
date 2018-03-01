@@ -57,10 +57,9 @@ public class DriveTrain_Subsystem extends Subsystem{
         if ( ( Math.abs(currentJerkX) > kCollisionThreshold_DeltaG ) ||
              ( Math.abs(currentJerkY) > kCollisionThreshold_DeltaG) ) {
             collisionDetected = true;
-            OI.DriverRumbleEnhanced(250, .5, true, true);
+            OI.DriverRumbleEnhanced(300, 1, true, true);
+            OI.OperatorRumbleEnhanced(300, 1, true, true);
         }
-        SmartDashboard.putBoolean(  "CollisionDetected", collisionDetected);
-        
 		
 		
 		  SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());

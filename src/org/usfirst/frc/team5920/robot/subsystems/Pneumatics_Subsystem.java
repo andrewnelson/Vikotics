@@ -28,12 +28,12 @@ public class Pneumatics_Subsystem extends Subsystem {
     	if (OI.OperatorY()) {
     		innerMandibleExtend();
     		outerMandibleExtend();
-			OI.OperatorRumbleEnhanced(250, .5, true, true);
+			OI.OperatorRumbleEnhanced(500, 1, true, true);
 		}
     	if (OI.OperatorB()) {
     		innerMandibleExtend();
 			outerMandibleClose();		
-			OI.OperatorRumbleEnhanced(250, .5, false, true);
+			OI.OperatorRumbleEnhanced(500, 1, true, true);
     	}
 		if (OI.OperatorA()) {
 			innerMandibleClose();
