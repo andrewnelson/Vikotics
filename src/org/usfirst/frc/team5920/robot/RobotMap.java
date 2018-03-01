@@ -98,7 +98,7 @@ public class RobotMap {
     	driveTrain_rearLeftMotor = new WPI_VictorSPX(11);
     	driveTrain_RightMotor = new WPI_TalonSRX(2);
     	driveTrain_rearRightMotor = new WPI_VictorSPX(12);
-	    Gantry_PrimeMotor = new WPI_TalonSRX(58);
+	    Gantry_PrimeMotor = new WPI_TalonSRX(5);
 	    Gantry_SecondaryMotor = new WPI_VictorSPX(51);
 	    Cage_LeftMotor = new WPI_TalonSRX(53);
 	    Cage_RightMotor = new WPI_TalonSRX(56);

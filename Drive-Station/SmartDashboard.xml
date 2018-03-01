@@ -106,10 +106,10 @@
 		<property name="Maintain Aspect Ratio" value="true"/>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
-		<location x="603" y="2"/>
+		<location x="601" y="-5"/>
 		<width>743</width>
 		<height>296</height>
-		<property name="Camera Choice" value=""/>
+		<property name="Camera Choice" value="limelight"/>
 		<property name="Selected Camera Path" value="http://10.59.20.11:5800/"/>
 	</static-widget>
 	<widget field="Robot FPS" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.SimpleDial">
