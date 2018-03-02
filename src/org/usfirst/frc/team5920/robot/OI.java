@@ -141,7 +141,10 @@ public class OI {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getTriggerAxis(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
-	
+	public static int OperatorPOV(){
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getPOV();
+	}
 	
 	//Driver Code
 	public static double DriverLeftJoystick(){

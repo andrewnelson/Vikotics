@@ -20,7 +20,7 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
     public void periodic(){
-
+    	SmartDashboard.putNumber("dPAD", OI.OperatorPOV());
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
     	
     	if (OI.OperatorLeftBumper()) {
