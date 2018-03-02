@@ -78,6 +78,9 @@ public class RobotMap {
     public static double MandibleSpeed = .50;
     public static double CageSpeed = .50;
     
+    //Gantry Heights
+    public static int[] GantryHeight = {0, 5000, 20000, 40000};
+    
     
     //SRX constants
     public static final int kSlotIdx = 0;

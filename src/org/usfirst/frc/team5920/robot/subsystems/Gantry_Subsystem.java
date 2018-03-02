@@ -44,10 +44,11 @@ public class Gantry_Subsystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    
     public void DropGantry() {
     	//Take Gantry to bottom (limitswitch) and reset ofset to 0
-    	
-    	
+    		
     }
     public void moveTo(int Gantry_Position) {
     	//currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
