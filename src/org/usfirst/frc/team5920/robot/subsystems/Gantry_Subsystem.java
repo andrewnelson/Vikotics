@@ -36,10 +36,10 @@ public class Gantry_Subsystem extends Subsystem {
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
     	}
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
-    	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>0) {SmartDashboard.putBoolean("G0", true);}
-    	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[1]) {SmartDashboard.putBoolean("G1", true);}
-    	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[2]) {SmartDashboard.putBoolean("G2", true);}
-    	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[3]) {SmartDashboard.putBoolean("G0", true);}
+    	SmartDashboard.putBoolean("G0", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>0));
+    	SmartDashboard.putBoolean("G1", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[1]));
+    	SmartDashboard.putBoolean("G2", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[2]));
+    	SmartDashboard.putBoolean("G0", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[3]));
     	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
     }
     // Put methods for controlling this subsystem
