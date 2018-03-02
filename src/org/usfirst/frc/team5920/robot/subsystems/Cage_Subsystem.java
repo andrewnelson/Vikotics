@@ -28,12 +28,17 @@ public class Cage_Subsystem extends Subsystem {
     		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		
     	}
     	/*
-    	if (OI.OperatorRightTrigger()) {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, -0.75);
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -0.75);
+    		if (OI.OperatorLeftBumper()) {
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
     	}else {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);   
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    	}
+    	
+    	if (OI.OperatorRightBumper()) {
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    	}else {
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    	}  
     	}*/
 	}
 
