@@ -96,24 +96,7 @@ public class OI {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
-	public static void OperatorRumble() {
-		Thread t1 = new Thread(new Runnable() {
-		     public void run() {
-		 		XboxController OperatorController = new XboxController(1);
-		 		OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
-		 		OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, 1);
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				OperatorController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
-				OperatorController.setRumble(GenericHID.RumbleType.kRightRumble, 0);
-		     }
-		 });
-		t1.start();
-	}
+
 	public static void OperatorRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		Thread t1 = new Thread(new Runnable() {
 		     public void run() {
@@ -144,6 +127,12 @@ public class OI {
 	public static int OperatorPOV(){
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getPOV();
+	}
+	public static void GantryMover() {
+		XboxController OperatorController = new XboxController(1);
+		if (OperatorController.getPOV()!=-1){
+			Robot.Gantry_Subsystem.moveTo(OperatorController.getPOV());
+		}
 	}
 	
 	//Driver Code
@@ -181,24 +170,7 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBButton();
 	}
-	public static void DriverRumble() {
-		Thread t1 = new Thread(new Runnable() {
-		     public void run() {
-		 		XboxController DriverController = new XboxController(0);
-				DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
-				DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 1);
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				DriverController.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
-				DriverController.setRumble(GenericHID.RumbleType.kRightRumble, 0);
-		     }
-		 });
-		t1.start();
-	}
+
 	public static void DriverRumbleEnhanced(int Duration, double intensity, boolean rLeft, boolean rRight) {
 		Thread t1 = new Thread(new Runnable() {
 		     public void run() {
