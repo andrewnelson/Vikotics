@@ -62,22 +62,22 @@ public class DriveTrain_Subsystem extends Subsystem{
         }
 		
 		
-		  SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());
+		/*  SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());
           SmartDashboard.putBoolean(  "IMU_IsCalibrating",    ahrs.isCalibrating());
           SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
           SmartDashboard.putNumber(   "IMU_Pitch",            ahrs.getPitch());
-          SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());
+          SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());*/
           SmartDashboard.putNumber(   "IMU_CompassHeading",   ahrs.getCompassHeading());
           SmartDashboard.putNumber(   "IMU_FusedHeading",     ahrs.getFusedHeading());
           SmartDashboard.putNumber(   "IMU_TotalYaw",         ahrs.getAngle());
           SmartDashboard.putNumber(   "IMU_YawRateDPS",       ahrs.getRate());
-          SmartDashboard.putNumber(   "IMU_Accel_X",          ahrs.getWorldLinearAccelX());
-          SmartDashboard.putNumber(   "IMU_Accel_Y",          ahrs.getWorldLinearAccelY());
-          SmartDashboard.putBoolean(  "IMU_IsMoving",         ahrs.isMoving());
-          SmartDashboard.putBoolean(  "IMU_IsRotating",       ahrs.isRotating());
+       //   SmartDashboard.putNumber(   "IMU_Accel_X",          ahrs.getWorldLinearAccelX());
+       //   SmartDashboard.putNumber(   "IMU_Accel_Y",          ahrs.getWorldLinearAccelY());
+       //   SmartDashboard.putBoolean(  "IMU_IsMoving",         ahrs.isMoving());
+       //   SmartDashboard.putBoolean(  "IMU_IsRotating",       ahrs.isRotating());
           SmartDashboard.putNumber(   "Velocity_X",           ahrs.getVelocityX());
           SmartDashboard.putNumber(   "Velocity_Y",           ahrs.getVelocityY());
-          SmartDashboard.putNumber(   "Displacement_X",       ahrs.getDisplacementX());
+       /*   SmartDashboard.putNumber(   "Displacement_X",       ahrs.getDisplacementX());
           SmartDashboard.putNumber(   "Displacement_Y",       ahrs.getDisplacementY());
           SmartDashboard.putNumber(   "RawGyro_X",            ahrs.getRawGyroX());
           SmartDashboard.putNumber(   "RawGyro_Y",            ahrs.getRawGyroY());
@@ -88,7 +88,7 @@ public class DriveTrain_Subsystem extends Subsystem{
           SmartDashboard.putNumber(   "RawMag_X",             ahrs.getRawMagX());
           SmartDashboard.putNumber(   "RawMag_Y",             ahrs.getRawMagY());
           SmartDashboard.putNumber(   "RawMag_Z",             ahrs.getRawMagZ());
-          SmartDashboard.putNumber(   "IMU_Temp_C",           ahrs.getTempC());
+          SmartDashboard.putNumber(   "IMU_Temp_C",           ahrs.getTempC());*/
           
 		
 		
