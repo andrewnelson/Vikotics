@@ -29,6 +29,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
  */
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
+	
     SendableChooser autoChooser;//<Command> chooser = new SendableChooser<>();
     
     public static OI oi;
@@ -66,9 +67,12 @@ public class Robot extends TimedRobot {
 		Gantry_Subsystem = new Gantry_Subsystem();
 		Cage_Subsystem = new Cage_Subsystem();
 	//	Lighting = new Lighting_Subsystem();
+		autonomousCommand = new Auto_Command();
+		SmartDashboard.putData(Scheduler.getInstance());
+		SmartDashboard.putData("test command", autonomousCommand);;
 
 	}
-
+	
 	@Override
 	public void disabledInit() {
 		CameraData.putNumber("ledMode", 1);
