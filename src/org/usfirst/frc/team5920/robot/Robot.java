@@ -118,7 +118,7 @@ public class Robot extends TimedRobot {
 			RobotMap.SwitchLeft=false;
 		  }
 		//autonomousCommand = new Auto_Command();
-		//RobotMap.initAuto();
+		RobotMap.initAuto();
 		autonomousCommand = (Command) autoChooser.getSelected();
 
 		if (autonomousCommand != null) autonomousCommand.start();

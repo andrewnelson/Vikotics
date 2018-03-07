@@ -246,6 +246,9 @@ public class RobotMap {
     }
     
     public static void initAuto() {
+    	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+    	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+    	/*
     	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	driveTrain_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
@@ -264,7 +267,7 @@ public class RobotMap {
 
     
     	//driveTrain_LeftMotor.enableControl(); //Enable PID control on the talon
-
+*/
     }
     public static void initTele() {
     	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
