@@ -20,26 +20,14 @@ public class Cage_Subsystem extends Subsystem {
     // here. Call these from Commands.
 	public void periodic() {
 		SmartDashboard.putBoolean("Cube in Cage", !RobotMap.Cage_CubePresent.get());
-    	if (OI.OperatorRightBumper()) {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, RobotMap.CageSpeed);
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, RobotMap.CageSpeed);
+		if (OI.OperatorLeftBumper()) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		
     	}else {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);    		
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
     	}
-    	/*
-    		if (OI.OperatorLeftBumper()) {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    	}else {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    	}
-    	
-    	if (OI.OperatorRightBumper()) {
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
-    	}else {
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
-    	}  
-    	}*/
 	}
 
     public void initDefaultCommand() {
@@ -57,6 +45,14 @@ public class Cage_Subsystem extends Subsystem {
 	}
 	public void EjectCubeReverse(){
 		
+	}
+	
+	private double getJoystickWithDeadBand(double joystickvalue) {
+		if (Math.abs(joystickvalue)<.2) {
+			return 0;
+		} else {
+			return joystickvalue;
+		}
 	}
 }
 
