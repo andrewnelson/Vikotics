@@ -1,10 +1,10 @@
 package org.usfirst.frc.team5920.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team5920.robot.subsystems.*;
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
-import org.usfirst.frc.team5920.robot.RobotMap;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
@@ -27,17 +27,16 @@ public class Mandible_Command extends Command {
     		switch(mPosition) {
     		case 1 :
     			Robot.Mandible_Subsystem.innerMandibleClose();
-	    		Robot.Mandible_Subsystem.outerMandibleClose();
+    			Robot.Mandible_Subsystem.outerMandibleClose();
     		case 2 :
     			Robot.Mandible_Subsystem.innerMandibleExtend();
-	    		Robot.Mandible_Subsystem.outerMandibleClose();
+    			Robot.Mandible_Subsystem.outerMandibleClose();
     		case 3 :
-
-	    		Robot.Mandible_Subsystem.innerMandibleExtend();
-	    		Robot.Mandible_Subsystem.outerMandibleExtend();
+    			Robot.Mandible_Subsystem.innerMandibleExtend();
+    			Robot.Mandible_Subsystem.outerMandibleExtend();
     		 default :
-	    		Robot.Mandible_Subsystem.innerMandibleExtend();
-	    		Robot.Mandible_Subsystem.outerMandibleExtend();
+     			Robot.Mandible_Subsystem.innerMandibleExtend();
+     			Robot.Mandible_Subsystem.outerMandibleExtend();
     		}
 	    /*	if (innerMandible) {
 	    		Robot.Pneumatics_Subsystem.innerMandibleClose();

@@ -14,6 +14,7 @@ public class Auto_Command extends Command {
 
     public Auto_Command() {
     		requires(Robot.driveTrain_Subsystem);
+    		requires(Robot.Mandible_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     } 
