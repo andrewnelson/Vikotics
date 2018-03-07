@@ -59,17 +59,17 @@ public class Gantry_Subsystem extends Subsystem {
     	//currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
     	switch (Gantry_Position) {
         case 180: //Send Gantry to bottom (position 0)
-        	RobotMap.Gantry_PrimeMotor.set(ControlMode.Position, RobotMap.GantryHeight[0]);
+        	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, RobotMap.GantryHeight[0]);
         	DropGantry();
         	break;
         case 270: //Send Gantry to position 1 (10")
-        	RobotMap.Gantry_PrimeMotor.set(ControlMode.Position, RobotMap.GantryHeight[1]);
+        	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, RobotMap.GantryHeight[1]);
     		break; 	
         case 0: //Send Gantry to position 2 (20")
-        	RobotMap.Gantry_PrimeMotor.set(ControlMode.Position, RobotMap.GantryHeight[2]);
+        	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, RobotMap.GantryHeight[2]);
                 break;
         case 90: //Send Gantry to position 2
-        	RobotMap.Gantry_PrimeMotor.set(ControlMode.Position, RobotMap.GantryHeight[3]);
+        	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, RobotMap.GantryHeight[3]);
                  break;
                  
         case 45: //unused
@@ -87,6 +87,7 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
 	private double getJoystickWithDeadBand(double joystickvalue) {
+		joystickvalue = joystickvalue * -1;
 		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue < 0) ) {return 0;}
 		if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<1 && joystickvalue <0){return 0;}
 		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue > 0) ) {return 0;}
