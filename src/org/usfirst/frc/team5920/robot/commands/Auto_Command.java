@@ -32,7 +32,7 @@ public class Auto_Command extends Command {
     protected void execute() {
     	//Robot.driveTrain_Subsystem.StartAutoLeft();
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, .25);
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 5000);
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 10000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
