@@ -13,7 +13,7 @@ public class Mandible_Command extends Command {
 	private int mPosition;
 
     public Mandible_Command(int MandiblePosition) {
-	    	requires(Robot.Pneumatics_Subsystem);
+	    	requires(Robot.Mandible_Subsystem);
 	    	mPosition = MandiblePosition;
     }
 
@@ -26,18 +26,18 @@ public class Mandible_Command extends Command {
     protected void execute() {
     		switch(mPosition) {
     		case 1 :
-    			Robot.Pneumatics_Subsystem.innerMandibleClose();
-	    		Robot.Pneumatics_Subsystem.outerMandibleClose();
+    			Robot.Mandible_Subsystem.innerMandibleClose();
+	    		Robot.Mandible_Subsystem.outerMandibleClose();
     		case 2 :
-    			Robot.Pneumatics_Subsystem.innerMandibleExtend();
-	    		Robot.Pneumatics_Subsystem.outerMandibleClose();
+    			Robot.Mandible_Subsystem.innerMandibleExtend();
+	    		Robot.Mandible_Subsystem.outerMandibleClose();
     		case 3 :
 
-	    		Robot.Pneumatics_Subsystem.innerMandibleExtend();
-	    		Robot.Pneumatics_Subsystem.outerMandibleExtend();
+	    		Robot.Mandible_Subsystem.innerMandibleExtend();
+	    		Robot.Mandible_Subsystem.outerMandibleExtend();
     		 default :
-	    		Robot.Pneumatics_Subsystem.innerMandibleExtend();
-	    		Robot.Pneumatics_Subsystem.outerMandibleExtend();
+	    		Robot.Mandible_Subsystem.innerMandibleExtend();
+	    		Robot.Mandible_Subsystem.outerMandibleExtend();
     		}
 	    /*	if (innerMandible) {
 	    		Robot.Pneumatics_Subsystem.innerMandibleClose();
