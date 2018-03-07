@@ -105,7 +105,7 @@ public class DriveTrain_Subsystem extends Subsystem{
 
 		
 		//DriveWithJoysticks();
-		DriveWithSpeed();
+		if (RobotMap.useJoystick) {DriveWithSpeed();}
 	}
 	
 /*	public void DriveWithJoysticks() {

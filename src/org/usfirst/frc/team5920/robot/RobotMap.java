@@ -27,6 +27,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 public class RobotMap {
 	public static String FieldLayout;
 	public static boolean SwitchLeft;
+	public static boolean useJoystick=false;
 	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
     public static WPI_TalonSRX driveTrain_RightMotor;    

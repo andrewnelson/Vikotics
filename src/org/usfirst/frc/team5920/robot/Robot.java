@@ -83,6 +83,13 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() {
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		DriverStation.Alliance color;
+		color = DriverStation.getInstance().getAlliance();
+		if(color == DriverStation.Alliance.Blue){
+			SmartDashboard.putBoolean("Alliance", true);
+		}else {
+			SmartDashboard.putBoolean("Alliance", false);
+		}
         if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
 		Scheduler.getInstance().run();
 	}
@@ -100,6 +107,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		RobotMap.useJoystick=false;
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
         if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
@@ -125,6 +133,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		RobotMap.useJoystick = true;
 		RobotMap.initTele();
 				
 		if (autonomousCommand != null) {
