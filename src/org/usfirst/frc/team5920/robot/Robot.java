@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
     public static DriveTrain_Subsystem driveTrain_Subsystem;
     public static Gantry_Subsystem Gantry_Subsystem;
     public static Cage_Subsystem Cage_Subsystem;
-    public static Pneumatics_Subsystem Pneumatics_Subsystem;
+    public static Mandible_Subsystem Mandible_Subsystem;
    // public static Lighting_Subsystem Lighting;
     @SuppressWarnings("deprecation")
 	public static NetworkTable CameraData;
@@ -63,7 +63,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putBoolean("Outer Mandible Open", false);
         CameraData =  NetworkTable.getTable("limelight");
 		driveTrain_Subsystem = new DriveTrain_Subsystem();
-		Pneumatics_Subsystem = new Pneumatics_Subsystem();
+		Mandible_Subsystem = new Mandible_Subsystem();
 		Gantry_Subsystem = new Gantry_Subsystem();
 		Cage_Subsystem = new Cage_Subsystem();
 	//	Lighting = new Lighting_Subsystem();

@@ -9,8 +9,11 @@ import org.usfirst.frc.team5920.robot.commands.*;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
+/**
+ *
+ */
+public class Mandible_Subsystem extends Subsystem {
 
-public class Pneumatics_Subsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -18,8 +21,6 @@ public class Pneumatics_Subsystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-   
-    @Override
     public void periodic() {
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
     	
@@ -69,8 +70,13 @@ public class Pneumatics_Subsystem extends Subsystem {
     		RobotMap.outerMandibles.set(DoubleSolenoid.Value.kReverse);
     		SmartDashboard.putBoolean("Outer Mandible Open", false);
     }
-    private double getJoystickWithDeadBand(double value) {
-    	return 0;
-    }
+
+	private double getJoystickWithDeadBand(double joystickvalue) {
+		if (Math.abs(joystickvalue)<.2) {
+			return 0;
+		} else {
+			return joystickvalue;
+		}
+	}
 }
 

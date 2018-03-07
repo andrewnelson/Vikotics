@@ -22,19 +22,7 @@ public class Gantry_Subsystem extends Subsystem {
     public void periodic(){
     	//SmartDashboard.putNumber("dPAD", OI.OperatorPOV());
     	OI.GantryMover();
-    	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
-    	
-    	if (OI.OperatorLeftBumper()) {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    	}else {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    	}
-    	
-    	if (OI.OperatorRightBumper()) {
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
-    	}else {
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
-    	}
+
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     	SmartDashboard.putBoolean("G 00", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>0));
     	SmartDashboard.putBoolean("G 10", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[1]));
