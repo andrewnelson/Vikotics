@@ -26,8 +26,6 @@ public class DriveTrain_Subsystem extends Subsystem{
 	  double last_world_linear_accel_x;
 	  double last_world_linear_accel_y;
 
-	  final static double kCollisionThreshold_DeltaG = 0.5f;
-	boolean collisionDetected = false;
     //private final DifferentialDrive MainDrive = RobotMap.driveTrain_MainDrive;
     //private final PowerDistributionPanel PDP = RobotMap.RobotPDP;
 	@Override
@@ -54,9 +52,8 @@ public class DriveTrain_Subsystem extends Subsystem{
         double currentJerkY = curr_world_linear_accel_y - last_world_linear_accel_y;
         last_world_linear_accel_y = curr_world_linear_accel_y;
         
-        if ( ( Math.abs(currentJerkX) > kCollisionThreshold_DeltaG ) ||
-             ( Math.abs(currentJerkY) > kCollisionThreshold_DeltaG) ) {
-            collisionDetected = true;
+        if ( ( Math.abs(currentJerkX) > RobotMap.kCollisionThreshold_DeltaG ) ||
+             ( Math.abs(currentJerkY) > RobotMap.kCollisionThreshold_DeltaG) ) {
             OI.DriverRumbleEnhanced(300, 1, true, true);
             OI.OperatorRumbleEnhanced(300, 1, true, true);
         }
@@ -66,10 +63,10 @@ public class DriveTrain_Subsystem extends Subsystem{
           SmartDashboard.putBoolean(  "IMU_IsCalibrating",    ahrs.isCalibrating());
           SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
           SmartDashboard.putNumber(   "IMU_Pitch",            ahrs.getPitch());
-          SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());*/
-          SmartDashboard.putNumber(   "IMU_CompassHeading",   ahrs.getCompassHeading());
+          SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());
+          SmartDashboard.putNumber(   "IMU_CompassHeading",   ahrs.getCompassHeading());*/
           SmartDashboard.putNumber(   "IMU_FusedHeading",     ahrs.getFusedHeading());
-          SmartDashboard.putNumber(   "IMU_TotalYaw",         ahrs.getAngle());
+       //   SmartDashboard.putNumber(   "IMU_TotalYaw",         ahrs.getAngle());
           SmartDashboard.putNumber(   "IMU_YawRateDPS",       ahrs.getRate());
        //   SmartDashboard.putNumber(   "IMU_Accel_X",          ahrs.getWorldLinearAccelX());
        //   SmartDashboard.putNumber(   "IMU_Accel_Y",          ahrs.getWorldLinearAccelY());

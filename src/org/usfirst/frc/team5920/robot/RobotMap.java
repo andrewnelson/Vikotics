@@ -88,7 +88,11 @@ public class RobotMap {
     public static final int kSlotIdx = 0;
 	public static final int kPIDLoopIdx = 0;
 	public static final int kTimeoutMs = 10;
-    
+
+	//Collision Threshold
+	public static double kCollisionThreshold_DeltaG = 0.1f;
+	
+	
     public static void init() {
     	Gantry_TopLimit = new DigitalInput(0);
     	Gantry_BottomLimit = new DigitalInput(1);

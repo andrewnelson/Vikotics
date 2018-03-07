@@ -43,12 +43,12 @@ public class Auto_Command extends Command {
     // Called once after isFinished returns true
     protected void end() {
 
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 0);
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 0);
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
     }
 }
