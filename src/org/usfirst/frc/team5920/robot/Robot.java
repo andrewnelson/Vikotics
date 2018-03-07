@@ -51,9 +51,9 @@ public class Robot extends TimedRobot {
 		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser();
-		autoChooser.addDefault("Left Program", new Auto_Command());
-		autoChooser.addObject("Center Program", new Auto_LeftRoute());
-		autoChooser.addObject("Right Program", new Auto_LeftRoute());
+		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
+		autoChooser.addObject("Center Program", new Auto_CenterRoute());
+		autoChooser.addObject("Right Program", new Auto_RightRoute());
 		SmartDashboard.putData("Auto mode Chooser", autoChooser);*/
 		
 		RobotMap.init();
@@ -81,7 +81,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-		
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+        if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
 		Scheduler.getInstance().run();
 	}
 
@@ -98,6 +100,15 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+        if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
+        if(RobotMap.FieldLayout.charAt(0) == 'L')
+		  {
+			RobotMap.SwitchLeft=true;
+		  } else {
+			RobotMap.SwitchLeft=false;
+		  }
 		//autonomousCommand = new Auto_Command();
 		//RobotMap.initAuto();
 		autonomousCommand = (Command) autoChooser.getSelected();

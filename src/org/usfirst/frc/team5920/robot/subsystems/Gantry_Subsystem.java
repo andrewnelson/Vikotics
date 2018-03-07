@@ -41,7 +41,9 @@ public class Gantry_Subsystem extends Subsystem {
     	SmartDashboard.putBoolean("G 20", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[2]));
     	SmartDashboard.putBoolean("G Max", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[3]));
     	SmartDashboard.putNumber("Gantry Position", RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0));
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    	if (!RobotMap.Gantry_In_Motion) {
+    		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
+    	}
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

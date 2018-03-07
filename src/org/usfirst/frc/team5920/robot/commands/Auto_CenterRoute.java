@@ -1,30 +1,31 @@
 package org.usfirst.frc.team5920.robot.commands;
 
+import org.usfirst.frc.team5920.robot.Robot;
+import org.usfirst.frc.team5920.robot.RobotMap;
+
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */
-public class Auto_LeftRoute extends Command {
-	
-    public Auto_LeftRoute() {
+public class Auto_CenterRoute extends Command {
+
+    public Auto_CenterRoute() {
     	requires(Robot.driveTrain_Subsystem);
-    	
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-      	Robot.CameraData.putNumber("ledMode", 0);
+    	Robot.CameraData.putNumber("ledMode", 0);
     	Robot.CameraData.putNumber("camMode", 0);
-	    RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
-	    RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
-	    
+    	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+    	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+    	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -34,8 +35,6 @@ public class Auto_LeftRoute extends Command {
     	}else {
     		
     	}
-	    	//Robot.driveTrain_Subsystem.StartAutoLeft();
-
     }
 
     // Make this return true when this Command no longer needs to run execute()

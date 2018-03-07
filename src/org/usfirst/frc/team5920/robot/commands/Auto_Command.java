@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
@@ -32,6 +31,7 @@ public class Auto_Command extends Command {
     protected void execute() {
     	//Robot.driveTrain_Subsystem.StartAutoLeft();
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, .25);
+    	RobotMap.Gantry_In_Motion = true;
     	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 10000);
     }
 

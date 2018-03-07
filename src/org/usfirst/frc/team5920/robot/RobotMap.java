@@ -25,7 +25,8 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
  * floating around.
  */
 public class RobotMap {
-	
+	public static String FieldLayout;
+	public static boolean SwitchLeft;
 	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
     public static WPI_TalonSRX driveTrain_RightMotor;    
@@ -44,6 +45,7 @@ public class RobotMap {
     //Gantry Lift
     public static WPI_TalonSRX Gantry_PrimeMotor;
     public static WPI_VictorSPX Gantry_SecondaryMotor;
+    public static boolean Gantry_In_Motion = false;
     
     public static DigitalInput Gantry_TopLimit;
     public static DigitalInput Gantry_BottomLimit;
