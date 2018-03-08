@@ -144,6 +144,10 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
+		/*if (DriverStation.getInstance().getMatchTime() < 30) {
+			OI.DriverRumbleEnhanced(500,  .5,  true,  true);
+		}*/
+
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
 		//This function is called periodically during operator control.
