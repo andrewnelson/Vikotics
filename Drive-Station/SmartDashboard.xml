@@ -1,0 +1,113 @@
+<xml version="1.0">
+<dashboard>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="1101" y="292"/>
+		<property name="Text" value="Mandible Position"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
+		<location x="918" y="290"/>
+		<property name="Text" value="Gantry Position"/>
+	</static-widget>
+	<widget field="G Max" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="933" y="303"/>
+	</widget>
+	<widget field="G 20" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="933" y="317"/>
+	</widget>
+	<widget field="G 10" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="933" y="330"/>
+	</widget>
+	<widget field="G 00" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="933" y="344"/>
+	</widget>
+	<widget field="test command" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="701" y="315"/>
+	</widget>
+	<widget field="Gantry Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="859" y="374"/>
+	</widget>
+	<widget field="Inner Mandible Open" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="1107" y="310"/>
+	</widget>
+	<widget field="Outer Mandible Open" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="1107" y="326"/>
+	</widget>
+	<widget field="Cube in Cage" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="1251" y="304"/>
+		<width>90</width>
+		<height>28</height>
+	</widget>
+	<widget field="Velocity_Y" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="214" y="202"/>
+	</widget>
+	<widget field="Velocity_X" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="214" y="181"/>
+	</widget>
+	<widget field="IMU_YawRateDPS" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="417" y="190"/>
+	</widget>
+	<widget field="IMU_FusedHeading" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="412" y="168"/>
+	</widget>
+	<widget field="Mandible Run" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="1086" y="361"/>
+	</widget>
+	<widget field="Velocity" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="160"/>
+	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
+		<location x="487" y="1"/>
+		<width>116</width>
+		<height>108</height>
+		<property name="Image File" value="C:\Users\CAD-03\git\Vikotics\Drive-Station\5920Avatar.png"/>
+		<property name="Maintain Aspect Ratio" value="true"/>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.CameraServerViewer">
+		<location x="601" y="-5"/>
+		<width>743</width>
+		<height>296</height>
+		<property name="Camera Choice" value="limelight"/>
+		<property name="Selected Camera Path" value="http://10.59.20.11:5800/"/>
+	</static-widget>
+	<widget field="Robot FPS" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.SimpleDial">
+		<location x="419" y="222"/>
+		<width>219</width>
+		<height>141</height>
+		<property name="Upper Limit" value="15.0"/>
+		<property name="Tick Interval" value="1.0"/>
+	</widget>
+	<widget field="Left Total Ticks" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="23" y="97"/>
+	</widget>
+	<widget field="Right RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="161" y="17"/>
+	</widget>
+	<widget field="Right Total Ticks" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="219" y="97"/>
+	</widget>
+	<widget field="Left Ticks" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="28" y="56"/>
+	</widget>
+	<widget field="Right Ticks" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="162" y="58"/>
+		<width>126</width>
+	</widget>
+	<widget field="Left RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="31" y="16"/>
+	</widget>
+	<widget field="Scheduler" type="Scheduler" class="edu.wpi.first.smartdashboard.gui.elements.Scheduler">
+		<location x="65" y="272"/>
+	</widget>
+	<widget field="Alliance" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.BooleanBox">
+		<location x="493" y="-3"/>
+		<width>144</width>
+		<height>112</height>
+		<property name="Color to show when true" value="0.51.255.255"/>
+	</widget>
+</dashboard>
+<live-window>
+	<widget field="Mandible_Subsystem" type="LW Subsystem" class="edu.wpi.first.smartdashboard.livewindow.elements.LWSubsystem">
+		<location x="0" y="0"/>
+	</widget>
+</live-window>
+</xml>

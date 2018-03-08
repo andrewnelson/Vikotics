@@ -1,11 +1,9 @@
 package org.usfirst.frc.team5920.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 /**
  *
@@ -14,7 +12,6 @@ public class Auto_Command extends Command {
 
     public Auto_Command() {
     		requires(Robot.driveTrain_Subsystem);
-    		requires(Robot.Mandible_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     } 
@@ -44,12 +41,12 @@ public class Auto_Command extends Command {
     // Called once after isFinished returns true
     protected void end() {
 
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
+   // 	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
+   // 	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 0);
     }
 }

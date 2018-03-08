@@ -84,7 +84,7 @@ public class RobotMap {
     public static double CageSpeed = .50;
     
     //Gantry Heights
-    public static int[] GantryHeight = {0, 5000, 20000, 40000};
+    public static int[] GantryHeight = {0, 4168, 14591, 26577};
     
     
     //SRX constants
@@ -93,7 +93,7 @@ public class RobotMap {
 	public static final int kTimeoutMs = 10;
 
 	//Collision Threshold
-	public static double kCollisionThreshold_DeltaG = 0.1f;
+	public static double kCollisionThreshold_DeltaG = 0.6f;
 	
 	
     public static void init() {

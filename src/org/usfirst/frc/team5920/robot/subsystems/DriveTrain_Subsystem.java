@@ -45,6 +45,7 @@ public class DriveTrain_Subsystem extends Subsystem{
     }
 	@Override
 	public void periodic() {  
+		
 		double curr_world_linear_accel_x = ahrs.getWorldLinearAccelX();
         double currentJerkX = curr_world_linear_accel_x - last_world_linear_accel_x;
         last_world_linear_accel_x = curr_world_linear_accel_x;
@@ -103,7 +104,8 @@ public class DriveTrain_Subsystem extends Subsystem{
 		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
 
 
-		
+		SmartDashboard.putBoolean("Drive with Joystick", RobotMap.useJoystick);
+    	
 		//DriveWithJoysticks();
 		if (RobotMap.useJoystick) {DriveWithSpeed();}
 	}
