@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
 	//	Lighting = new Lighting_Subsystem();
 		autonomousCommand = new Auto_Command();
 		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putData("test command", autonomousCommand);
+		SmartDashboard.putData("gantry command", autonomousCommand);
 
 	}
 	
@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-		/*String gameData;
+		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		DriverStation.Alliance color;
 		color = DriverStation.getInstance().getAlliance();
@@ -91,7 +91,7 @@ public class Robot extends TimedRobot {
 		}else {
 			SmartDashboard.putBoolean("Alliance", false);
 		}
-        if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}*/
+        if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
 		Scheduler.getInstance().run();
 	}
 
@@ -120,8 +120,8 @@ public class Robot extends TimedRobot {
 		  }
 		//autonomousCommand = new Auto_Command();
 		RobotMap.initAuto();*/
-		autonomousCommand = (Command) autoChooser.getSelected();
-
+		//autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand  = new Auto_CenterRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 
@@ -136,7 +136,7 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {
 	/*	RobotMap.useJoystick = true;*/
 		RobotMap.initTele();
-				
+		RobotMap.useJoystick=true;		
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}

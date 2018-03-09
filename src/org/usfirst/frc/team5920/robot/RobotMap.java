@@ -122,10 +122,10 @@ public class RobotMap {
 	    Gantry_SecondaryMotor.follow((WPI_TalonSRX)Gantry_PrimeMotor);
 	    Gantry_PrimeMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 	    Gantry_SecondaryMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
-    
-	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, true);
+	    
+	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, false);
 	    SetupDriveMotor(driveTrain_RightMotor, NeutralMode.Coast, false);
-	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, true);
+	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);
 	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
 	    	  
 	    SetupCurrentMotor(Mandible_Right, false);
@@ -134,8 +134,13 @@ public class RobotMap {
 		SetupCurrentMotor(Cage_LeftMotor, true);
 		SetupCurrentMotor(Cage_RightMotor, true);
 		//SetupCurrentMotor(Gantry_PrimeMotor, true);
-		SetupMotionMagic(Gantry_PrimeMotor);
-		SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Coast, true);
+		SetupMotionMagic(Gantry_PrimeMotor,3000,15000);
+		Gantry_PrimeMotor.setNeutralMode(NeutralMode.Brake);
+	//	Gantry_PrimeMotor.setInverted(true);
+		SetupMotionMagic(driveTrain_LeftMotor,3000,15000);
+
+		SetupMotionMagic(driveTrain_RightMotor,3000,15000);
+		SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Brake, true);
     }
     
    
@@ -215,7 +220,7 @@ public class RobotMap {
     	_vic.follow((WPI_TalonSRX)_tal);
 	    	
     }
-    private static void SetupMotionMagic(WPI_TalonSRX _talon) {
+    private static void SetupMotionMagic(WPI_TalonSRX _talon,int RampSpeed, int TopSpeed) {
 		// first choose the sensor 
 		_talon.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, kPIDLoopIdx, kTimeoutMs);
 		_talon.setSensorPhase(true);
@@ -238,8 +243,8 @@ public class RobotMap {
 		_talon.config_kI(0, 0, kTimeoutMs);
 		_talon.config_kD(0, 0, kTimeoutMs);
 		// set acceleration and vcruise velocity - see documentation 
-		_talon.configMotionCruiseVelocity(15000, kTimeoutMs);
-		_talon.configMotionAcceleration(6000, kTimeoutMs);
+		_talon.configMotionCruiseVelocity(TopSpeed, kTimeoutMs);
+		_talon.configMotionAcceleration(RampSpeed, kTimeoutMs);
 		// zero the sensor 
 		_talon.setSelectedSensorPosition(0, kPIDLoopIdx, kTimeoutMs);
     	

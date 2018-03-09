@@ -3,6 +3,8 @@ package org.usfirst.frc.team5920.robot.commands;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
@@ -26,10 +28,15 @@ public class Auto_CenterRoute extends Command {
     	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	RobotMap.useJoystick=false;
+    	RobotMap.driveTrain_LeftMotor.set(ControlMode.MotionMagic, 27000);
+    	RobotMap.driveTrain_RightMotor.set(ControlMode.MotionMagic, 27000);
+    	
     	if (RobotMap.SwitchLeft){
     		
     	}else {

@@ -81,6 +81,7 @@ public class Mandible_Subsystem extends Subsystem {
     }
 
 	private double getJoystickWithDeadBand(double joystickvalue) {
+		joystickvalue = joystickvalue*-1;
 		if (Math.abs(joystickvalue)<.2) {
 			return 0;
 		} else {

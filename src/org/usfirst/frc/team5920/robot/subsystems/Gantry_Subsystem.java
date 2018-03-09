@@ -21,7 +21,7 @@ public class Gantry_Subsystem extends Subsystem {
     	//SmartDashboard.putNumber("dPAD", OI.OperatorPOV());
     	OI.GantryMover();
     	SmartDashboard.putBoolean("Gantry in Motion", RobotMap.Gantry_In_Motion);
-
+    	//SmartDashboard.putNumber("gantry velocity", RobotMap.Gantry_PrimeMotor.getSelectedSensorVelocity(0));
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
     	SmartDashboard.putBoolean("G 00", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)< 200));
     	SmartDashboard.putBoolean("G 10", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[1]));
@@ -80,10 +80,10 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		joystickvalue = joystickvalue * -1;
-		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue < 0) ) {return 0;}
-		if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<1 && joystickvalue <0){return 0;}
-		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue > 0) ) {return 0;}
+		joystickvalue = joystickvalue;
+		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue > 0) ) {return 0;}
+		//if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<1 && joystickvalue <0){return 0;}
+		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue < 0) ) {return 0;}
 		if (Math.abs(joystickvalue)<.2) {
 			return 0;
 		} else {
