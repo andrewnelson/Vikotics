@@ -84,7 +84,7 @@ public class RobotMap {
     public static double CageSpeed = .50;
     
     //Gantry Heights
-    public static int[] GantryHeight = {0, 4168, 14591, 26577};
+    public static int[] GantryHeight = {0, 4168, 14591, 20,000};
     
     
     //SRX constants
