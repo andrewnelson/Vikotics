@@ -18,11 +18,11 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
     public void periodic(){
-	    	//SmartDashboard.putNumber("dPAD", OI.OperatorPOV());
+	    	if (!RobotMap.Gantry_BottomLimit.get() ) {
+	        	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
+	    	}
 	    	OI.GantryMover();
 	    	SmartDashboard.putBoolean("Gantry in Motion", RobotMap.Gantry_In_Motion);
-	    	//SmartDashboard.putNumber("gantry velocity", RobotMap.Gantry_PrimeMotor.getSelectedSensorVelocity(0));
-	    	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
 	    	SmartDashboard.putBoolean("G 00", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)< 200));
 	    	SmartDashboard.putBoolean("G 10", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[1]));
 	    	SmartDashboard.putBoolean("G 20", (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>RobotMap.GantryHeight[2]));
