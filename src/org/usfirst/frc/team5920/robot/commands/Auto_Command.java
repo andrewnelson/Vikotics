@@ -31,7 +31,7 @@ public class Auto_Command extends Command {
     	//Robot.driveTrain_Subsystem.StartAutoLeft();
     	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, .25);
     	RobotMap.Gantry_In_Motion = true;
-    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 10000);
+    	RobotMap.Gantry_PrimeMotor.set(ControlMode.MotionMagic, 27000);
     	GantryStarted = true;
     }
 
