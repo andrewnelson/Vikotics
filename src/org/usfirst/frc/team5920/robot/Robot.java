@@ -38,6 +38,7 @@ public class Robot extends TimedRobot {
     public static Gantry_Subsystem Gantry_Subsystem;
     public static Cage_Subsystem Cage_Subsystem;
     public static Mandible_Subsystem Mandible_Subsystem;
+    public static Dashboard_Subsystem Dashboard_Subsystem;
    // public static Lighting_Subsystem Lighting;
     @SuppressWarnings("deprecation")
 	public static NetworkTable CameraData;
@@ -67,6 +68,7 @@ public class Robot extends TimedRobot {
 		Mandible_Subsystem = new Mandible_Subsystem();
 		Gantry_Subsystem = new Gantry_Subsystem();
 		Cage_Subsystem = new Cage_Subsystem();
+		Dashboard_Subsystem = new Dashboard_Subsystem();
 	//	Lighting = new Lighting_Subsystem();
 		autonomousCommand = new Auto_Command();
 		SmartDashboard.putData(Scheduler.getInstance());
