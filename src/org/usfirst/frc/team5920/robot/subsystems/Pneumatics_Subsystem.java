@@ -20,7 +20,7 @@ public class Pneumatics_Subsystem extends Subsystem {
     }
    
     @Override
-    public void periodic() {
+    public void periodic() {/*
     	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
     	
     	if (OI.OperatorLeftBumper()) {
@@ -49,9 +49,9 @@ public class Pneumatics_Subsystem extends Subsystem {
 			innerMandibleClose();
 			outerMandibleClose();
 			OI.OperatorRumbleEnhanced(500, 1, true, true);
-		}
+		}*/
     }
-    
+    /*
     public void innerMandibleExtend() {
     		RobotMap.innerMandibles.set(DoubleSolenoid.Value.kForward);
     		SmartDashboard.putBoolean("Inner Mandible Open", true);
@@ -71,6 +71,6 @@ public class Pneumatics_Subsystem extends Subsystem {
     }
     private double getJoystickWithDeadBand(double value) {
     	return 0;
-    }
+    }*/
 }
 
