@@ -59,7 +59,7 @@ public class Dashboard_Subsystem extends Subsystem {
 	    
 	    //Cage
 	    SmartDashboard.putNumber("Cage Run", RobotMap.Cage_LeftMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
-	    
+	    SmartDashboard.putString("Field Layout", RobotMap.FieldLayout);
     }
 }
 
