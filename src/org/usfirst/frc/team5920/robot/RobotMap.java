@@ -123,24 +123,23 @@ public class RobotMap {
 	    Gantry_PrimeMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 	    Gantry_SecondaryMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Brake);
 	    
-	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, false);
-	    SetupDriveMotor(driveTrain_RightMotor, NeutralMode.Coast, false);
-	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);
-	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
+
 	    	  
 	    SetupCurrentMotor(Mandible_Right, false);
 		SetupCurrentMotor(Mandible_Left, true);
 		
 		SetupCurrentMotor(Cage_LeftMotor, true);
 		SetupCurrentMotor(Cage_RightMotor, true);
+		
 		//SetupCurrentMotor(Gantry_PrimeMotor, true);
 		SetupMotionMagic(Gantry_PrimeMotor,3000,15000);
 		Gantry_PrimeMotor.setNeutralMode(NeutralMode.Brake);
-	//	Gantry_PrimeMotor.setInverted(true);
-		SetupMotionMagic(driveTrain_LeftMotor,3000,15000);
-
-		SetupMotionMagic(driveTrain_RightMotor,3000,15000);
 		SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Brake, true);
+
+		SetupMotionMagic(driveTrain_LeftMotor,3000,15000);
+		SetupMotionMagic(driveTrain_RightMotor,3000,15000);
+	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);
+	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
     }
     
    
@@ -277,10 +276,17 @@ public class RobotMap {
     public static void initTele() {
     	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+    	
+	    SetupDriveMotor(driveTrain_LeftMotor, NeutralMode.Coast, false);
+	    SetupDriveMotor(driveTrain_RightMotor, NeutralMode.Coast, false);
+	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);
+	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
+	    
     	driveTrain_LeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	driveTrain_rearLeftMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	driveTrain_RightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
     	driveTrain_rearRightMotor.setNeutralMode(com.ctre.phoenix.motorcontrol.NeutralMode.Coast);
+    
     	
     }
 }
