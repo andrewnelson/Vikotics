@@ -24,8 +24,7 @@ public class Mandible_Subsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void periodic() {
-    	SmartDashboard.putNumber("Mandible Run", RobotMap.Mandible_Left.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
-    	
+   	
     	if (OI.OperatorRightBumper()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
     		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightTrigger()));
