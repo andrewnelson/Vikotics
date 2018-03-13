@@ -149,7 +149,7 @@ public class OI {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);
 	}
-	public static boolean PercisionSpeed() {
+	public static boolean StandardSpeed() {
 		XboxController DriverController = new XboxController(0);
 		return DriverController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kLeft);
 	}
