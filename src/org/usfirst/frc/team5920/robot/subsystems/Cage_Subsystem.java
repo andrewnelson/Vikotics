@@ -21,12 +21,12 @@ public class Cage_Subsystem extends Subsystem {
 	public void periodic() {
 		//SmartDashboard.putBoolean("Cube in Cage", !RobotMap.Cage_CubePresent.get());
 		if (OI.OperatorLeftBumper()) {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
     		
     	}else {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
     	}
 	}
 
