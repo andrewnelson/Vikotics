@@ -93,7 +93,7 @@ public class RobotMap {
 	public static final int kTimeoutMs = 10;
 
 	//Collision Threshold
-	public static double kCollisionThreshold_DeltaG = 1.1f;
+	public static double kCollisionThreshold_DeltaG = 0.9f;
 	
 	
     public static void init() {

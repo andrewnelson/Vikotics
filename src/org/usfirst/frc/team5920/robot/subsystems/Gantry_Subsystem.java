@@ -80,7 +80,7 @@ public class Gantry_Subsystem extends Subsystem {
 		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue < 0) ) {return 0;}
 		if (Math.abs(joystickvalue)<.2) {
 			return 0;
-		} else {
+		} else { 
 			return joystickvalue;
 		}
 	}

@@ -23,7 +23,7 @@ public class Mandible_Subsystem extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void periodic() {
+    public void periodic() { 
    	
     	if (OI.OperatorRightBumper()) {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput,  getJoystickWithDeadBand(OI.OperatorRightTrigger()));
