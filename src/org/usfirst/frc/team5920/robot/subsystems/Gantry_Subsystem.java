@@ -40,6 +40,7 @@ public class Gantry_Subsystem extends Subsystem {
     
     public void moveTo(int Gantry_Position) {
     	//currentPosition = RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0);
+    	/*
 	    	switch (Gantry_Position) {
 	        case 180: //Send Gantry to bottom (position 0)
 		        	RobotMap.Gantry_In_Motion = true;
@@ -70,11 +71,11 @@ public class Gantry_Subsystem extends Subsystem {
 	        default: //Send Gantry to position 0;
 		    		 DropGantry();
 		         break;
-	    }
+	    }*/
     }
     
 	private double getJoystickWithDeadBand(double joystickvalue) {
-		//joystickvalue = joystickvalue;
+		joystickvalue = -1* joystickvalue;
 		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue > 0) ) {return 0;}
 		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue < 0) ) {return 0;}
 		if (Math.abs(joystickvalue)<.2) {

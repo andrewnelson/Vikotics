@@ -34,8 +34,8 @@ public class Auto_CenterRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
-    	RobotMap.driveTrain_LeftMotor.set(ControlMode.MotionMagic, 27000);
-    	RobotMap.driveTrain_RightMotor.set(ControlMode.MotionMagic, 27000);
+    	RobotMap.driveTrain_LeftMotor.set(ControlMode.MotionMagic, 2700);
+    	RobotMap.driveTrain_RightMotor.set(ControlMode.MotionMagic, 2700);
     	
     	if (RobotMap.SwitchLeft){
     		
