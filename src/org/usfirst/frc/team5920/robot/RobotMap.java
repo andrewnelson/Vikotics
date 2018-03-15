@@ -64,8 +64,10 @@ public class RobotMap {
     //Lighting
     
     //Robot run variables
+    public static final int kBaseTrajPeriodMs = 0;
     public static int robotDirection = 1;
     public static double encoderPerRev = 4096;
+    public static final double kSensorUnitsPerRotation = 4096;
     public static double slowSpeed = encoderPerRev / 300 * 100;//last number is RPM, converts to encoder ticks
     public static double standardSpeed = encoderPerRev / 300 * 300;//Ditto
     public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
