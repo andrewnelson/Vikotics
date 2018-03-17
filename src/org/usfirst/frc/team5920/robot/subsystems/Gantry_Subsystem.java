@@ -76,12 +76,12 @@ public class Gantry_Subsystem extends Subsystem {
     
 	private double getJoystickWithDeadBand(double joystickvalue) {
 		joystickvalue = -1* joystickvalue;
-		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue > 0) ) {return 0;}
+		if (!RobotMap.Gantry_TopLimit.get() && (joystickvalue > 0) ) {return RobotMap.GantryFeedForward;}
 		if (!RobotMap.Gantry_BottomLimit.get() && (joystickvalue < 0) ) {return 0;}
 		if (Math.abs(joystickvalue)<.2) {
-			return 0;
+			return RobotMap.GantryFeedForward;
 		} else { 
-			return joystickvalue;
+			return joystickvalue+RobotMap.GantryFeedForward;
 		}
 	}
 }

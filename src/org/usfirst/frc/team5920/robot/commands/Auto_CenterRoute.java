@@ -17,13 +17,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Auto_CenterRoute extends Command {
 
-	MotionProfiler _mpLeft = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
-	MotionProfiler _mpRight = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
+	//MotionProfiler _mpLeft = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
+	//MotionProfiler _mpRight = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
 	
+	double startTime=0;
     public Auto_CenterRoute() {
     	requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	//startTime = Timer.getFPGATimestamp();
     }
 
     // Called just before this Command runs the first time
@@ -34,11 +36,13 @@ public class Auto_CenterRoute extends Command {
     	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
     	
-    	
+    	startTime = Timer.getFPGATimestamp();
+    	/*
     	RobotMap.driveTrain_LeftMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
     	RobotMap.driveTrain_RightMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
     	RobotMap.driveTrain_LeftMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, RobotMap.kTimeoutMs);
     	RobotMap.driveTrain_RightMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, RobotMap.kTimeoutMs);
+    	*/
     	
     	/*SetValueMotionProfile setOutputL = _mpLeft.getSetValue();
     	SetValueMotionProfile setOutputR = _mpRight.getSetValue();
@@ -50,18 +54,39 @@ public class Auto_CenterRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
-    	_mpLeft.control();
+    /*	_mpLeft.control();
     	_mpRight.control();
     	//RobotMap.driveTrain_LeftMotor.set(ControlMode.MotionMagic, 2700);
     	//RobotMap.driveTrain_RightMotor.set(ControlMode.MotionMagic, 2700);
     	_mpLeft.startMotionProfile();
-    	_mpRight.startMotionProfile();
+    	_mpRight.startMotionProfile();*/
     	
+    	 //right side branch
+    	if(Timer.getFPGATimestamp()-startTime <2) {
+	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
+	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0.5);
+    	}
+    	else if(Timer.getFPGATimestamp()-startTime <4) {
+	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
+	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+    	}
+    	else if(Timer.getFPGATimestamp()-startTime <6) {
+	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
+	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0.5);
+    	}
+    	else {
+	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+    	}
+    	//    	Timer.delay(5); //won't work, motors will be forcibly shut off by safety system
+//    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+//    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
     	if (RobotMap.SwitchLeft){
     		
     	}else {
     		
     	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -71,10 +96,12 @@ public class Auto_CenterRoute extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	RobotMap.useJoystick=true;
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	RobotMap.useJoystick=true;
     }
 }

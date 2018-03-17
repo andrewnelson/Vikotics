@@ -7,6 +7,7 @@ import org.usfirst.frc.team5920.robot.commands.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,15 +20,16 @@ public class Cage_Subsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	public void periodic() {
-		//SmartDashboard.putBoolean("Cube in Cage", !RobotMap.Cage_CubePresent.get());
-		if (OI.OperatorLeftBumper()) {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    		
-    	}else {
-    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
-    	}
+		if (!DriverStation.getInstance().isAutonomous()) {
+			if (OI.OperatorLeftBumper()) {
+	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+	    		
+	    	}else {
+	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
+	    	}
+		}
 	}
 
     public void initDefaultCommand() {

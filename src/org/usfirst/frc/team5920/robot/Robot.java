@@ -110,7 +110,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		/*RobotMap.useJoystick=false;
+		//RobotMap.useJoystick=false;
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
         if(gameData.length() > 0) {RobotMap.FieldLayout = gameData;}
@@ -121,9 +121,10 @@ public class Robot extends TimedRobot {
 			RobotMap.SwitchLeft=false;
 		  }
 		//autonomousCommand = new Auto_Command();
-		RobotMap.initAuto();*/
+		RobotMap.initAuto();
 		//autonomousCommand = (Command) autoChooser.getSelected();
-		autonomousCommand  = new Auto_CenterRoute();
+		autonomousCommand  = new Auto_LeftRoute();
+		//autonomousCommand  = new Auto_CenterRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 
