@@ -44,27 +44,28 @@ public class Auto_LeftRoute extends Command {
         	    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
         		}else if (Timer.getFPGATimestamp()-startTime>5 && (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<-14500) ) {
 
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-        	    	RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-        		}else {
+            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, .75);
+        	    	RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, .75);
+
+            		Robot.Mandible_Subsystem.innerMandibleExtend();
+            		Robot.Mandible_Subsystem.outerMandibleExtend();
+        		}else if ((RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<-14800)) {
+
         			RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+        		}else {
         		}
         		
         		if(Timer.getFPGATimestamp()-startTime <2) {
         	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.5);
         	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.5);
             	}else if(Timer.getFPGATimestamp()-startTime <3) {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -1);
+        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.75);
         	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}else if(Timer.getFPGATimestamp()-startTime <5) {
+            	}else if(Timer.getFPGATimestamp()-startTime <4.8) {
             		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
         	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
 
             	} else {
-            		Robot.Mandible_Subsystem.innerMandibleExtend();
-            		Robot.Mandible_Subsystem.outerMandibleExtend();
-        	    	RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
-        	    	RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
         	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
         	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
             	}

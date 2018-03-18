@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	Command aCommand;
 	
-    SendableChooser autoChooser;//<Command> chooser = new SendableChooser<>();
+    SendableChooser<Command> autoChooser = new SendableChooser<>();
     
     public static OI oi;
     public static DriveTrain_Subsystem driveTrain_Subsystem;
@@ -52,11 +52,12 @@ public class Robot extends TimedRobot {
 		
 		//CommandBase.init();
 		
-		/*autoChooser = new SendableChooser();
+		/*autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
-		autoChooser.addObject("Center Program", new Auto_CenterRoute());
+		//autoChooser.addObject("Center Program", new Auto_CenterRoute());
 		autoChooser.addObject("Right Program", new Auto_RightRoute());
-		SmartDashboard.putData("Auto mode Chooser", autoChooser);*/
+		SmartDashboard.putData("Auto mode Chooser", autoChooser);
+		*/
 		
 		RobotMap.init();
 		oi = new OI();
@@ -122,9 +123,11 @@ public class Robot extends TimedRobot {
 		  }
 		//autonomousCommand = new Auto_Command();
 		RobotMap.initAuto();
-		//autonomousCommand = (Command) autoChooser.getSelected();
+		//autonomousCommand = autoChooser.getSelected();
 		autonomousCommand  = new Auto_LeftRoute();
 		//autonomousCommand  = new Auto_CenterRoute();
+		
+		//autonomousCommand  = new Auto_RightRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
 
