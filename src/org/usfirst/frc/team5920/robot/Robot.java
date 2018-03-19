@@ -51,12 +51,12 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		
 		
-		/*autoChooser = new SendableChooser<Command>();
+		//autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
-		//autoChooser.addObject("Center Program", new Auto_CenterRoute());
+		autoChooser.addObject("Center Program", new Auto_CenterRoute());
 		autoChooser.addObject("Right Program", new Auto_RightRoute());
 		SmartDashboard.putData("Auto mode Chooser", autoChooser);
-		*/
+		
 		
 		RobotMap.init();
 		oi = new OI();
@@ -125,9 +125,9 @@ public class Robot extends TimedRobot {
 
 		RobotMap.initAuto();
 
-		//autonomousCommand = autoChooser.getSelected();
+		autonomousCommand = autoChooser.getSelected();
 		
-		autonomousCommand  = new Auto_LeftRoute();
+		//autonomousCommand  = new Auto_LeftRoute();
 		//autonomousCommand  = new Auto_CenterRoute();
 		//autonomousCommand  = new Auto_RightRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
