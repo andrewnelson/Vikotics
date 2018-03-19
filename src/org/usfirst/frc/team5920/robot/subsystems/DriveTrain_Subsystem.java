@@ -74,11 +74,11 @@ public class DriveTrain_Subsystem extends Subsystem{
 		double Velocity = 0;
 		
 		if(OI.StandardSpeed()) {
-			Velocity = RobotMap.standardSpeed;
+			Velocity = RobotMap.slowSpeed;
 		} else if (OI.TurboSpeed()) {
 			Velocity = RobotMap.turboSpeed;
 		} else {
-			Velocity = RobotMap.slowSpeed;
+			Velocity = RobotMap.standardSpeed;
 		}
 
 		SmartDashboard.putNumber("Velocity", (Velocity * getJoystickWithDeadBand(OI.DriverRightJoystick())));
