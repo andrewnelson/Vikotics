@@ -50,7 +50,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		
-		//CommandBase.init();
 		
 		/*autoChooser = new SendableChooser<Command>();
 		autoChooser.addDefault("Left Program", new Auto_LeftRoute());
@@ -71,20 +70,22 @@ public class Robot extends TimedRobot {
 		Cage_Subsystem = new Cage_Subsystem();
 		Dashboard_Subsystem = new Dashboard_Subsystem();
 	//	Lighting = new Lighting_Subsystem();
-		autonomousCommand = new Auto_Command();
-		SmartDashboard.putData(Scheduler.getInstance());
-		SmartDashboard.putData("gantry command", autonomousCommand);
+		//autonomousCommand = new Auto_Command();
+		//SmartDashboard.putData(Scheduler.getInstance());
+		//SmartDashboard.putData("gantry command", autonomousCommand);
 
 	}
 	
 	@Override
 	public void disabledInit() {
-		CameraData.putNumber("ledMode", 1);
-		CameraData.putNumber("camMode", 1);
+
 	}
 
 	@Override
 	public void disabledPeriodic() {
+
+		CameraData.putNumber("ledMode", 1);
+		CameraData.putNumber("camMode", 1);
 		String gameData;
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		DriverStation.Alliance color;
@@ -121,12 +122,13 @@ public class Robot extends TimedRobot {
 		  } else {
 			RobotMap.SwitchLeft=false;
 		  }
-		//autonomousCommand = new Auto_Command();
+
 		RobotMap.initAuto();
+
 		//autonomousCommand = autoChooser.getSelected();
+		
 		autonomousCommand  = new Auto_LeftRoute();
 		//autonomousCommand  = new Auto_CenterRoute();
-		
 		//autonomousCommand  = new Auto_RightRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
