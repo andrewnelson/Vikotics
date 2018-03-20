@@ -88,6 +88,10 @@ public class OI {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getBButton();
 	}
+	public static boolean OperatorBack() {
+		XboxController OperatorController = new XboxController(1);
+		return OperatorController.getBackButton();
+	}
 	public static boolean OperatorRightBumper() {
 		XboxController OperatorController = new XboxController(1);
 		return OperatorController.getBumper(edu.wpi.first.wpilibj.GenericHID.Hand.kRight);

@@ -7,6 +7,7 @@ import org.usfirst.frc.team5920.robot.commands.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,6 +22,9 @@ public class Cage_Subsystem extends Subsystem {
     // here. Call these from Commands.
 	public void periodic() {
 		if (!DriverStation.getInstance().isAutonomous()) {
+			if (OI.OperatorBack() && RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>12000) {
+				RobotMap.climber.set(true);
+			}
 			if (OI.OperatorLeftBumper()) {
 	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
 	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
