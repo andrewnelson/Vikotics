@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Auto_RightRoute extends Command {
 
 	double startTime=0;
+	int driveStage=0;
+	
     public Auto_RightRoute() {
     	requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
