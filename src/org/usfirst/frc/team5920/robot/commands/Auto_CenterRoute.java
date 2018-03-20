@@ -21,6 +21,8 @@ public class Auto_CenterRoute extends Command {
 	//MotionProfiler _mpRight = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
 	
 	double startTime=0;
+	int driveStage=0;
+	
     public Auto_CenterRoute() {
     	requires(Robot.driveTrain_Subsystem);
         // Use requires() here to declare subsystem dependencies
@@ -36,7 +38,7 @@ public class Auto_CenterRoute extends Command {
     	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
     	
-    	startTime = Timer.getFPGATimestamp();
+    	//startTime = Timer.getFPGATimestamp();
     	/*
     	RobotMap.driveTrain_LeftMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
     	RobotMap.driveTrain_RightMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
@@ -54,37 +56,41 @@ public class Auto_CenterRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
-    /*	_mpLeft.control();
-    	_mpRight.control();
-    	//RobotMap.driveTrain_LeftMotor.set(ControlMode.MotionMagic, 2700);
-    	//RobotMap.driveTrain_RightMotor.set(ControlMode.MotionMagic, 2700);
-    	_mpLeft.startMotionProfile();
-    	_mpRight.startMotionProfile();*/
-    	
-    	 //right side branch
-    	if(Timer.getFPGATimestamp()-startTime <2) {
-	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
-	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0.5);
-    	}
-    	else if(Timer.getFPGATimestamp()-startTime <4) {
-	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
-	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-    	}
-    	else if(Timer.getFPGATimestamp()-startTime <6) {
-	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0.5);
-	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0.5);
-    	}
-    	else {
-	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
-	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-    	}
-    	//    	Timer.delay(5); //won't work, motors will be forcibly shut off by safety system
-//    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
-//    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+
     	if (RobotMap.SwitchLeft){
-    		
-    	}else {
-    		
+    		switch (driveStage) {
+            case 0:  
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<2001) {
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            	} else {
+            		driveStage = 1;
+                	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+                	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            	}
+            	break;
+            case 1:
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>10000) {
+            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+            	}
+            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>15000) {
+            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 0);
+            	}
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>32160) {
+            		driveStage = 2;
+                	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+                	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
+            	}
+            	break;
+            case 2:
+            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)<2001) {
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
+            	} 
+            	break;
+    		}
     	}
     	
     }
