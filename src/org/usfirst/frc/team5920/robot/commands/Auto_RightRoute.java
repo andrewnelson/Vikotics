@@ -38,6 +38,71 @@ public class Auto_RightRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
+	    	if (!RobotMap.SwitchLeft){
+	    		//We have our switch
+	    		switch (driveStage) {
+	            case 0:  
+		            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<27000) {
+		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+		            	} else {
+		            		driveStage = 1;
+		                	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+		                	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
+		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);  //Gantry lift during turn or after turn?
+		            	}
+		            	break;
+	            case 1:
+		            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>9479) {
+		            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+		            		
+		            	}
+		            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>15000) {
+		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 0);
+		            	}
+		            	if ((RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>15000)&&(RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>9479)) {
+		            		driveStage = 2;
+		            		RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
+		                	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.slowSpeed);
+		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.slowSpeed);
+		            	}
+		            	break;
+	            case 2:
+		            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
+		            		driveStage = 3;
+		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
+		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
+		            		RobotMap.Cage_LeftMotor.setSelectedSensorPosition(0, 0, 0);
+		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+		            	} 
+		            	break;
+	            case 3:
+	            		if (RobotMap.Cage_LeftMotor.getSelectedSensorPosition(0)>8000) {
+		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+	            		}
+	            	break;
+	            		
+	    		}
+	    		
+	    	}else {
+	   		 //Our switch is the other side.
+	        	if(Timer.getFPGATimestamp()-startTime <2) {
+		    	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.5);
+		    	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.5);
+	        	} else {
+		    	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+		    	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+	        	}
+	    	}
+    }
+    
+  /*  protected void execute() {
+    	RobotMap.useJoystick=false;
  		
     	if (!RobotMap.SwitchLeft){
     		if((Timer.getFPGATimestamp()-startTime > 4.99) && (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>-15000) ) {
@@ -80,7 +145,7 @@ public class Auto_RightRoute extends Command {
     	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
         	}	
     	}
-    }
+    }*/
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;

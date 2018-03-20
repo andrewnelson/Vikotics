@@ -138,7 +138,8 @@ public class RobotMap {
 		SetupMotionMagic(Gantry_PrimeMotor,3000,15000);
 		Gantry_PrimeMotor.setNeutralMode(NeutralMode.Brake);
 		SetupSlaveMotor(Gantry_SecondaryMotor, Gantry_PrimeMotor, NeutralMode.Brake, true);
-
+		Gantry_PrimeMotor.setSensorPhase(false);
+		
 		SetupMotionMagic(driveTrain_LeftMotor,3000,15000);
 		SetupMotionMagic(driveTrain_RightMotor,3000,15000);
 	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);

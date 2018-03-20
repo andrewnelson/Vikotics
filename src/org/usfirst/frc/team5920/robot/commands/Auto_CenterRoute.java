@@ -17,16 +17,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Auto_CenterRoute extends Command {
 
-	//MotionProfiler _mpLeft = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
-	//MotionProfiler _mpRight = new MotionProfiler(RobotMap.driveTrain_LeftMotor);
-	
-	double startTime=0;
+	//double startTime=0;
 	int driveStage=0;
 	
     public Auto_CenterRoute() {
     	requires(Robot.driveTrain_Subsystem);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	//startTime = Timer.getFPGATimestamp();
     }
 
@@ -38,19 +33,6 @@ public class Auto_CenterRoute extends Command {
     	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
     	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
     	
-    	//startTime = Timer.getFPGATimestamp();
-    	/*
-    	RobotMap.driveTrain_LeftMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
-    	RobotMap.driveTrain_RightMotor.configMotionProfileTrajectoryPeriod(10, RobotMap.kTimeoutMs); 
-    	RobotMap.driveTrain_LeftMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, RobotMap.kTimeoutMs);
-    	RobotMap.driveTrain_RightMotor.setStatusFramePeriod(StatusFrameEnhanced.Status_10_MotionMagic, 10, RobotMap.kTimeoutMs);
-    	*/
-    	
-    	/*SetValueMotionProfile setOutputL = _mpLeft.getSetValue();
-    	SetValueMotionProfile setOutputR = _mpRight.getSetValue();
-		_mpLeft.set(ControlMode.MotionProfile, setOutputL.value);
-		_mpRight.set(ControlMode.MotionProfile, setOutputR.value);*/
-		
     }
 
     // Called repeatedly when this Command is scheduled to run
