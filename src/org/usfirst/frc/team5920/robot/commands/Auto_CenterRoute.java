@@ -43,7 +43,7 @@ public class Auto_CenterRoute extends Command {
     		switch (driveStage) {
             case 0:  
             	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<2001) {
-            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
             	} else {
             		driveStage = 1;
                 	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
@@ -77,7 +77,7 @@ public class Auto_CenterRoute extends Command {
     		switch (driveStage) {
             case 0:  
             	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)<2001) {
-            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
             	} else {
             		driveStage = 1;
                 	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
