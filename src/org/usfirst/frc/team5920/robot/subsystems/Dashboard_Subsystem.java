@@ -38,8 +38,8 @@ public class Dashboard_Subsystem extends Subsystem {
 		SmartDashboard.putNumber("Right RPM", RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
 		SmartDashboard.putNumber("Left RPM", RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)*10/RobotMap.encoderPerRev*60);
 		
-		SmartDashboard.putNumber("Right Total Ticks", RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)*-1);
-		SmartDashboard.putNumber("Left Total Ticks", RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0));
+		SmartDashboard.putNumber("Cage Left", RobotMap.Cage_LeftMotor.getSelectedSensorPosition(0));
+		SmartDashboard.putNumber("Cage Right", RobotMap.Cage_RightMotor.getSelectedSensorPosition(0));
 		SmartDashboard.putBoolean("Drive with Joystick", RobotMap.useJoystick);
 		
 		double robotSpeed = (RobotMap.driveTrain_LeftMotor.getSelectedSensorVelocity(0)+ (RobotMap.driveTrain_RightMotor.getSelectedSensorVelocity(0)*-1))/2;

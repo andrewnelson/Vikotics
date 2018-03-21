@@ -147,7 +147,8 @@ public class RobotMap {
 		SetupMotionMagic(driveTrain_RightMotor,3000,15000);
 	    SetupSlaveMotor(driveTrain_rearLeftMotor, driveTrain_LeftMotor, NeutralMode.Coast, false);
 	    SetupSlaveMotor(driveTrain_rearRightMotor, driveTrain_RightMotor, NeutralMode.Coast, false);
-	  
+	  driveTrain_RightMotor.setSensorPhase(false);
+	  Cage_RightMotor.setSensorPhase(false);
     }
     
    

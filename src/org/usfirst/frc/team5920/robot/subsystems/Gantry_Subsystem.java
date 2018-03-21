@@ -4,6 +4,8 @@ import org.usfirst.frc.team5920.robot.OI;
 import org.usfirst.frc.team5920.robot.Robot;
 import org.usfirst.frc.team5920.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,6 +20,7 @@ public class Gantry_Subsystem extends Subsystem {
     }
     
     public void periodic(){
+    	if (!DriverStation.getInstance().isAutonomous()) {
 	    	if (!RobotMap.Gantry_BottomLimit.get() ) {
 	        	RobotMap.Gantry_PrimeMotor.setSelectedSensorPosition(0, 0, 0);
 	    	}
@@ -25,6 +28,7 @@ public class Gantry_Subsystem extends Subsystem {
 	    	if (!RobotMap.Gantry_In_Motion) {
 	    		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, getJoystickWithDeadBand(OI.OperatorRightJoystick()));
 	    	}
+    	}
     }
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
