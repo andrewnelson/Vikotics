@@ -71,15 +71,17 @@ public class Auto_CenterRoute extends Command {
             	}else {
             		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
             		driveStage = 3;
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+            		//RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+            		//RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
             	}
             	break;
             case 3:
-            	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
+            		ejectCube();
+            /*	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
             		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
             		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}
+            	}*/
+            	
             	break;
     		}
     	}else {
@@ -113,15 +115,16 @@ public class Auto_CenterRoute extends Command {
             	}else {
             		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
             		driveStage = 3;
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+            		//RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+            		//RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
             	}
             	break;
             case 3:
-            	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
+            		ejectCube();
+            	/*if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
             		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
             		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}
+            	}*/
             	break;
     		}
     	}    	
@@ -135,6 +138,15 @@ public class Auto_CenterRoute extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	RobotMap.useJoystick=true;
+    }
+    private void ejectCube() {
+	    	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)<8000) {
+	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+	    	} else {
+	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+	    	}
     }
 
     // Called when another command which requires one or more of the same
