@@ -41,6 +41,7 @@ public class Auto_CenterRoute extends Command {
     	RobotMap.useJoystick=false;
 
     	if (RobotMap.SwitchLeft){
+    		// Go Left
     		switch (driveStage) {
             case 0:  
             	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<1950) {
@@ -82,48 +83,48 @@ public class Auto_CenterRoute extends Command {
             	break;
     		}
     	}else {
-    		if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
-        		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-        	}else {
-        		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
-        		
-        	}
-    	}
-    		/*switch (driveStage) {
+    		//Go Right
+    		switch (driveStage) {
             case 0:  
-            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)<2001) {
+            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)<1750) {
             		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
             	} else {
             		driveStage = 1;
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
+            	
                 	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
                 	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
-            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
-            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
             	}
             	break;
             case 1:
             	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>10000) {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-            	}
-            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>15000) {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 0);
-            	}
-            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>32160) {
-            		driveStage = 2;
-                	RobotMap.driveTrain_RightMotor.setSelectedSensorPosition(0, 0, 0);
-                	RobotMap.driveTrain_LeftMotor.setSelectedSensorPosition(0, 0, 0);
-            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, RobotMap.standardSpeed);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
             		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
+            		driveStage = 2;
             	}
+
+            	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
             	break;
             case 2:
-            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<2001) {
-            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
-            	} 
+            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+            	}else {
+            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+            		driveStage = 3;
+            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+            	}
+            	break;
+            case 3:
+            	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
+            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+            	}
             	break;
     		}
-    	}*/
-    	
+    	}    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
