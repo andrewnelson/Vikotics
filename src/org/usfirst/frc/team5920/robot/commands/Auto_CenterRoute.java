@@ -66,14 +66,17 @@ public class Auto_CenterRoute extends Command {
             	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
             	break;
             case 2:
-            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+            	if (liftGantry()) {
+            		driveStage = 3;
+            	}
+            /*	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
             		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
             	}else {
             		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
             		driveStage = 3;
             		//RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
             		//RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-            	}
+            	}*/
             	break;
             case 3:
             		ejectCube();
@@ -147,6 +150,15 @@ public class Auto_CenterRoute extends Command {
 	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
 	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
 	    	}
+    }
+    private boolean liftGantry() {	
+    	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+    		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+    		return false;
+    	}else {
+    		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+    		return true;
+    	}
     }
 
     // Called when another command which requires one or more of the same
