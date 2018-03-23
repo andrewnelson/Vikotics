@@ -17,12 +17,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Auto_CenterRoute extends Command {
 
-	//double startTime=0;
 	int driveStage=0;
 	
     public Auto_CenterRoute() {
     	requires(Robot.driveTrain_Subsystem);
-    	//startTime = Timer.getFPGATimestamp();
     }
 
     // Called just before this Command runs the first time
@@ -68,23 +66,15 @@ public class Auto_CenterRoute extends Command {
             case 2:
             	if (liftGantry()) {
             		driveStage = 3;
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.15);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.15);
             	}
-            /*	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-            	}else {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
-            		driveStage = 3;
-            		//RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-            		//RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-            	}*/
             	break;
             case 3:
-            		ejectCube();
-            /*	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
-            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}*/
-            	
+            	if (ejectCube()) {
+        			RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);	
+        		}
             	break;
     		}
     	}else {
@@ -113,21 +103,17 @@ public class Auto_CenterRoute extends Command {
             	//RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
             	break;
             case 2:
-            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-            	}else {
-            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+            	if (liftGantry()) {
             		driveStage = 3;
-            		//RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-            		//RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.15);
+            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.15);
             	}
             	break;
             case 3:
-            		ejectCube();
-            	/*if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
-            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}*/
+            		if (ejectCube()) {
+            			RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+                		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);	
+            		}
             	break;
     		}
     	}    	
@@ -142,13 +128,15 @@ public class Auto_CenterRoute extends Command {
     protected void end() {
     	RobotMap.useJoystick=true;
     }
-    private void ejectCube() {
+    private boolean ejectCube() {
 	    	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)<8000) {
 	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
 	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+	    		return false;
 	    	} else {
 	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
 	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+	    		return true;
 	    	}
     }
     private boolean liftGantry() {	

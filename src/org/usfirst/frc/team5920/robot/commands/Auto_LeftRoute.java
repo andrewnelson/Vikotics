@@ -60,25 +60,33 @@ public class Auto_LeftRoute extends Command {
 		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
 		            		
 		            	}
-		            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+		            	if (liftGantry()) {
+		            		driveStage = 2;
+		            	}
+		            	/*if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
 		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
 		            	}else {
 		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
 		            		driveStage = 2;
 		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
 		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-		            	}
+		            	}*/
 		            	
 		            	break;
 	            case 2:
-		            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
+	            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
+	            		if (ejectCube()) {
+	            			driveStage=3;
+	            		}
+	            	}
+		            /*	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
 		            		driveStage = 3;
 		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
 		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
 		            		RobotMap.Cage_LeftMotor.setSelectedSensorPosition(0, 0, 0);
 		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
 		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-		            	} 
+		            	}*/ 
 		            	break;
 	            case 3:
 	            	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
@@ -157,6 +165,26 @@ public class Auto_LeftRoute extends Command {
     	RobotMap.useJoystick=true;
     }
 
+    private boolean ejectCube() {
+    	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)<8000) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+    		return false;
+    	} else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+    		return true;
+    	}
+}
+private boolean liftGantry() {	
+	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+		return false;
+	}else {
+		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+		return true;
+	}
+}
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {

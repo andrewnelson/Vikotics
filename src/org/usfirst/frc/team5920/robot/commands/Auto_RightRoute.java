@@ -109,7 +109,26 @@ public class Auto_RightRoute extends Command {
     protected void end() {
     	RobotMap.useJoystick=true;
     }
-
+    private boolean ejectCube() {
+    	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)<8000) {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
+    		return false;
+    	} else {
+    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
+    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
+    		return true;
+    	}
+}
+private boolean liftGantry() {	
+	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+		return false;
+	}else {
+		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+		return true;
+	}
+}
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
