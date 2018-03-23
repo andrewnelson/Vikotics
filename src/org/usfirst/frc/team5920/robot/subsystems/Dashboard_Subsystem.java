@@ -21,7 +21,7 @@ public class Dashboard_Subsystem extends Subsystem {
     }
     public void periodic(){
 		//Limit Switches
-    		SmartDashboard.putBoolean("Cube in Cage", !RobotMap.Cage_CubePresent.get());
+    	//	SmartDashboard.putBoolean("Cube in Cage", !RobotMap.Cage_CubePresent.get());
 		SmartDashboard.putBoolean("Gantry Bottom", !RobotMap.Gantry_BottomLimit.get());
 		SmartDashboard.putBoolean("Gantry Top", !RobotMap.Gantry_TopLimit.get());
 		

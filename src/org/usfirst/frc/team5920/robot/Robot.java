@@ -83,16 +83,37 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-
+		
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
 		String gameData;
-		if (RobotMap.Auto_Left.get()) {
+		RobotMap.Auto_Choice="C";
+		if (!RobotMap.Auto_Left.get()) {
 			RobotMap.Auto_Choice="L";
-		} else if (RobotMap.Auto_Right.get()) {
+		} 
+		if (!RobotMap.Auto_Right.get()) {
 			RobotMap.Auto_Choice="R";
-		} else {
-			RobotMap.Auto_Choice="C";
+		} 
+
+		switch (RobotMap.Auto_Choice) {
+        case "L":
+        	autonomousCommand  = new Auto_LeftRoute();
+        	SmartDashboard.putBoolean("Left Auto", true);
+        	SmartDashboard.putBoolean("Right Auto", false);
+        	SmartDashboard.putBoolean("Center Auto", false);
+        	break;
+        case "R":
+        	autonomousCommand  = new Auto_RightRoute();
+        	SmartDashboard.putBoolean("Left Auto", false);
+        	SmartDashboard.putBoolean("Right Auto", true);
+        	SmartDashboard.putBoolean("Center Auto", false);
+        	break;
+        case "C":
+        	autonomousCommand  = new Auto_CenterRoute();
+        	SmartDashboard.putBoolean("Left Auto", false);
+        	SmartDashboard.putBoolean("Right Auto", false);
+        	SmartDashboard.putBoolean("Center Auto", true);
+        	break;
 		}
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		DriverStation.Alliance color;
@@ -136,12 +157,21 @@ public class Robot extends TimedRobot {
 		switch (RobotMap.Auto_Choice) {
         case "L":
         	autonomousCommand  = new Auto_LeftRoute();
+        	SmartDashboard.putBoolean("Left Auto", true);
+        	SmartDashboard.putBoolean("Right Auto", false);
+        	SmartDashboard.putBoolean("Center Auto", false);
         	break;
         case "R":
         	autonomousCommand  = new Auto_RightRoute();
+        	SmartDashboard.putBoolean("Left Auto", false);
+        	SmartDashboard.putBoolean("Right Auto", true);
+        	SmartDashboard.putBoolean("Center Auto", false);
         	break;
         case "C":
         	autonomousCommand  = new Auto_CenterRoute();
+        	SmartDashboard.putBoolean("Left Auto", false);
+        	SmartDashboard.putBoolean("Right Auto", false);
+        	SmartDashboard.putBoolean("Center Auto", true);
         	break;
 		}
 		//autonomousCommand  = new Auto_LeftRoute();

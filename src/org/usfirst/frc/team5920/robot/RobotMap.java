@@ -46,7 +46,6 @@ public class RobotMap {
  	public static Compressor airSupply;
     public static DoubleSolenoid innerMandibles;
     public static DoubleSolenoid outerMandibles;
-    public static Solenoid climber;
     //Robot Info
     //public static PowerDistributionPanel RobotPDP;
     //NavX
@@ -118,7 +117,6 @@ public class RobotMap {
     	airSupply = new Compressor(3);
     	innerMandibles = new DoubleSolenoid(3, 0, 1);
     	outerMandibles = new DoubleSolenoid(3,2,3);
-    	climber = new Solenoid(3,4);
     	//sRobotPDP = new PowerDistributionPanel();
     	
     	driveTrain_LeftMotor = new WPI_TalonSRX(1);

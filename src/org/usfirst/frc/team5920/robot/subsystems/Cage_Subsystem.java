@@ -22,9 +22,6 @@ public class Cage_Subsystem extends Subsystem {
     // here. Call these from Commands.
 	public void periodic() {
 		if (!DriverStation.getInstance().isAutonomous()) {
-			if (OI.OperatorBack() && RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>12000) {
-				RobotMap.climber.set(true);
-			}
 			if (OI.OperatorLeftBumper()) {
 	    		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput,  -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
 	    		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, -1 * getJoystickWithDeadBand(OI.OperatorLeftTrigger()));
