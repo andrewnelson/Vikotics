@@ -79,7 +79,7 @@ public class RobotMap {
     public static double standardSpeed = encoderPerRev / 300 * 300;//Ditto
     public static double turboSpeed = encoderPerRev / 300 * 470;//Ditto
     
-    public static double GantryFeedForward = .1;
+    public static double GantryFeedForward = .08;
     public static double GantrySpeed = encoderPerRev / 300 * 470;//Ditto
    // public static double CageSpeed = encoderPerRev / 300 * 470;//Ditto
     //public static double MandibleSpeed = encoderPerRev / 300 * 470;//Ditto

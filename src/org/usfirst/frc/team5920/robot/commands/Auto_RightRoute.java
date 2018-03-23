@@ -43,7 +43,7 @@ public class Auto_RightRoute extends Command {
     		//We have our switch
     		switch (driveStage) {
             case 0:  
-	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<12000) {
+	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)<15000) {
 	            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
 	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.standardSpeed);
 	            	} else {
@@ -54,7 +54,7 @@ public class Auto_RightRoute extends Command {
 	            	}
 	            	break;
             case 1:
-	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>9479) {
+	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>18000) {
 	            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
 	            		
 	            	}

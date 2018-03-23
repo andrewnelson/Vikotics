@@ -57,7 +57,7 @@ public class Auto_CenterRoute extends Command {
             	}
             	break;
             case 1:
-            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>10000) {
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>13500) {
             		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
             		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
             		driveStage = 2;
@@ -104,7 +104,7 @@ public class Auto_CenterRoute extends Command {
             	}
             	break;
             case 1:
-            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>10000) {
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>13500) {
             		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
             		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
             		driveStage = 2;
