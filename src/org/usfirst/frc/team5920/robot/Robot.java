@@ -175,7 +175,7 @@ public class Robot extends TimedRobot {
         	break;
 		}
 		//autonomousCommand  = new Auto_LeftRoute();
-		autonomousCommand  = new Auto_CenterRoute();
+		//autonomousCommand  = new Auto_CenterRoute();
 		//autonomousCommand  = new Auto_RightRoute();
 		if (autonomousCommand != null) autonomousCommand.start();
 	}
