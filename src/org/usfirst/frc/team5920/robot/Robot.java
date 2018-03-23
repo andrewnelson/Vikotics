@@ -87,6 +87,13 @@ public class Robot extends TimedRobot {
 		CameraData.putNumber("ledMode", 1);
 		CameraData.putNumber("camMode", 1);
 		String gameData;
+		if (RobotMap.Auto_Left.get()) {
+			RobotMap.Auto_Choice="L";
+		} else if (RobotMap.Auto_Right.get()) {
+			RobotMap.Auto_Choice="R";
+		} else {
+			RobotMap.Auto_Choice="C";
+		}
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
 		DriverStation.Alliance color;
 		color = DriverStation.getInstance().getAlliance();
@@ -126,7 +133,17 @@ public class Robot extends TimedRobot {
 		RobotMap.initAuto();
 
 		//autonomousCommand = autoChooser.getSelected();
-		
+		switch (RobotMap.Auto_Choice) {
+        case "L":
+        	autonomousCommand  = new Auto_LeftRoute();
+        	break;
+        case "R":
+        	autonomousCommand  = new Auto_RightRoute();
+        	break;
+        case "C":
+        	autonomousCommand  = new Auto_CenterRoute();
+        	break;
+		}
 		//autonomousCommand  = new Auto_LeftRoute();
 		autonomousCommand  = new Auto_CenterRoute();
 		//autonomousCommand  = new Auto_RightRoute();

@@ -29,6 +29,12 @@ public class RobotMap {
 	public static String FieldLayout;
 	public static boolean SwitchLeft;
 	public static boolean useJoystick=false;
+	
+	//Auto selectors
+    public static DigitalInput Auto_Left;
+    public static DigitalInput Auto_Right;
+    public static String Auto_Choice;
+    
 	//Motor Controllers
     public static WPI_TalonSRX driveTrain_LeftMotor;
     public static WPI_TalonSRX driveTrain_RightMotor;    
@@ -105,6 +111,9 @@ public class RobotMap {
     	Gantry_TopLimit = new DigitalInput(0);
     	Gantry_BottomLimit = new DigitalInput(1);
     	Cage_CubePresent = new DigitalInput(2);
+    	Auto_Left = new DigitalInput(3);
+    	Auto_Right= new DigitalInput(4);
+    	Auto_Choice="C";
     	
     	airSupply = new Compressor(3);
     	innerMandibles = new DoubleSolenoid(3, 0, 1);
