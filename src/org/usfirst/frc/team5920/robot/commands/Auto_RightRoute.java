@@ -39,7 +39,7 @@ public class Auto_RightRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
-    	if (!RobotMap.SwitchLeft){
+    	if (RobotMap.SwitchLeft){
     		//We have our switch
     		switch (driveStage) {
             case 0:  
@@ -55,40 +55,25 @@ public class Auto_RightRoute extends Command {
 	            	break;
             case 1:
 	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>12000) {
-	            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -1 * RobotMap.slowSpeed);
 	            	}
 	            	if (liftGantry()) {
-	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
-	            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
-	            	}else {
-	            		ejectCube();
-	            	}
-	            /*	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
-	            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-	            	}else {
-	            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
 	            		driveStage = 2;
-	            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-	            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
 	            	}
-	            	*/
 	            	break;
-         /*   case 2:
-	            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
-	            		driveStage = 3;
-	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
-	            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
-	            		RobotMap.Cage_LeftMotor.setSelectedSensorPosition(0, 0, 0);
-	            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-	            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-	            	} 
-	            	break;
+            case 2:
+            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>5345) {
+            		if (ejectCube()) {
+            			driveStage=3;
+            		}
+            	}
+	            break;
             case 3:
             	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
             		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
             		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
             	}
-            	break;*/
+            	break;
             		
     		}
     		
@@ -102,6 +87,9 @@ public class Auto_RightRoute extends Command {
 	    	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
         	}
     	}
+    	
+    	
+    	
 }
     
   
