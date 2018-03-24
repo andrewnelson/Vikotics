@@ -56,7 +56,7 @@ public class Auto_LeftRoute extends Command {
 		            	}
 		            	break;
 	            case 1:
-		            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>18000) {
+		            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>12000) {
 		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
 		            		
 		            	}

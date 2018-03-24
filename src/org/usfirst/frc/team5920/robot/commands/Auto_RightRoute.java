@@ -54,11 +54,16 @@ public class Auto_RightRoute extends Command {
 	            	}
 	            	break;
             case 1:
-	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>18000) {
+	            	if (RobotMap.driveTrain_RightMotor.getSelectedSensorPosition(0)>12000) {
 	            		RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-	            		
 	            	}
-	            	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
+	            	if (liftGantry()) {
+	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
+	            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
+	            	}else {
+	            		ejectCube();
+	            	}
+	            /*	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
 	            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
 	            	}else {
 	            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
@@ -66,9 +71,9 @@ public class Auto_RightRoute extends Command {
 	            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
 	            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
 	            	}
-	            	
+	            	*/
 	            	break;
-            case 2:
+         /*   case 2:
 	            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
 	            		driveStage = 3;
 	            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
@@ -83,7 +88,7 @@ public class Auto_RightRoute extends Command {
             		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
             		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 0);
             	}
-            	break;
+            	break;*/
             		
     		}
     		
