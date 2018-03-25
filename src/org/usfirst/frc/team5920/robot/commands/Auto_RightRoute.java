@@ -39,7 +39,7 @@ public class Auto_RightRoute extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	RobotMap.useJoystick=false;
-    	if (RobotMap.SwitchLeft){
+    	if (!RobotMap.SwitchLeft){
     		//We have our switch
     		switch (driveStage) {
             case 0:  
@@ -76,7 +76,10 @@ public class Auto_RightRoute extends Command {
             	break;
             		
     		}
-    		
+       		if(Timer.getFPGATimestamp()-startTime >5) {
+    	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+    	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+    		}
     	}else {
    		 //Our switch is the other side.
         	if(Timer.getFPGATimestamp()-startTime <2) {

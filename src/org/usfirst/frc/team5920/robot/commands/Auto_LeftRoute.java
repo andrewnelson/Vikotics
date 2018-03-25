@@ -95,7 +95,10 @@ public class Auto_LeftRoute extends Command {
 	            	break;
 	            		
 	    		}
-	    		
+	    		if(Timer.getFPGATimestamp()-startTime >5) {
+	    	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
+	    	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
+	    		}
 	    	}else {
 	   		 //Our switch is the other side.
 	        	if(Timer.getFPGATimestamp()-startTime <2) {

@@ -26,8 +26,8 @@ public class Mandible_Subsystem extends Subsystem {
     public void periodic() { 
    	
     	if (OI.OperatorRightBumper()) {
-    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0.8 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
-    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0.8 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, 0.75 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
+    		RobotMap.Mandible_Right.set(ControlMode.PercentOutput, 0.75 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
     		
     	}else {
     		RobotMap.Mandible_Left.set(ControlMode.PercentOutput, -0.8 * getJoystickWithDeadBand(OI.OperatorRightTrigger()));
