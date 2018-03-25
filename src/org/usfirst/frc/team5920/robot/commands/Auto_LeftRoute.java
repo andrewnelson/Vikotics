@@ -62,15 +62,6 @@ public class Auto_LeftRoute extends Command {
 		            	if (liftGantry()) {
 		            		driveStage = 2;
 		            	}
-		            	/*if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
-		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-		            	}else {
-		            		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
-		            		driveStage = 2;
-		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-		            	}*/
-		            	
 		            	break;
 	            case 2:
 	            	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
@@ -78,15 +69,7 @@ public class Auto_LeftRoute extends Command {
 	            			driveStage=3;
 	            		}
 	            	}
-		            /*	if (RobotMap.driveTrain_LeftMotor.getSelectedSensorPosition(0)>5345) {
-		            		driveStage = 3;
-		            		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
-		            		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
-		            		RobotMap.Cage_LeftMotor.setSelectedSensorPosition(0, 0, 0);
-		            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 1);
-		            		RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, 1);
-		            	}*/ 
-		            	break;
+	            	break;
 	            case 3:
 	            	if (RobotMap.Cage_RightMotor.getSelectedSensorPosition(0)>8000) {
 	            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, 0);
@@ -110,53 +93,7 @@ public class Auto_LeftRoute extends Command {
 	        	}
 	    	}
     }
-    /*
-    protected void execute() {
-       	RobotMap.useJoystick=false;
-     		
-        	if (RobotMap.SwitchLeft){
-        		if((Timer.getFPGATimestamp()-startTime > 4.99) && (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)>-15000) ) {
-        	    	RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
-        		}else if (Timer.getFPGATimestamp()-startTime>5 && (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<-14500) ) {
-
-            		RobotMap.Cage_LeftMotor.set(ControlMode.PercentOutput, .75);
-        	    	RobotMap.Cage_RightMotor.set(ControlMode.PercentOutput, .75);
-
-            		Robot.Mandible_Subsystem.innerMandibleExtend();
-            		Robot.Mandible_Subsystem.outerMandibleExtend();
-        		}else if ((RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<-14800)) {
-
-        			RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
-        		}else {
-        		}
-        		
-        		if(Timer.getFPGATimestamp()-startTime <2) {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.5);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.5);
-            	}else if(Timer.getFPGATimestamp()-startTime <3) {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.75);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}else if(Timer.getFPGATimestamp()-startTime <4.8) {
-            		RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-
-            	} else {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}
-        	}else {
-        		 //Our switch is the other side.
-            	if(Timer.getFPGATimestamp()-startTime <2) {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, -0.5);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, -0.5);
-            	}
-            	else {
-        	    	RobotMap.driveTrain_LeftMotor.set(ControlMode.PercentOutput, 0);
-        	    	RobotMap.driveTrain_RightMotor.set(ControlMode.PercentOutput, 0);
-            	}	
-        	}
-
-    }*/
+   
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;

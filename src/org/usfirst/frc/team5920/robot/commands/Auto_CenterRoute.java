@@ -142,9 +142,14 @@ public class Auto_CenterRoute extends Command {
     private boolean liftGantry() {	
     	if (RobotMap.Gantry_PrimeMotor.getSelectedSensorPosition(0)<15000) {
     		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, 1);
+    		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
+    		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, -1 * RobotMap.slowSpeed);
     		return false;
     	}else {
     		RobotMap.Gantry_PrimeMotor.set(ControlMode.PercentOutput, RobotMap.GantryFeedForward);
+
+    		RobotMap.driveTrain_RightMotor.set(ControlMode.Velocity, 0);
+    		RobotMap.driveTrain_LeftMotor.set(ControlMode.Velocity, 0);
     		return true;
     	}
     }
